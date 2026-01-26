@@ -188,5 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2df506810b08439e81b2434615655a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laneIndex: 0
   speed: 6
   destroyY: -6

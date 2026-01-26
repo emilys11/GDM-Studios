@@ -2,26 +2,40 @@ using UnityEngine;
 
 public class NoteSpawner : MonoBehaviour
 {
-    public GameObject notePrefab;
-    public Transform[] lanes;       // size 4
-    public float spawnInterval = 0.6f;
+    [Header("Prefab + Timing")]
+    public Note notePrefab;
+    public float bpm = 120f;
 
-    float timer;
+    [Header("Lanes")]
+    public float[] laneX = new float[] { -3f, -1f, 1f, 3f };
+    public float spawnY = 5.5f;
+
+    private float beatInterval;
+    private float timer;
+
+    void Start()
+    {
+        beatInterval = 60f / bpm; // seconds per beat
+    }
 
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= spawnInterval)
+
+        // For now: spawn a note every beat in a random lane
+        if (timer >= beatInterval)
         {
-            timer -= spawnInterval;
+            timer -= beatInterval;
             SpawnRandom();
         }
     }
 
     void SpawnRandom()
     {
-        int lane = Random.Range(0, lanes.Length);
-        Vector3 spawnPos = lanes[lane].position;
-        Instantiate(notePrefab, spawnPos, Quaternion.identity);
+        int lane = Random.Range(0, laneX.Length);
+        Note note = Instantiate(notePrefab, new Vector3(laneX[lane], spawnY, 0f), Quaternion.identity);
+        note.laneIndex = lane;
     }
+
+
 }
