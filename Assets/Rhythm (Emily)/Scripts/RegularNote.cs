@@ -1,7 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
-using System.Security.Cryptography.X509Certificates;
 
 public class RegularNote : MonoBehaviour, INote
 {
@@ -9,54 +6,64 @@ public class RegularNote : MonoBehaviour, INote
     [SerializeField] private float hitWindow = 50f;
     [SerializeField] private float missY = -450f;
 
+    private HitBarType hitBarType;
     public RectTransform hitbarTransform;
 
     private RectTransform rect;
-    private bool isHit = false;
+    private bool isResolved;
 
     void Awake()
     {
         rect = GetComponent<RectTransform>();
     }
 
+    void OnEnable()
+    {
+        RhythmInput.OnHitInput += OnInput;
+    }
+
+    void OnDisable()
+    {
+        RhythmInput.OnHitInput -= OnInput;
+    }
+
     void Update()
     {
         rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
 
-        if (rect.anchoredPosition.y < missY && !isHit)
+        if (!isResolved && rect.anchoredPosition.y < missY)
         {
             Miss();
         }
     }
 
-    public bool TryHit(float y)
+    void OnInput(HitBarType inputType)
     {
-        if (isHit) return false;
+        if (isResolved) return;
+        if (inputType != hitBarType) return;
 
-        float dist = Mathf.Abs(
-            rect.anchoredPosition.y - hitbarTransform.anchoredPosition.y
-        );
+        float dist = Mathf.Abs(rect.anchoredPosition.y);
 
         if (dist <= hitWindow)
         {
-            isHit = true;
-            Debug.Log("HIT");
-            Destroy(gameObject);
-            return true;
+            Hit();
         }
+    }
 
-        return false;
+    public void Hit()
+    {
+        Debug.Log("Note hit on+ "+ hitBarType.ToString());
+        isResolved = true;
+        RhythmEvents.NoteHit();
+        Destroy(gameObject);
     }
 
     void Miss()
     {
-        isHit = true;
+        isResolved = true;
         RhythmEvents.NoteMissed();
         Destroy(gameObject);
     }
-
-    public void SetSpeed(float s)
-    {
-        speed = s;
-    }
+    public void SetSpeed(float s) => speed = s;
+    public void SetHitBarType(HitBarType type) => hitBarType = type;
 }

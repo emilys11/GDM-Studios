@@ -1,9 +1,10 @@
 using UnityEngine;
-
+using TMPro;
 public class ComboManager : MonoBehaviour
 {
     public int combo;
     public float multiplier => 1 + combo * 0.1f;
+    [SerializeField] private TextMeshProUGUI text;
 
     void OnEnable()
     {
@@ -19,6 +20,14 @@ public class ComboManager : MonoBehaviour
         RhythmEvents.OnBadInput -= ResetCombo;
     }
 
-    void AddCombo() => combo++;
-    void ResetCombo() => combo = 0;
+    void AddCombo() 
+    {
+        combo++;
+        text.text = (combo+1).ToString()+"X";
+    } 
+    void ResetCombo()
+    {
+        combo = 0;
+        text.text = "1X";
+    } 
 }

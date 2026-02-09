@@ -1,13 +1,18 @@
 using UnityEngine;
 using System.Collections;
+
 public class NoteSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject notePrefab;
-    [SerializeField] private RectTransform[] parentTransforms;
+
+    [SerializeField] private RectTransform[] laneParents;
+    [SerializeField] private RectTransform[] hitBars;
+    [SerializeField] private HitBarType[] laneTypes;
 
     [SerializeField] private float spawnY = 600f;
     [SerializeField] private float hitY = -350f;
     [SerializeField] private float noteSpeed = 400f;
+
 
     void OnEnable()
     {
@@ -22,7 +27,6 @@ public class NoteSpawner : MonoBehaviour
     void HandleBeat(double beatDspTime)
     {
         float travelTime = Mathf.Abs(spawnY - hitY) / noteSpeed;
-
         StartCoroutine(SpawnBeforeBeat(beatDspTime - travelTime));
     }
 
@@ -36,15 +40,19 @@ public class NoteSpawner : MonoBehaviour
 
     void SpawnRandomNote()
     {
-        int rand = Random.Range(0, parentTransforms.Length);
+        if(MusicManager.audiosource.isPlaying)
+        {
+            int lane = Random.Range(0, laneParents.Length);
 
-        RectTransform parent = parentTransforms[rand];
-        GameObject noteObj = Instantiate(notePrefab, parent);
+            GameObject noteObj = Instantiate(notePrefab, laneParents[lane]);
 
-        RectTransform rect = noteObj.GetComponent<RectTransform>();
-        rect.anchoredPosition = new Vector2(0, spawnY);
+            RectTransform rect = noteObj.GetComponent<RectTransform>();
+            rect.anchoredPosition = new Vector2(0, spawnY);
 
-        RegularNote note = noteObj.GetComponent<RegularNote>();
-        note.SetSpeed(noteSpeed);
+            RegularNote note = noteObj.GetComponent<RegularNote>();
+            note.SetSpeed(noteSpeed);
+            note.SetHitBarType(laneTypes[lane]);
+            note.hitbarTransform = hitBars[lane];
+        }
     }
 }
