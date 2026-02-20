@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public SpriteRenderer sr;
 
+    private PlayerAnimator playerAnim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        playerAnim = GetComponent<PlayerAnimator>();
     }
 
     // Update is called once per frame
@@ -56,6 +59,9 @@ public class PlayerController : MonoBehaviour
 
         // Apply the movement to the Rigidbody
         rb.linearVelocity = new Vector3(moveDir.x * speed, rb.linearVelocity.y, moveDir.z * speed);
+
+        //animator
+        playerAnim.UpdateAnimation(moveDir);
     }
 
 
