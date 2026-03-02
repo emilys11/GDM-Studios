@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Exploration/Animation.meta
 guid: f4ebbc57ec9cd894095163a214682fab
+========
+guid: 04478175ead5c124492d93988a656dce
+>>>>>>>> main:Assets/Exploration/Art/Classical_Planet.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

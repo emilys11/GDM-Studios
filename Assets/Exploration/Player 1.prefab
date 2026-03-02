@@ -331,9 +331,12 @@ GameObject:
   - component: {fileID: 2343763182790197666}
   - component: {fileID: 1944320326075764733}
   - component: {fileID: 7530932605227022254}
+<<<<<<< HEAD
   - component: {fileID: -2489753127191685993}
   - component: {fileID: 2232467918384405457}
   - component: {fileID: -8570979358874654244}
+=======
+>>>>>>> main
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -425,6 +428,7 @@ MonoBehaviour:
     m_Bits: 64
   rb: {fileID: 1944320326075764733}
   sr: {fileID: 7057319889347949177}
+<<<<<<< HEAD
 --- !u!95 &-2489753127191685993
 Animator:
   serializedVersion: 7
@@ -514,3 +518,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77da17c39ccd3434a972c491688f8e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> main

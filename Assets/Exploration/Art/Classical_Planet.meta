@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Exploration/Art/Classical_Planet.meta
 guid: 04478175ead5c124492d93988a656dce
+========
+guid: 11dce8efc43a68e4ebaf0e9754ea8e5b
+>>>>>>>> main:Assets/Exploration/Art/Classical_Planet/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

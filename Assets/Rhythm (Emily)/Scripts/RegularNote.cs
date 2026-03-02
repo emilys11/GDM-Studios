@@ -48,6 +48,10 @@ public class RegularNote : MonoBehaviour, INote
         {
             Hit();
         }
+        else
+        {
+            Miss();
+        }
     }
 
     public void Hit()

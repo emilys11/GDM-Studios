@@ -38,7 +38,7 @@ public class EvilNote : MonoBehaviour, INote
         if (rect.anchoredPosition.y < missY)
         {
             isResolved = true;
-            Destroy(gameObject);
+            Miss();
         }
     }
 
@@ -57,16 +57,18 @@ public class EvilNote : MonoBehaviour, INote
 
     public void Hit()
     {
-        Debug.Log("Evil Note hit on+ "+ hitBarType.ToString());
         isResolved = true;
-        RhythmEvents.BadInput();
+        RhythmEvents.NoteMissed();
         Destroy(gameObject);
+
     }
 
     void Miss()
     {
+  
+        Debug.Log("Evil Note hit on+ "+ hitBarType.ToString());
         isResolved = true;
-        RhythmEvents.NoteMissed();
+        RhythmEvents.BadInput();
         Destroy(gameObject);
     }
     public void SetSpeed(float s) => speed = s;
