@@ -13,6 +13,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] float textSpeed;
     [SerializeField] GameObject player;
     [SerializeField] GameObject interactmsg;
+    [SerializeField] GameObject textBox;
     private string[] lines;
 
     private PlayerDialogue playerDialogue;
@@ -44,8 +45,8 @@ public class Dialogue : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(index);
         interactmsg.SetActive(playerDialogue.canTalk && !textPlaying);
+        textBox.SetActive(textPlaying);
         if (Input.GetKeyDown(KeyCode.E) && playerDialogue.canTalk) //&& playerDialogue.canTalk
         {
             if (!textPlaying)
@@ -55,14 +56,14 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
-                if (textMesh.text == lines[index - 1] + "\n" + lines[index])
+                if (textMesh.text == lines[index - 1] + "\n\n" + lines[index])
                 {
                     NextLine();
                 }
                 else
                 {
                     StopAllCoroutines();
-                    textMesh.text = lines[index-1] + "\n" + lines[index];
+                    textMesh.text = lines[index-1] + "\n\n" + lines[index];
                 }
             }
         }
@@ -79,11 +80,11 @@ public class Dialogue : MonoBehaviour
     {
         if(index % 2 == 0)
         {
-            textMesh.text = lines[index] + "\n";
+            textMesh.text = lines[index] + "\n\n"; //Get name of speaker
             index++;
 
         }
-        foreach(char c in lines[index].ToCharArray()){
+        foreach(char c in lines[index].ToCharArray()){ //Type the text by char
             textMesh.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
