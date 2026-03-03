@@ -1,44 +1,38 @@
 using System;
 using UnityEngine;
-
 public class PlayerDialogue : MonoBehaviour
 {
     //TODO : Remove this component from player when merging
 
     private SphereCollider sphereCollider;
-    private bool npcFound = false;
-    private bool isTalking = false;
+    public bool canTalk = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         sphereCollider = GetComponent<SphereCollider>();
     }
 
-    private void FixedUpdate()
+    public void disableMovement()
     {
-        if (isTalking)
-        {
-            //Disable movement?
-        }
-    }
-    public bool getNPCFound()
-    {
-        return npcFound;
+        //Disable movement
     }
 
+    public void enableMovement()
+    {
+        //Enable movement
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("NPC"))
         {
-            npcFound = true;
+            canTalk = true;
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("NPC"))
         {
-            npcFound=false;
+            canTalk=false;
         }
     }
 }
