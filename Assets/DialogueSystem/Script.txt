@@ -1,0 +1,104 @@
+﻿CRAB
+Hello and welcome to the Classico! Or as we say on this planet, “hello and welcome to Classico” [using “The Calling” font]
+
+
+ASTRONAUT
+Thank you! It seems a little… deserted and sad. No offence.
+
+
+CRAB
+You’re right. A lot of inhabitants have left in search of a better solar system, and those that have stayed don’t go out much. It’s dangerous these days…
+
+
+ASTRONAUT
+Oh no! What happened?
+
+
+CRAB
+A terrible evil has taken over this solar system. You’ll learn more about it as you explore. I recommend you talk to my fellow workers. One of them should be near [MAID location]. Good luck, traveller.
+
+
+ASTRONAUT
+Thank you
+
+ASTRONAUT
+Hello! The gardener recommended I come see you next.
+
+
+MAID
+Hi… *sighs*
+
+
+ASTRONAUT
+What’s wrong?
+
+
+MAID
+Other than the loss of music? Oh, nothing. Everything’s just dandy.
+
+
+ASTRONAUT
+…umm ok…
+
+
+MAID
+I’m just not in the mood to talk right now. Go find the butler of the house near [BUTLER location] if you want more information.
+
+
+ASTRONAUT
+Hello! Are you the butler of the house?
+
+
+BUTLER
+Why yes, I am indeed. Good evening [or whatever time of day the sky is]. How may I be of assistance?
+
+
+ASTRONAUT
+I was wondering, what’s wrong with this planet? The gardener mentioned a “terrible evil” and the maid said that all of the music had disappeared. 
+
+
+BUTLER
+Ah, yes. They do not exaggerate. Once, this was a prosperous land, filled with the delicate sound of music. But now, evil has taken our music away and we have lost our ways. Say, would you be in a position to help us out a little?
+
+
+ASTRONAUT
+Sure, what can I do?
+
+
+BUTLER
+Inside this mansion behind me is one of the adjutants of the Evil One. Take this powerful weapon and destroy them. We will forever be in your debt.
+
+BOSS
+Nooooo! You can’t have beaten me! That’s not possible!
+
+
+ASTRONAUT
+Now will you stop harming this planet and go back to being a just ruler?
+
+
+BOSS
+Fine, I will do as you say. But you will never overturn my master, they are too powerful, even for you…
+
+
+Either go back to exploration of the planet or cut scene of rocket ship going to Pop Planet.
+________________
+Pop Planet
+
+
+ASTRONAUT approaches NPC1.
+
+
+ASTRONAUT
+Hello!
+
+
+NPC1
+Hello Depressing day, isn’t it?
+
+
+ASTRONAUT
+Depressing? This place is like candy land: all colourful and joyful!
+
+
+NPC1
+Oh this? This is nothing compared to what it used to be. You used to be able to taste the sweetness of joy in the air, but now, all you can taste is the sourness of the factories in the distance.

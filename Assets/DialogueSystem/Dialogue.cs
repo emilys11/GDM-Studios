@@ -1,15 +1,19 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 public class Dialogue : MonoBehaviour
 {
-    //TODO: Make it so after talking once, talking to the npc again repeats their last line?, implement movement restriction while they are talking in PlayerDialogue
+    //TODO: Make it so after talking once, talking to the npc again repeats their last line? (Use queues but last line doesnt exit q?), implement movement restriction while they are talking in PlayerDialogue
+    [SerializeField] TextAsset script;
 
-    [SerializeField] string[] lines;
+    
     [SerializeField] float textSpeed;
     [SerializeField] GameObject player;
     [SerializeField] GameObject interactmsg;
+    private string[] lines;
 
     private PlayerDialogue playerDialogue;
     private TextMeshProUGUI textMesh;
@@ -18,16 +22,31 @@ public class Dialogue : MonoBehaviour
     private bool textPlaying = false;
     void Start()
     {
+        readTxt();
+        //int i = 0;
+        //while (i < crabLines.Length && (crabLines[i].Equals("Astronaut\n") || crabLines[i].Equals("Crab\n")))
+        //{
+        //    lines[i] = crabLines[i];
+        //    lines[i+1] = crabLines[i+1];
+        //    i += 2;
+        //}
+
+
         textMesh = GetComponent<TextMeshProUGUI>();
         textMesh.SetText(string.Empty);
         playerDialogue = player.GetComponent<PlayerDialogue>();
+        //StartDialogue();
         
+    }
+    void readTxt()
+    {
+        lines = Regex.Split(Regex.Replace(script.text, @"^\s*$\n", string.Empty, RegexOptions.Multiline), "\n"); //Format input script
     }
     private void Update()
     {
-        Debug.Log(index);
+        //Debug.Log(index);
         interactmsg.SetActive(playerDialogue.canTalk && !textPlaying);
-        if (Input.GetKeyDown(KeyCode.E) && playerDialogue.canTalk)
+        if (Input.GetKeyDown(KeyCode.E) && playerDialogue.canTalk) //&& playerDialogue.canTalk
         {
             if (!textPlaying)
             {
@@ -36,14 +55,14 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
-                if (textMesh.text == lines[index])
+                if (textMesh.text == lines[index - 1] + "\n" + lines[index])
                 {
                     NextLine();
                 }
                 else
                 {
                     StopAllCoroutines();
-                    textMesh.text = lines[index];
+                    textMesh.text = lines[index-1] + "\n" + lines[index];
                 }
             }
         }
@@ -58,6 +77,12 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        if(index % 2 == 0)
+        {
+            textMesh.text = lines[index] + "\n";
+            index++;
+
+        }
         foreach(char c in lines[index].ToCharArray()){
             textMesh.text += c;
             yield return new WaitForSeconds(textSpeed);

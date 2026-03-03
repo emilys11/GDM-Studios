@@ -14,11 +14,13 @@ public class PlayerDialogue : MonoBehaviour
 
     public void disableMovement()
     {
+        gameObject.GetComponent<PlayerController>().enabled = false;
         //Disable movement
     }
 
     public void enableMovement()
     {
+        gameObject.GetComponent<PlayerController>().enabled = true;
         //Enable movement
     }
     private void OnTriggerEnter(Collider other)
