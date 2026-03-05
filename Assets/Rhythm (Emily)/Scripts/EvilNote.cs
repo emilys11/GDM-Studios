@@ -1,32 +1,22 @@
 using UnityEngine;
+using System;
 
 public class EvilNote : MonoBehaviour, INote
 {
     [SerializeField] private float speed = 400f;
-    [SerializeField] private float hitWindow = 50f;
-    [SerializeField] private float missY = -450f;
-
-    [SerializeField] private int penaltyOnHit = 150;
-
-    private HitBarType hitBarType;
-    public RectTransform hitbarTransform;
+    [SerializeField] private double hitWindow = 0.12;
 
     private RectTransform rect;
+    private NoteLane lane;
+    private double hitDspTime;
+
     private bool isResolved;
+
+    [SerializeField] private float missLineY = -400f;
 
     void Awake()
     {
         rect = GetComponent<RectTransform>();
-    }
-
-    void OnEnable()
-    {
-        RhythmInput.OnHitInput += OnInput;
-    }
-
-    void OnDisable()
-    {
-        RhythmInput.OnHitInput -= OnInput;
     }
 
     void Update()
@@ -35,40 +25,50 @@ public class EvilNote : MonoBehaviour, INote
 
         rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
 
-        if (rect.anchoredPosition.y < missY)
+        double current = AudioSettings.dspTime;
+
+       if (!isResolved && rect.anchoredPosition.y < missLineY)
         {
             isResolved = true;
+
+            RhythmEvents.NoteHit();
+
             Destroy(gameObject);
         }
     }
 
-    void OnInput(HitBarType inputType)
+    public void SetLane(NoteLane l)
     {
-        if (isResolved) return;
-        if (inputType != hitBarType) return;
+        lane = l;
+        lane.Register(this);
+    }
 
-        float dist = Mathf.Abs(rect.anchoredPosition.y);
+    public void SetHitTime(double dspTime)
+    {
+        hitDspTime = dspTime;
+    }
 
-        if (dist <= hitWindow)
+    public bool TryResolve()
+    {
+        if (isResolved) return false;
+
+        double current = AudioSettings.dspTime;
+        double error = Math.Abs(current - hitDspTime);
+
+        if (error <= hitWindow)
         {
-            Hit();
+            isResolved = true;
+            RhythmEvents.BadInput();
+            Destroy(gameObject);
+            return true;
         }
+
+        return false;
     }
 
-    public void Hit()
+    void OnDestroy()
     {
-        Debug.Log("Evil Note hit on+ "+ hitBarType.ToString());
-        isResolved = true;
-        RhythmEvents.BadInput();
-        Destroy(gameObject);
+        if (lane != null)
+            lane.Unregister(this);
     }
-
-    void Miss()
-    {
-        isResolved = true;
-        RhythmEvents.NoteMissed();
-        Destroy(gameObject);
-    }
-    public void SetSpeed(float s) => speed = s;
-    public void SetHitBarType(HitBarType type) => hitBarType = type;
 }

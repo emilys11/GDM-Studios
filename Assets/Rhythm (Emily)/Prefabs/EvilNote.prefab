@@ -88,8 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f051a2de6b446c7a573347d8b65681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 400
-  hitWindow: 50
-  missY: -450
-  penaltyOnHit: 150
-  hitbarTransform: {fileID: 0}
+  speed: 600
+  hitWindow: 20
+  missLineY: -100

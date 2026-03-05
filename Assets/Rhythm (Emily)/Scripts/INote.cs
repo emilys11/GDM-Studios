@@ -1,6 +1,6 @@
-using UnityEngine;
-
 public interface INote
 {
-    public void Hit();
+    void SetLane(NoteLane lane);
+    void SetHitTime(double dspTime);
+    bool TryResolve();
 }

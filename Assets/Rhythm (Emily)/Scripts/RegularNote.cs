@@ -1,58 +1,67 @@
 using UnityEngine;
+using System;
 
 public class RegularNote : MonoBehaviour, INote
 {
     [SerializeField] private float speed = 400f;
-    [SerializeField] private float hitWindow = 50f;
-    [SerializeField] private float missY = -450f;
-
-    private HitBarType hitBarType;
-    public RectTransform hitbarTransform;
+    [SerializeField] private double hitWindow = 0.12;
 
     private RectTransform rect;
+    private NoteLane lane;
+    private double hitDspTime;
+
     private bool isResolved;
+
+    [SerializeField] private float missLineY = -450f;
 
     void Awake()
     {
         rect = GetComponent<RectTransform>();
     }
 
-    void OnEnable()
-    {
-        RhythmInput.OnHitInput += OnInput;
-    }
-
-    void OnDisable()
-    {
-        RhythmInput.OnHitInput -= OnInput;
-    }
-
     void Update()
     {
+        if (isResolved) return;
+
         rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
 
-        if (!isResolved && rect.anchoredPosition.y < missY)
+        double current = AudioSettings.dspTime;
+
+        if (!isResolved && rect.anchoredPosition.y < missLineY)
         {
             Miss();
         }
     }
 
-    void OnInput(HitBarType inputType)
+    public void SetLane(NoteLane l)
     {
-        if (isResolved) return;
-        if (inputType != hitBarType) return;
-
-        float dist = Mathf.Abs(rect.anchoredPosition.y);
-
-        if (dist <= hitWindow)
-        {
-            Hit();
-        }
+        lane = l;
+        lane.Register(this);
     }
 
-    public void Hit()
+    public void SetHitTime(double dspTime)
     {
-        Debug.Log("Note hit on+ "+ hitBarType.ToString());
+        hitDspTime = dspTime;
+    }
+
+    public bool TryResolve()
+    {
+        if (isResolved) return false;
+
+        double current = AudioSettings.dspTime;
+        double error = Math.Abs(current - hitDspTime);
+
+        if (error <= hitWindow)
+        {
+            Hit();
+            return true;
+        }
+
+        return false;
+    }
+
+    void Hit()
+    {
         isResolved = true;
         RhythmEvents.NoteHit();
         Destroy(gameObject);
@@ -60,10 +69,15 @@ public class RegularNote : MonoBehaviour, INote
 
     void Miss()
     {
+        if (isResolved) return;
         isResolved = true;
         RhythmEvents.NoteMissed();
         Destroy(gameObject);
     }
-    public void SetSpeed(float s) => speed = s;
-    public void SetHitBarType(HitBarType type) => hitBarType = type;
+
+    void OnDestroy()
+    {
+        if (lane != null)
+            lane.Unregister(this);
+    }
 }

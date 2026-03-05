@@ -1,123 +1,113 @@
-using System.Net.NetworkInformation;
 using UnityEngine;
+using System;
 
 public class HoldNote : MonoBehaviour, INote
 {
     [SerializeField] private float speed = 400f;
-    [SerializeField] private float hitWindow = 50f;
-    [SerializeField] private float missY = -450f;
-
-    [SerializeField] private float holdDuration = 1.0f;
-
-    [SerializeField] private int scoreOnComplete = 250;
-
-    private HitBarType hitBarType;
-    public RectTransform hitbarTransform;
+    [SerializeField] private double hitWindow = 0.12;
+    [SerializeField] private double holdBeats = 2.0;
 
     private RectTransform rect;
-    private bool isResolved;
+    private NoteLane lane;
 
+    private double hitDspTime;
+    private double holdDuration;
+    private double holdStartTime;
+
+    private bool isResolved;
     private bool holding;
-    private float heldTime;
+
+    private float originalHeight;
+
+    [SerializeField] private float heightDeductor = 0.9f;
+
+    [SerializeField] private float missLineY = -450f;
 
     void Awake()
     {
         rect = GetComponent<RectTransform>();
-    }
-
-    void OnEnable()
-    {
-        RhythmInput.OnHitInput += OnInput;
-    }
-
-    void OnDisable()
-    {
-       RhythmInput.OnHitInput -= OnInput;
+        originalHeight = rect.sizeDelta.y;
     }
 
     void Update()
     {
         if (isResolved) return;
-        
+
         rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
 
-        if (!holding && rect.anchoredPosition.y < missY)
+        double current = AudioSettings.dspTime;
+
+        if (!holding && rect.anchoredPosition.y < missLineY)
         {
             Miss();
-            return;
         }
 
         if (holding)
         {
-            if (!IsLaneKeyHeld())
+            if (!lane.IsKeyHeld())
             {
-                // released early
                 Miss();
                 return;
             }
 
-            heldTime += Time.deltaTime;
-            if (heldTime >= holdDuration)
+            double elapsed = current - holdStartTime;
+            double progress = Math.Clamp(elapsed / holdDuration * heightDeductor, 0.0, 1.0);
+
+            float newHeight = (float)(originalHeight * (1.0 - progress));
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
+
+            if (progress >= 0.998f)
             {
                 Complete();
             }
         }
-
-
     }
 
-    void OnInput(HitBarType inputType)
+    public void SetLane(NoteLane l)
     {
-        if (isResolved) return;
-        if (holding) return;
-        if (inputType != hitBarType) return;
+        lane = l;
+        lane.Register(this);
+    }
 
-        float dist = Mathf.Abs(rect.anchoredPosition.y);
+    public void SetHitTime(double dspTime)
+    {
+        hitDspTime = dspTime;
+        holdDuration = holdBeats * MusicManager.SecondsPerBeat;
+    }
 
-        if (dist <= hitWindow)
+    public bool TryResolve()
+    {
+        if (isResolved || holding) return false;
+
+        double error = Math.Abs(AudioSettings.dspTime - hitDspTime);
+
+        if (error <= hitWindow)
         {
             holding = true;
-            heldTime = 0f;
+            holdStartTime = AudioSettings.dspTime;
+            return true;
         }
-        else
-        { 
-            RhythmEvents.BadInput();
-        }
+
+        return false;
     }
 
-    public void Hit()
+    void Complete()
     {
-        Complete();
-    }
-
-    private bool IsLaneKeyHeld()
-    {
-        switch (hitBarType)
-        {
-            case HitBarType.first:  return Input.GetKey(KeyCode.D);
-            case HitBarType.second: return Input.GetKey(KeyCode.F);
-            case HitBarType.third:  return Input.GetKey(KeyCode.J);
-            case HitBarType.fourth: return Input.GetKey(KeyCode.K);
-            default: return false;
-        }
-    }
-
-     private void Complete()
-    {
-        if (isResolved) return;
         isResolved = true;
-
         RhythmEvents.NoteHit();
-
         Destroy(gameObject);
     }
 
     void Miss()
     {
+        if (isResolved) return;
         isResolved = true;
         RhythmEvents.NoteMissed();
         Destroy(gameObject);
     }
-    public void SetSpeed(float s) => speed = s;
-    public void SetHitBarType(HitBarType type) => hitBarType = type;
+
+    void OnDestroy()
+    {
+        if (lane != null) lane.Unregister(this);
+    }
 }

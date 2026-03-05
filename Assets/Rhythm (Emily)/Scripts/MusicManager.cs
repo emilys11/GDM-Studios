@@ -1,32 +1,38 @@
 using UnityEngine;
 using System;
+
 public class MusicManager : MonoBehaviour
 {
     public float bpm = 120f;
+
     public static event Action<double> OnBeat;
     public static AudioSource audiosource;
 
+    public static double SecondsPerBeat { get; private set; }
+
     private double nextBeatDspTime;
-    private double secondsPerBeat;
 
     void Start()
     {
         audiosource = GetComponent<AudioSource>();
-        secondsPerBeat = 60.0 / bpm;
-        nextBeatDspTime = AudioSettings.dspTime + secondsPerBeat;
+
+        SecondsPerBeat = 60.0 / bpm;
+
+        audiosource.Play();
+        nextBeatDspTime = AudioSettings.dspTime + SecondsPerBeat;
     }
 
     void Update()
     {
+        if (!audiosource.isPlaying)
+            return;
 
-        if (!GetComponent<AudioSource>().isPlaying) OnBeat = null;
-        
         double dspTime = AudioSettings.dspTime;
 
         if (dspTime >= nextBeatDspTime)
         {
             OnBeat?.Invoke(nextBeatDspTime);
-            nextBeatDspTime += secondsPerBeat;
+            nextBeatDspTime += SecondsPerBeat;
         }
     }
 }

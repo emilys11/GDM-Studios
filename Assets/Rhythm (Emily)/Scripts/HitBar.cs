@@ -2,14 +2,25 @@ using UnityEngine;
 
 public class HitBar : MonoBehaviour
 {
-    [SerializeField] private HitBarType hitBarType;
     [SerializeField] private KeyCode key;
+
+    private NoteLane lane;
+
+    void Awake()
+    {
+        lane = GetComponent<NoteLane>();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(key))
         {
-            RhythmInput.Fire(hitBarType);
+            lane.HandleInput();
         }
+    }
+
+    public bool IsKeyHeld()
+    {
+        return Input.GetKey(key);
     }
 }
