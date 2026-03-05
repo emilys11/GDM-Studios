@@ -42,14 +42,14 @@ Material:
     - _NadirBlend: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _StarHeight: 100
-    - _StarIntensity: 50
-    - _StarPower: 30
+    - _StarHeight: 5898
+    - _StarIntensity: 30.3
+    - _StarPower: 32.2
     - _ZenithBlend: 1
     m_Colors:
     - _GroundColor: {r: 0.31132078, g: 0.15125486, b: 0.17538697, a: 1}
-    - _HorizonColor: {r: 0.51886785, g: 0.51886785, b: 0.51886785, a: 1}
-    - _SkyColor: {r: 0.31011927, g: 0.43239427, b: 0.6509434, a: 1}
+    - _HorizonColor: {r: 1, g: 0.6650944, b: 0.96031153, a: 1}
+    - _SkyColor: {r: 0.6037736, g: 0.31612673, b: 0.55099446, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3654264081691145314
