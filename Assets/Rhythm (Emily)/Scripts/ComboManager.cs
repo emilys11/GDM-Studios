@@ -1,10 +1,18 @@
 using UnityEngine;
 using TMPro;
+
 public class ComboManager : MonoBehaviour
 {
-    public int combo;
-    public float multiplier => 1 + combo * 0.1f;
+    [Header("Settings")]
+    [SerializeField] private int hitsPerMultiplier = 5;
+
+    [Header("UI")]
     [SerializeField] private TextMeshProUGUI text;
+
+    private int consecutiveHits;
+    public int multiplier = 1;
+
+    public int CurrentMultiplier => multiplier;
 
     void OnEnable()
     {
@@ -20,14 +28,29 @@ public class ComboManager : MonoBehaviour
         RhythmEvents.OnBadInput -= ResetCombo;
     }
 
-    void AddCombo() 
+    void Start()
     {
-        combo++;
-        text.text = (combo+1).ToString()+"X";
-    } 
+        UpdateUI();
+    }
+
+    void AddCombo()
+    {
+        consecutiveHits++;
+        multiplier = 1 + (consecutiveHits / hitsPerMultiplier);
+
+        UpdateUI();
+    }
+
     void ResetCombo()
     {
-        combo = 0;
-        text.text = "1X";
-    } 
+        consecutiveHits = 0;
+        multiplier = 1;
+
+        UpdateUI();
+    }
+
+    void UpdateUI()
+    {
+        text.text = multiplier + "X";
+    }
 }

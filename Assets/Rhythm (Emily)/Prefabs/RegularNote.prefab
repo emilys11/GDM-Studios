@@ -88,7 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f5f04ff8f39694c80eca3a60ed556b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
-  hitWindow: 60
-  missY: -100
-  hitbarTransform: {fileID: 929402350026566667, guid: 7aa89eda58e33e048bab5725ac6e039e, type: 3}
+  speed: 600
+  hitWindow: 30
+  missLineY: -50
