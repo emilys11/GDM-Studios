@@ -6,14 +6,16 @@ using System.Linq;
 
 public class Dialogue : MonoBehaviour
 {
-    //TODO: Make it so after talking once, talking to the npc again repeats their last line? (Use queues but last line doesnt exit q?), implement movement restriction while they are talking in PlayerDialogue
-    [SerializeField] TextAsset script;
+    //TODO: Make it so after talking once, talking to the npc again repeats their last line? (Use queues but last line doesnt exit q?)
+    
 
     
     [SerializeField] float textSpeed;
     [SerializeField] GameObject player;
     [SerializeField] GameObject interactmsg;
     [SerializeField] GameObject textBox;
+
+    private TextAsset script;
     private string[] lines;
 
     private PlayerDialogue playerDialogue;
@@ -23,7 +25,6 @@ public class Dialogue : MonoBehaviour
     private bool textPlaying = false;
     void Start()
     {
-        readTxt();
         //int i = 0;
         //while (i < crabLines.Length && (crabLines[i].Equals("Astronaut\n") || crabLines[i].Equals("Crab\n")))
         //{
@@ -39,8 +40,9 @@ public class Dialogue : MonoBehaviour
         //StartDialogue();
         
     }
-    void readTxt()
+    void readScript()
     {
+        script = playerDialogue.npcScript;
         lines = Regex.Split(Regex.Replace(script.text, @"^\s*$\n", string.Empty, RegexOptions.Multiline), "\n"); //Format input script
     }
     private void Update()
@@ -71,6 +73,8 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()
     {
+        readScript();
+
         index = 0;
         StartCoroutine(TypeLine());
         textPlaying = true;

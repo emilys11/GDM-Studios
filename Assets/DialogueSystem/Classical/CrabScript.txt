@@ -1,0 +1,26 @@
+CRAB
+Hello and welcome! Or as we say on this planet, “Hello and welcome to Classico”
+
+
+ASTRONAUT
+Thank you! It seems a little… deserted and sad. No offence.
+
+
+CRAB
+You’re right. A lot of inhabitants have left in search of a better solar system, and those that have stayed don’t go out much. It’s dangerous these days…
+
+
+ASTRONAUT
+Oh no! What happened?
+
+
+CRAB
+A terrible evil has taken over this solar system. You’ll learn more about it as you explore. I recommend you talk to my fellow workers. One of them should be near [MAID location]. 
+
+
+CRAB
+Good luck, traveller.
+
+
+ASTRONAUT
+Thank you

@@ -37239,6 +37239,7 @@ GameObject:
   - component: {fileID: 1839792193}
   - component: {fileID: 1839792195}
   - component: {fileID: 1839792196}
+  - component: {fileID: 1839792197}
   m_Layer: 0
   m_Name: Gardener3
   m_TagString: NPC
@@ -37349,6 +37350,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1839792197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839792192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f858e409bd4884d8d996e4211480db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcScript: {fileID: 4900000, guid: e52f16391e003c340bf266f4cc463f5a, type: 3}
 --- !u!4 &1842178491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 850649989193942044, guid: ae358aa425fe140409d8a560f4492730, type: 3}
@@ -42231,6 +42245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canTalk: 0
+  npcScript: {fileID: 0}
 --- !u!4 &2020235931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 850649989193942044, guid: ae358aa425fe140409d8a560f4492730, type: 3}
@@ -45220,6 +45235,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d6250ade49c784580e6f870a264fc2, type: 3}
+--- !u!1001 &1934520666890724920
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -101.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 49.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -434.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922670822381930287, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746372691030659578, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: npcScript
+      value: 
+      objectReference: {fileID: 4900000, guid: b77b545d00047334b83e30d933b3e44f, type: 3}
+    - target: {fileID: 6912963885232906701, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: m_Name
+      value: NPCTemp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
 --- !u!1001 &2834088720253520822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45341,3 +45417,4 @@ SceneRoots:
   - {fileID: 740403182}
   - {fileID: 638682872}
   - {fileID: 970485214}
+  - {fileID: 1934520666890724920}

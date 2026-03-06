@@ -1,0 +1,22 @@
+ASTRONAUT
+Hello! Are you the butler of the house?
+
+
+BUTLER
+Why yes, I am indeed. Good evening [or whatever time of day the sky is]. How may I be of assistance?
+
+
+ASTRONAUT
+I was wondering, what’s wrong with this planet? The gardener mentioned a “terrible evil” and the maid said that all of the music had disappeared. 
+
+
+BUTLER
+Ah, yes. They do not exaggerate. Once, this was a prosperous land, filled with the delicate sound of music. But now, evil has taken our music away and we have lost our ways. Say, would you be in a position to help us out a little?
+
+
+ASTRONAUT
+Sure, what can I do?
+
+
+BUTLER
+Inside this mansion behind me is one of the adjutants of the Evil One. Take this powerful weapon and destroy them. We will forever be in your debt.
