@@ -19,6 +19,8 @@ public class ComboManager : MonoBehaviour
         RhythmEvents.OnNoteHit += AddCombo;
         RhythmEvents.OnNoteMiss += ResetCombo;
         RhythmEvents.OnBadInput += ResetCombo;
+
+        RhythmEvents.OnReady += ResetCombo;
     }
 
     void OnDisable()
@@ -26,6 +28,8 @@ public class ComboManager : MonoBehaviour
         RhythmEvents.OnNoteHit -= AddCombo;
         RhythmEvents.OnNoteMiss -= ResetCombo;
         RhythmEvents.OnBadInput -= ResetCombo;
+
+        RhythmEvents.OnReady -= ResetCombo;
     }
 
     void Start()

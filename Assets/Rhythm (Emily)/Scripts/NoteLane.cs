@@ -5,6 +5,25 @@ public class NoteLane : MonoBehaviour
 {
     private Queue<INote> notes = new Queue<INote>();
     private HitBar hitBar;
+    public HitBarAnim hitAnim;
+
+
+    void OnEnable()
+    {
+        RhythmEvents.OnDeath += ResetLane;
+        RhythmEvents.OnWin += ResetLane;
+    }
+
+    void OnDisable()
+    {
+        RhythmEvents.OnDeath -= ResetLane;
+        RhythmEvents.OnWin -= ResetLane;
+    }
+
+    void ResetLane()
+    {
+        notes.Clear();
+    }
 
     void Awake()
     {
@@ -31,6 +50,7 @@ public class NoteLane : MonoBehaviour
         if (notes.Count == 0)
         {
             RhythmEvents.NoteMissed();
+            hitAnim.PlayFeedback(hitAnim.missSprite);
             return;
         }
 
@@ -41,11 +61,22 @@ public class NoteLane : MonoBehaviour
         if (resolved)
         {
             notes.Dequeue();
+            hitAnim.PlayFeedback(hitAnim.hitSprite);
         }
     }
 
     public bool IsKeyHeld()
     {
         return hitBar.IsKeyHeld();
+    }
+
+    public void PlayHit()
+    {
+        hitAnim.PlayFeedback(hitAnim.hitSprite);
+    }
+
+    public void PlayMiss()
+    {
+        hitAnim.PlayFeedback(hitAnim.missSprite);
     }
 }
