@@ -7,14 +7,26 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int currentHP;
     [SerializeField] private Slider hpBar;
 
-    void Start()
-    {
-        currentHP = maxHP;
-    }
-
     void OnEnable()
     {
+        currentHP = maxHP;
+        hpBar.value = 1f;
+
         RhythmEvents.OnNoteHit += TakeDamage;
+        RhythmEvents.OnReady += ResetHealth;
+    }
+
+    void OnDisable()
+    {
+        currentHP = maxHP;
+        hpBar.value = 1f;
+        RhythmEvents.OnReady -= ResetHealth;
+    }
+
+    void ResetHealth()
+    {
+        currentHP = maxHP;
+        hpBar.value = 1f;
     }
 
     void TakeDamage()
@@ -31,5 +43,7 @@ public class EnemyHealth : MonoBehaviour
     void Win()
     {
         Debug.Log("yay win");
+        RhythmEvents.OnNoteHit -= TakeDamage;
+        RhythmEvents.Win();
     }
 }
