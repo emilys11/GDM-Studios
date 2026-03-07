@@ -21980,7 +21980,7 @@ Transform:
   m_GameObject: {fileID: 1050147894}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -133.92, y: 48.65968, z: -432.4455}
+  m_LocalPosition: {x: -133.92, y: 49.36, z: -432.4455}
   m_LocalScale: {x: 4.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43990,6 +43990,7 @@ MonoBehaviour:
   eyesClosedVisual: {fileID: 353276744}
   eyesOpenVisual: {fileID: 1260731260}
   vision: {fileID: 2046689836}
+  visionConeMesh: {fileID: 0}
 --- !u!120 &2046689835
 LineRenderer:
   serializedVersion: 2
@@ -44058,7 +44059,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.9716981, g: 0.03208439, b: 0.03208439, a: 1}
       key1: {r: 0.9433962, g: 0.084549636, b: 0.084549636, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
