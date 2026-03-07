@@ -3,7 +3,9 @@ using System.Collections;
 
 public class GateTrigger : MonoBehaviour
 {
+    [SerializeField] private bool shouldCloseAfterOpen = false;
     [SerializeField] private float closeDelay = 1.5f;
+
     private bool hasTriggered = false;
 
     private void OnTriggerEnter(Collider other)
@@ -16,7 +18,11 @@ public class GateTrigger : MonoBehaviour
         if (StealthMiniGameManager.Instance != null)
         {
             StealthMiniGameManager.Instance.StartMiniGame();
-            StartCoroutine(CloseGateAfterDelay());
+
+            if (shouldCloseAfterOpen)
+            {
+                StartCoroutine(CloseGateAfterDelay());
+            }
         }
     }
 
