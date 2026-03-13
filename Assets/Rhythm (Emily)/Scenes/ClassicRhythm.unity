@@ -2427,6 +2427,7 @@ MonoBehaviour:
   spawnY: 1000
   hitY: -350
   noteSpeed: 880
+  holdNoteCompressor: 3.58
   speedIncreaseAfter: 30
   speedIncreaseAmount: 350
   evilChance: 0.07
@@ -2464,7 +2465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &870076622
 RectTransform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class HoldNote : MonoBehaviour, INote
     [SerializeField] private float speed = 400f;
     [SerializeField] private double hitWindow = 0.12;
     [SerializeField] private double holdBeats = 2.0;
+    
 
     private RectTransform rect;
     private NoteLane lane;
@@ -19,7 +20,7 @@ public class HoldNote : MonoBehaviour, INote
 
     private float originalHeight;
 
-    [SerializeField] private float heightDeductor = 0.9f;
+    public float heightDeductor = 0.9f;
 
     [SerializeField] private float missLineY = -450f;
 

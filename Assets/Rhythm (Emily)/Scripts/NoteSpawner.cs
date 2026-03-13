@@ -15,6 +15,7 @@ public class NoteSpawner : MonoBehaviour
 
     private float originalSpeed;
     [SerializeField] private float noteSpeed = 400f;
+    [SerializeField] private float holdNoteCompressor = 3.4f;
 
     [Header("Speed Progression")]
     [SerializeField] private int speedIncreaseAfter = 20;
@@ -77,6 +78,11 @@ public class NoteSpawner : MonoBehaviour
             note.SetSpeed(noteSpeed);
             note.SetLane(lanes[laneIndex]);
             note.SetHitTime(hitDspTime);
+
+            if(note is HoldNote)
+            {
+                noteObj.GetComponent<HoldNote>().heightDeductor = holdNoteCompressor;
+            }
         }
 
         notesSpawned++;
