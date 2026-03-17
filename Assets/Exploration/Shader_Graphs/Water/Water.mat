@@ -53,6 +53,7 @@ Material:
     m_Floats:
     - _FoamAmount: 1
     - _FoamCutoff: 1
+    - _GlowStrength: 1.21
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RippleDensity: 125.48
