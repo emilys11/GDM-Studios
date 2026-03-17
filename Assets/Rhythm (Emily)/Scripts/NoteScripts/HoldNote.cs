@@ -1,12 +1,12 @@
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+
 public class HoldNote : MonoBehaviour, INote
 {
     [SerializeField] private float speed = 400f;
     [SerializeField] private double hitWindow = 0.12;
     [SerializeField] private double holdBeats = 2.0;
-    
 
     private RectTransform rect;
     private NoteLane lane;
@@ -19,11 +19,9 @@ public class HoldNote : MonoBehaviour, INote
     private bool holding;
 
     private float originalHeight;
-
     public float heightDeductor = 0.9f;
 
     [SerializeField] private float missLineY = -450f;
-
     [SerializeField] private Image image;
 
     void Awake()
@@ -31,7 +29,6 @@ public class HoldNote : MonoBehaviour, INote
         rect = GetComponent<RectTransform>();
         originalHeight = rect.sizeDelta.y;
         image = GetComponent<Image>();
-
         image.sprite = NoteSkinManager.CurrentSkin.holdNote;
     }
 
@@ -40,16 +37,15 @@ public class HoldNote : MonoBehaviour, INote
         if (isResolved) return;
 
         rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
-
         double current = AudioSettings.dspTime;
 
         if (!holding && rect.anchoredPosition.y < missLineY)
-        {
             Miss();
-        }
 
         if (holding)
         {
+            lane.StartHold();
+
             if (!lane.IsKeyHeld())
             {
                 Miss();
@@ -63,16 +59,15 @@ public class HoldNote : MonoBehaviour, INote
             rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
 
             if (progress >= 0.998f)
-            {
                 Complete();
-            }
+        }
+        else
+        {
+            lane.EndHold(); 
         }
     }
 
-    public void SetSpeed(float s)
-    {
-        speed = s;
-    }
+    public void SetSpeed(float s) => speed = s;
 
     public void SetLane(NoteLane l)
     {
@@ -96,6 +91,7 @@ public class HoldNote : MonoBehaviour, INote
         {
             holding = true;
             holdStartTime = AudioSettings.dspTime;
+            lane.StartHold();
             return true;
         }
 
@@ -105,6 +101,7 @@ public class HoldNote : MonoBehaviour, INote
     void Complete()
     {
         isResolved = true;
+        lane.EndHold(); 
         RhythmEvents.NoteHit();
         Destroy(gameObject);
     }
@@ -113,12 +110,14 @@ public class HoldNote : MonoBehaviour, INote
     {
         if (isResolved) return;
         isResolved = true;
+        lane.EndHold(); 
         RhythmEvents.NoteMissed();
         Destroy(gameObject);
     }
 
     void OnDestroy()
     {
-        if (lane != null) lane.Unregister(this);
+        if (lane != null)
+            lane.Unregister(this);
     }
 }

@@ -7,7 +7,6 @@ public class NoteLane : MonoBehaviour
     private HitBar hitBar;
     public HitBarAnim hitAnim;
 
-
     void OnEnable()
     {
         RhythmEvents.OnDeath += ResetLane;
@@ -20,14 +19,16 @@ public class NoteLane : MonoBehaviour
         RhythmEvents.OnWin -= ResetLane;
     }
 
-    void ResetLane()
-    {
-        notes.Clear();
-    }
-
     void Awake()
     {
         hitBar = GetComponent<HitBar>();
+    }
+
+    void ResetLane()
+    {
+        notes.Clear();
+        if (hitAnim != null)
+            hitAnim.EndHold();
     }
 
     public void Register(INote note)
@@ -35,16 +36,12 @@ public class NoteLane : MonoBehaviour
         notes.Enqueue(note);
     }
 
-    //we are removing this floptina note
     public void Unregister(INote note)
     {
         if (notes.Count > 0 && notes.Peek() == note)
-        {
             notes.Dequeue();
-        }
     }
 
-    //see what the freak is going on when a key is pressed
     public void HandleInput()
     {
         if (notes.Count == 0)
@@ -55,7 +52,6 @@ public class NoteLane : MonoBehaviour
         }
 
         INote note = notes.Peek();
-
         bool resolved = note.TryResolve();
 
         if (resolved)
@@ -68,6 +64,18 @@ public class NoteLane : MonoBehaviour
     public bool IsKeyHeld()
     {
         return hitBar.IsKeyHeld();
+    }
+
+    public void StartHold()
+    {
+        if (hitAnim != null)
+            hitAnim.StartHold();
+    }
+
+    public void EndHold()
+    {
+        if (hitAnim != null)
+            hitAnim.EndHold();
     }
 
     public void PlayHit()
