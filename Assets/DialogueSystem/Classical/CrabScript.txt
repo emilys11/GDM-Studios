@@ -1,5 +1,9 @@
+﻿ASTRONAUT
+Greetings! I have come to your planet from far away as an ambassador representing the planet GDM.
+
+
 CRAB
-Hello and welcome! Or as we say on this planet, “Hello and welcome to Classico”
+Hello and welcome to Classico, ambassador! Or as we say on this planet, “hello and welcome to Classico, ambassador” [using “The Calling” font] ↓  
 
 
 ASTRONAUT
@@ -7,7 +11,11 @@ Thank you! It seems a little… deserted and sad. No offence.
 
 
 CRAB
-You’re right. A lot of inhabitants have left in search of a better solar system, and those that have stayed don’t go out much. It’s dangerous these days…
+You’re right. The soil is unfertile and a high number of trees have been chopped down. A lot of inhabitants have left in search of a better star system, and those that have stayed don’t go out much. 
+
+
+CRAB
+It’s dangerous these days…
 
 
 ASTRONAUT
@@ -15,12 +23,79 @@ Oh no! What happened?
 
 
 CRAB
-A terrible evil has taken over this solar system. You’ll learn more about it as you explore. I recommend you talk to my fellow workers. One of them should be near [MAID location]. 
-
-
-CRAB
-Good luck, traveller.
+A terrible evil has taken over this starsystem. The ruler of this planet, Bachovenpinanoff, who was once kind and just, has brought our world to the brink of death. They live in the castle behind me.
 
 
 ASTRONAUT
-Thank you
+Why not rebel against them?
+
+
+CRAB
+There are not many of us left, and I am but a puny servant. There is nothing I could do, except hope for better days. 
+
+
+ASTRONAUT
+Maybe I could help, then?
+
+
+CRAB
+That would be too much to ask. Seeing the resoluteness on your face. Oh, but if you insist. To get to the castle, you must obtain two keys. 
+
+
+CRAB
+The first one is on the road to the left and is guarded by a super vigilant android. They have but one weakness: they close their eyes to rest, but in an unpredictable pattern. 
+
+
+CRAB
+Get past them, and you will obtain the first key.  Come see me once you have done so. Good luck.
+
+
+ASTRONAUT
+Thank you. I shall try my best.
+
+
+>
+
+
+ASTRONAUT
+I have succeeded! Here is the first key.
+
+
+CRAB
+Congratulations, I knew you could do it! Now, for the second key, you must pass the training I have created for you. This will give you the necessary preparation to beat Classico’s ruler. 
+
+
+CRAB
+It can be found at the end of the road to the right. Come back to see me once you have finished it.
+
+
+ASTRONAUT
+I have completed your training. I feel ready to face Classico’s ruler.
+
+
+CRAB
+Perfect. Before you depart, do you have any questions for me?
+
+
+ASTRONAUT
+I was wondering, what happened to the ruler of Classico?
+
+
+CRAB
+You see, life in our star system rests on music. Once, this was a prosperous land, filled with its delicate sound. But one day, our ruler got corrupted by the Great Evil. 
+
+
+CRAB
+This evil has taken our music away causing us to lose our ways. The same happened to our neighbours, on Popula’. Our whole star system is dying.
+
+
+ASTRONAUT
+What is this Great Evil?
+
+
+CRAB
+Shivers I cannot say…
+
+
+CRAB
+If you are ready, you may enter the castle. I wish you luck, for all of our sakes.
