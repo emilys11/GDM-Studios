@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87b038a3f2c8d3345acd4e91bae23859, type: 3}
-  m_Name: Classical
+  m_Name: Pop
   m_EditorClassIdentifier: 
-  regularNote: {fileID: 21300000, guid: 1ecdd49a0a50d1b4692020eb7182ff8d, type: 3}
-  evilNote: {fileID: 21300000, guid: 74a4012e46770dc438c01a75377598fd, type: 3}
-  holdNote: {fileID: 21300000, guid: 63b73b061c08134448504abb3bbd93f6, type: 3}
+  regularNote: {fileID: 21300000, guid: 3d894aa59851f1f41a9023e17cc6d3b8, type: 3}
+  evilNote: {fileID: 21300000, guid: faf5658c75e864a46bbad581295b4d6f, type: 3}
+  holdNote: {fileID: 21300000, guid: 24de74e44652adf42bb568bbaa45d606, type: 3}

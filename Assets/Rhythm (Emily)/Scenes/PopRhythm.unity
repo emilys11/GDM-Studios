@@ -213,7 +213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0d58997058c9b4940989a3b54698a54b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e537c0490effd5c46a257e05e33874bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -449,9 +449,9 @@ GameObject:
   m_Component:
   - component: {fileID: 171927961}
   - component: {fileID: 171927963}
-  - component: {fileID: 171927962}
+  - component: {fileID: 171927964}
   m_Layer: 5
-  m_Name: Fighters
+  m_Name: PopFighters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,28 +478,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &171927962
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171927960}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54356c056571001448c6a4ebf075d288, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &171927963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +490,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f11e9e65508314c93373095295892c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 171927962}
+  animator: {fileID: 171927964}
+--- !u!95 &171927964
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171927960}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f17c18baf5d5bfe4bb7ecc80e8436c77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &201106601
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 1950214681}
   loseScreen: {fileID: 1858283919}
-  nextPlanetScene: Planet_2
+  nextPlanetScene: Planet_3
 --- !u!4 &326253604
 Transform:
   m_ObjectHideFlags: 0
@@ -939,7 +939,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 8818fd20acfd81f42b208b6d22deb065, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1c0bf57a3453f6144b36abb1989295bd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2237,7 +2237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 16c4fcb2bd7955e4ba4d287e31505a0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eefaee4751a1bc7499411cfef19737c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2508,12 +2508,12 @@ MonoBehaviour:
   - {fileID: 8175682527798913868}
   spawnY: 1000
   hitY: -350
-  noteSpeed: 880
-  holdNoteCompressor: 3.9
+  noteSpeed: 1300
+  holdNoteCompressor: 4.3
   speedIncreaseAfter: 26
-  speedIncreaseAmount: 350
+  speedIncreaseAmount: 0
   evilChance: 0.05
-  holdChance: 0.033
+  holdChance: 0.085
 --- !u!4 &825716904
 Transform:
   m_ObjectHideFlags: 0
@@ -3013,7 +3013,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 16c4fcb2bd7955e4ba4d287e31505a0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eefaee4751a1bc7499411cfef19737c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3094,7 +3094,7 @@ RectTransform:
   m_GameObject: {fileID: 1054307113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.9, y: 4.9, z: 1}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 160107809}
@@ -3104,7 +3104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -543.3, y: 464.3}
+  m_AnchoredPosition: {x: -579.3, y: 464.3}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1054307115
@@ -3170,7 +3170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58ddfcf60a0d354daf46887d4f50f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 6000
+  maxHP: 3500
   currentHP: 0
   hpBar: {fileID: 1054307115}
 --- !u!1 &1071574613
@@ -3202,7 +3202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee4bb9d1ed67a24ea9c6c4b83a57eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneSkin: {fileID: 11400000, guid: fe6e592a0c5a1b044ab41b75de206151, type: 2}
+  sceneSkin: {fileID: 11400000, guid: a369c5d01f7265b43ab1c918a558d415, type: 2}
 --- !u!4 &1071574615
 Transform:
   m_ObjectHideFlags: 0
@@ -3408,7 +3408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 53334ad542952764097e7454a7b5676f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76722ca649054a442934638799c1a6e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3611,7 +3611,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 179.6, y: 518}
+  m_AnchoredPosition: {x: 215.3, y: 518}
   m_SizeDelta: {x: 559.19, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1524516866
@@ -4203,7 +4203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 16c4fcb2bd7955e4ba4d287e31505a0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eefaee4751a1bc7499411cfef19737c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4527,7 +4527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 16c4fcb2bd7955e4ba4d287e31505a0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eefaee4751a1bc7499411cfef19737c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

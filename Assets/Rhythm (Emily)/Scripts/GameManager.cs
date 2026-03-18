@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     void EnableDeathScreen()
     {
         EnableScreen(loseScreen);
+        loseScreen.GetComponent<CanvasGroup>().alpha = 1;
     }
 
     void EnableWinScreen()
