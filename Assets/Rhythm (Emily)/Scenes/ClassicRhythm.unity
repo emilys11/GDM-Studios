@@ -2509,11 +2509,11 @@ MonoBehaviour:
   spawnY: 1000
   hitY: -350
   noteSpeed: 880
-  holdNoteCompressor: 4
+  holdNoteCompressor: 3.9
   speedIncreaseAfter: 26
   speedIncreaseAmount: 350
   evilChance: 0.05
-  holdChance: 0.085
+  holdChance: 0.033
 --- !u!4 &825716904
 Transform:
   m_ObjectHideFlags: 0
