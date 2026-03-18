@@ -16,6 +16,9 @@ public class PlayerHealth : MonoBehaviour
 
         RhythmEvents.OnNoteMiss += TakeDamage;
         RhythmEvents.OnBadInput += TakeDamage;
+        MusicManager.OnMusicFinished += Die;
+
+        RhythmEvents.OnReady += ResetHearts;
     }
 
     void TakeDamage()
@@ -36,6 +39,17 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        UnityEngine.Debug.Log("Just died fr");
+        RhythmEvents.Death();
+    }
+
+    void ResetHearts()
+    {
+        hearts = 3;
         
+        foreach(GameObject heart in heartsObjects)
+        {
+            heart.SetActive(true);
+        }
     }
 }
