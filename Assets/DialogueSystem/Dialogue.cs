@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Data;
 
 public class Dialogue : MonoBehaviour
 {
@@ -13,13 +14,15 @@ public class Dialogue : MonoBehaviour
     [SerializeField] float textSpeed;
     [SerializeField] GameObject player;
     [SerializeField] GameObject interactmsg;
-    [SerializeField] GameObject textBox;
+    [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject namePlate;
 
     private TextAsset script;
     private string[] lines;
 
     private PlayerDialogue playerDialogue;
     private TextMeshProUGUI textMesh;
+    private TextMeshProUGUI nameText;
     private int index;
 
     private bool textPlaying = false;
@@ -35,7 +38,10 @@ public class Dialogue : MonoBehaviour
 
 
         textMesh = GetComponent<TextMeshProUGUI>();
+        nameText = namePlate.GetComponent<TextMeshProUGUI>();
+
         textMesh.SetText(string.Empty);
+        nameText.SetText(string.Empty);
         playerDialogue = player.GetComponent<PlayerDialogue>();
         //StartDialogue();
         
@@ -48,7 +54,7 @@ public class Dialogue : MonoBehaviour
     private void Update()
     {
         interactmsg.SetActive(playerDialogue.canTalk && !textPlaying);
-        textBox.SetActive(textPlaying);
+        dialogueBox.SetActive(textPlaying);
         if (Input.GetKeyDown(KeyCode.E) && playerDialogue.canTalk) //&& playerDialogue.canTalk
         {
             if (!textPlaying)
@@ -58,14 +64,14 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
-                if (textMesh.text == lines[index - 1] + "\n\n" + lines[index])
+                if (textMesh.text == lines[index])
                 {
                     NextLine();
                 }
                 else
                 {
                     StopAllCoroutines();
-                    textMesh.text = lines[index-1] + "\n\n" + lines[index];
+                    textMesh.text = lines[index];
                 }
             }
         }
@@ -84,7 +90,24 @@ public class Dialogue : MonoBehaviour
     {
         if(index % 2 == 0)
         {
-            textMesh.text = lines[index] + "\n\n"; //Get name of speaker
+            //string name = lines[index];
+
+            nameText.text = lines[index];
+            if (lines[index].CompareTo("ASTRONAUT\r") == 0)
+            {
+                nameText.color = Color.ghostWhite;
+            }
+            else if(lines[index].CompareTo("CRAB\r") == 0)
+            {
+                nameText.color = Color.green;
+            }
+            else //Bosses
+            {
+                nameText.color = Color.red;
+            }
+
+            //Get name of speaker
+
             index++;
 
         }

@@ -6943,6 +6943,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &215224466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3201201850255121724, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+  m_PrefabInstance: {fileID: 1731203403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &215545000
 GameObject:
   m_ObjectHideFlags: 0
@@ -21605,6 +21610,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8921174462463733040, guid: befe692f8a5a4b841964c3df95a9c0ba, type: 3}
   m_PrefabInstance: {fileID: 663927569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &671069709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3248556903868590876, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+  m_PrefabInstance: {fileID: 1731203403}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &673567637
 GameObject:
@@ -54433,6 +54443,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2017368595}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: namePlate
+      value: 
+      objectReference: {fileID: 215224466}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 671069709}
     - target: {fileID: 3427009476049085607, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_Name
       value: ExplorationUI
