@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Collectible_1
   - Key
-  - NPC
   layers:
   - Default
   - TransparentFX
