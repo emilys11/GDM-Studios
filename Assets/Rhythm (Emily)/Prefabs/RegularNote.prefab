@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 900
-  hitWindow: 15
+  hitWindow: 40
   missLineY: -50
-  hitLineY: 0
+  hitLineY: -50
   hitYWindow: 200
   image: {fileID: 0}

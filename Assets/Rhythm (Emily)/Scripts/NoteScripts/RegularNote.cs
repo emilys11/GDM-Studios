@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class RegularNote : MonoBehaviour, INote
 {
     [SerializeField] private float speed = 400f;
-    [SerializeField] private double hitWindow = 0.12;
+    [SerializeField] private double hitWindow = 0.3f;
 
     private RectTransform rect;
     private NoteLane lane;
@@ -62,11 +62,16 @@ public class RegularNote : MonoBehaviour, INote
         if (isResolved) return false;
 
         double current = AudioSettings.dspTime;
-        double error = Math.Abs(current - hitDspTime);
+        double error = current - hitDspTime;
 
-        float yError = Mathf.Abs(rect.anchoredPosition.y - hitLineY);
+        float y = rect.anchoredPosition.y;
+        float yError = Mathf.Abs(y - hitLineY);
 
-        if (error <= hitWindow && yError <= hitYWindow)
+        bool withinTime = Math.Abs(error) <= hitWindow;
+
+        bool withinVisual = y <= hitLineY + hitYWindow && y >= hitLineY - hitYWindow * 1.5f;    
+
+        if (withinTime && withinVisual)
         {
             Hit();
             return true;
@@ -88,6 +93,7 @@ public class RegularNote : MonoBehaviour, INote
     {
         if (isResolved) return;
         isResolved = true;
+        UnityEngine.Debug.Log("Missed from: " + gameObject.name);
         RhythmEvents.NoteMissed();
         lane.PlayMiss();
         Destroy(gameObject);

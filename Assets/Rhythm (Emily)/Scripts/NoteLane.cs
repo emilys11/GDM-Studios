@@ -46,7 +46,6 @@ public class NoteLane : MonoBehaviour
     {
         if (notes.Count == 0)
         {
-            RhythmEvents.NoteMissed();
             hitAnim.PlayFeedback(hitAnim.missSprite);
             return;
         }
@@ -56,8 +55,11 @@ public class NoteLane : MonoBehaviour
 
         if (resolved)
         {
-            notes.Dequeue();
             hitAnim.PlayFeedback(hitAnim.hitSprite);
+        }
+        else
+        {
+            hitAnim.PlayFeedback(hitAnim.missSprite);
         }
     }
 
