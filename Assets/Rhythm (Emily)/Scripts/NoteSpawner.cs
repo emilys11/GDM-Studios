@@ -20,6 +20,7 @@ public class NoteSpawner : MonoBehaviour
     [Header("Speed Progression")]
     [SerializeField] private int speedIncreaseAfter = 20;
     [SerializeField] private float speedIncreaseAmount = 50f;
+    [SerializeField] private float bpmIncrease = 0;
 
     private int notesSpawned = 0;
 
@@ -69,9 +70,24 @@ public class NoteSpawner : MonoBehaviour
         GameObject noteObj = Instantiate(prefab, laneParents[laneIndex]);
 
         RectTransform rect = noteObj.GetComponent<RectTransform>();
-        rect.anchoredPosition = new Vector2(0, spawnY);
-
         INote note = noteObj.GetComponent<INote>();
+
+        float y = spawnY;
+
+        if (note is HoldNote hold)
+        {
+            hold.heightDeductor = holdNoteCompressor;
+
+            Canvas.ForceUpdateCanvases();
+
+            float height = rect.rect.height;
+            y += height * 0.5f;
+        }
+
+
+
+        rect.anchoredPosition = new Vector2(0, y);
+
 
         if (note != null)
         {
@@ -98,7 +114,9 @@ public class NoteSpawner : MonoBehaviour
     {
         if (notesSpawned >= speedIncreaseAfter)
         {
+            MusicManager.IncreaseBPM(bpmIncrease);
             noteSpeed += speedIncreaseAmount;
+
         }
     }
 

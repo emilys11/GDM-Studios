@@ -3,7 +3,7 @@ using System;
 
 public class MusicManager : MonoBehaviour
 {
-    public float bpm = 120f;
+    public static float bpm = 120f;
 
     public static event Action<double> OnBeat;
     public static event Action OnMusicFinished;
@@ -13,7 +13,7 @@ public class MusicManager : MonoBehaviour
 
     public static double SecondsPerBeat { get; private set; }
 
-    private double nextBeatDspTime;
+    public static double nextBeatDspTime;
 
     void Awake()
     {
@@ -64,6 +64,26 @@ public class MusicManager : MonoBehaviour
         {
             OnBeat?.Invoke(nextBeatDspTime);
             nextBeatDspTime += SecondsPerBeat;
+        }
+    }
+
+    public static void IncreaseBPM(float amount)
+    {
+        bpm += amount;
+
+      
+        SecondsPerBeat = 60.0 / bpm;
+
+
+        if (audiosource != null && audiosource.isPlaying)
+        {
+            double dspTime = AudioSettings.dspTime;
+
+            double beatsSinceStart = Math.Floor(dspTime / SecondsPerBeat);
+            double nextBeat = (beatsSinceStart + 1) * SecondsPerBeat;
+
+
+            nextBeatDspTime = nextBeat;
         }
     }
 }
