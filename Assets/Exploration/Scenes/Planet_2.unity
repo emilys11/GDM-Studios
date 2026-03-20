@@ -1010,6 +1010,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &27547089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1759,6 +1767,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &78754050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5020,6 +5036,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &217969955
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5288,6 +5312,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 1
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 1
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &218853708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8448,7 +8480,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 0.2, z: 3}
+  m_Size: {x: 1, y: 0.2, z: 1}
   m_Center: {x: 3.5, y: 0, z: -5.5}
 --- !u!65 &363546989
 BoxCollider:
@@ -8665,6 +8697,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &375769266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9126,6 +9166,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &391645242
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9758,7 +9806,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 0.2, z: 3}
+  m_Size: {x: 1, y: 0.2, z: 1}
   m_Center: {x: 3.5, y: 0, z: -2.5}
 --- !u!1001 &425116813
 PrefabInstance:
@@ -10094,6 +10142,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 1
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &447643784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10315,6 +10371,7 @@ MonoBehaviour:
   - {fileID: 678291858}
   - {fileID: 559059727}
   dimMultiplier: 0.4
+  playerResponseTime: 5
   statusText: {fileID: 1287102360}
 --- !u!1 &454189993
 GameObject:
@@ -11137,6 +11194,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 1
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 3
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &483728565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11406,6 +11471,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &494099804
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11615,6 +11688,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &507575889
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12554,6 +12635,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &559059728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15594,6 +15683,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &678291859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16114,6 +16211,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &699017332
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17183,6 +17288,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &732820984
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18359,6 +18472,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &771082428
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21296,6 +21417,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &871129874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24897,6 +25026,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1080561632
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25116,7 +25253,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 0.2, z: 3}
+  m_Size: {x: 1, y: 0.2, z: 1}
   m_Center: {x: 0.5, y: 0, z: -2.5}
 --- !u!1001 &1092859320
 PrefabInstance:
@@ -32999,6 +33136,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1249892796
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35131,6 +35276,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 1
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 2
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1333969626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35266,6 +35419,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1346038800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36537,7 +36698,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 0.2, z: 3}
+  m_Size: {x: 1, y: 0.2, z: 1}
   m_Center: {x: 0.5, y: 0, z: -5.5}
 --- !u!65 &1403582123
 BoxCollider:
@@ -39344,6 +39505,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1529600615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39731,6 +39900,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1538475988
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40056,6 +40233,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1547781619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40736,6 +40921,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1576816327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42782,6 +42975,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1653859378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43997,6 +44198,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1674535624
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44132,6 +44341,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1683059315
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45558,6 +45775,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1769662166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48285,6 +48510,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1927762156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48415,6 +48648,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1929716433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48545,6 +48786,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1929754563
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48732,6 +48981,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1939070359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49190,6 +49447,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1953279345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49916,6 +50181,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &1976593927
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50436,6 +50709,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &2008845470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52517,6 +52798,14 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0.2, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+  isCenterTile: 0
+  simonIdleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sectionIndex: 0
+  sectionColors:
+  - {r: 0.98039216, g: 0.050980393, b: 0.050980393, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.27450982, a: 1}
+  - {r: 0.8745098, g: 1, b: 0, a: 1}
 --- !u!65 &2113557053
 BoxCollider:
   m_ObjectHideFlags: 0
