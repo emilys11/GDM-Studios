@@ -6,15 +6,18 @@ public class MusicManager : MonoBehaviour
     public static float bpm = 120f;
     public float bpmGame = 120f;
 
+    [SerializeField] private float startDelay = 2f; // 🎯 Adjustable delay before music starts
+
     public static event Action<double> OnBeat;
     public static event Action OnMusicFinished;
     public static AudioSource audiosource;
 
-    public bool musicStarted = false;   
+    public bool musicStarted = false;
 
     public static double SecondsPerBeat { get; private set; }
-
     public static double nextBeatDspTime;
+
+    public static double songStartDspTime; // 🔥 useful for countdowns/UI
 
     void Awake()
     {
@@ -39,9 +42,13 @@ public class MusicManager : MonoBehaviour
     void StartBeat()
     {
         SecondsPerBeat = 60.0 / bpm;
+
         musicStarted = true;
-        audiosource.Play();
-        nextBeatDspTime = AudioSettings.dspTime + SecondsPerBeat;
+        songStartDspTime = AudioSettings.dspTime + startDelay;
+
+        audiosource.PlayScheduled(songStartDspTime);
+
+        nextBeatDspTime = songStartDspTime + SecondsPerBeat;
     }
 
     void MusicDeath()
@@ -53,7 +60,9 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        if (!audiosource.isPlaying && musicStarted)
+        if (!musicStarted) return;
+
+        if (!audiosource.isPlaying && AudioSettings.dspTime > songStartDspTime)
         {
             musicStarted = false;
             OnMusicFinished?.Invoke();
@@ -62,7 +71,7 @@ public class MusicManager : MonoBehaviour
 
         double dspTime = AudioSettings.dspTime;
 
-        if (dspTime >= nextBeatDspTime && musicStarted)
+        if (dspTime >= nextBeatDspTime)
         {
             OnBeat?.Invoke(nextBeatDspTime);
             nextBeatDspTime += SecondsPerBeat;
@@ -72,40 +81,28 @@ public class MusicManager : MonoBehaviour
     public static void IncreaseBPM(float amount)
     {
         bpm += amount;
-
-      
         SecondsPerBeat = 60.0 / bpm;
-
 
         if (audiosource != null && audiosource.isPlaying)
         {
             double dspTime = AudioSettings.dspTime;
 
-            double beatsSinceStart = Math.Floor(dspTime / SecondsPerBeat);
-            double nextBeat = (beatsSinceStart + 1) * SecondsPerBeat;
-
-
-            nextBeatDspTime = nextBeat;
+            double beatsSinceStart = Math.Floor((dspTime - songStartDspTime) / SecondsPerBeat);
+            nextBeatDspTime = songStartDspTime + (beatsSinceStart + 1) * SecondsPerBeat;
         }
     }
 
-    public static void ResetBPM(float amount)
+    public static void ResetBPM(float value)
     {
-        bpm = amount;
-
-      
+        bpm = value;
         SecondsPerBeat = 60.0 / bpm;
-
 
         if (audiosource != null && audiosource.isPlaying)
         {
             double dspTime = AudioSettings.dspTime;
 
-            double beatsSinceStart = Math.Floor(dspTime / SecondsPerBeat);
-            double nextBeat = (beatsSinceStart + 1) * SecondsPerBeat;
-
-
-            nextBeatDspTime = nextBeat;
+            double beatsSinceStart = Math.Floor((dspTime - songStartDspTime) / SecondsPerBeat);
+            nextBeatDspTime = songStartDspTime + (beatsSinceStart + 1) * SecondsPerBeat;
         }
     }
 }

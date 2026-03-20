@@ -92,5 +92,5 @@ MonoBehaviour:
   hitWindow: 5
   missLineY: -50
   hitLineY: 0
-  hitYWindow: 70
+  hitYWindow: 90
   image: {fileID: 0}

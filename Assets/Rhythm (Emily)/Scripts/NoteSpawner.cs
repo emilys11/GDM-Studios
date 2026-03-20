@@ -53,6 +53,8 @@ public class NoteSpawner : MonoBehaviour
 
     void HandleBeat(double beatDspTime)
     {
+        if (beatDspTime < MusicManager.songStartDspTime) return;
+
         float travelTime = Mathf.Abs(spawnY - hitY) / noteSpeed;
         double spawnTime = beatDspTime - travelTime;
 
