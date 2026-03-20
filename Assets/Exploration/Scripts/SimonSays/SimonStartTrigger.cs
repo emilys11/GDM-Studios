@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SimonStartTrigger : MonoBehaviour
 {
-    public SimonSaysManager manager;
+    public SimonDanceManager manager;
 
     private bool hasTriggered = false;
 
