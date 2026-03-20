@@ -4,6 +4,7 @@ public class RhythmEvents : MonoBehaviour
 {
     [Header("Notes related")]
     public static Action OnNoteHit;
+    public static Action OnHealthNoteHit;
     public static Action OnNoteMiss;
     public static Action OnBadInput;
 
@@ -13,6 +14,8 @@ public class RhythmEvents : MonoBehaviour
     public static Action OnWin;
 
     public static void NoteHit() => OnNoteHit?.Invoke();
+
+    public static void HealthNoteHit() => OnHealthNoteHit?.Invoke();
     public static void NoteMissed() => OnNoteMiss?.Invoke();
     public static void BadInput() => OnBadInput?.Invoke();
     public static void Ready() => OnReady?.Invoke();
