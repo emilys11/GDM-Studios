@@ -11,6 +11,11 @@ public class LevelLoader : MonoBehaviour
 
     private bool isLoading = false;
 
+
+    void Start()
+    {
+        Debug.Log("Scene started, Animator enabled: " + GetComponent<Animator>().enabled);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (isLoading) return;
