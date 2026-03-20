@@ -57,7 +57,7 @@ public class SimonDanceManager : MonoBehaviour
 
         foreach (ColorChanger tile in allTiles)
         {
-            tile.SetEmissionMultiplier(dimMultiplier);
+            tile.SetSimonGameActive(true);
         }
 
     }
@@ -178,7 +178,7 @@ public class SimonDanceManager : MonoBehaviour
 
         foreach (ColorChanger tile in allTiles)
         {
-            tile.ResetEmission();
+            tile.SetSimonGameActive(false);
         }
 
     }
