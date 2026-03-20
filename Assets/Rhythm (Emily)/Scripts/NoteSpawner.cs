@@ -21,6 +21,7 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] private int speedIncreaseAfter = 20;
     [SerializeField] private float speedIncreaseAmount = 50f;
     [SerializeField] private float bpmIncrease = 0;
+    [SerializeField] private float bpmOriginal = 0;
 
     private int notesSpawned = 0;
 
@@ -30,6 +31,7 @@ public class NoteSpawner : MonoBehaviour
     void OnEnable()
     {
         originalSpeed = noteSpeed;
+        bpmOriginal = MusicManager.bpm;
         MusicManager.OnBeat += HandleBeat;
         RhythmEvents.OnReady += ResetSpeed;
     }
@@ -44,6 +46,7 @@ public class NoteSpawner : MonoBehaviour
     {
         noteSpeed = originalSpeed;
         notesSpawned = 0;
+        MusicManager.ResetBPM(bpmOriginal);
     }
 
     void HandleBeat(double beatDspTime)

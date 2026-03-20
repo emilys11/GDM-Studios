@@ -34,11 +34,6 @@ public class RegularNote : MonoBehaviour, INote
         rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
 
         double current = AudioSettings.dspTime;
-
-        if (!isResolved && rect.anchoredPosition.y < missLineY)
-        {
-            Miss();
-        }
     }
 
     public void SetSpeed(float s)
@@ -69,7 +64,7 @@ public class RegularNote : MonoBehaviour, INote
 
         bool withinTime = Math.Abs(error) <= hitWindow;
 
-        bool withinVisual = y <= hitLineY + hitYWindow && y >= hitLineY - hitYWindow * 1.5f;    
+        bool withinVisual = y <= hitLineY + hitYWindow && y >= hitLineY - hitYWindow;   
 
         if (withinTime && withinVisual)
         {

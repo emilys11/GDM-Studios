@@ -48,4 +48,9 @@ public class GameManager : MonoBehaviour
     {
         obj.SetActive(true);
     }
+
+    public void ResetGame()
+    {
+        RhythmEvents.Ready();
+    }
 }
