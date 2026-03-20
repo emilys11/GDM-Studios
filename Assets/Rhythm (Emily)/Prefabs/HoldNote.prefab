@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 900
-  hitWindow: 50
+  hitWindow: 25
   holdBeats: 2
   heightDeductor: 2.9
   missLineY: -50

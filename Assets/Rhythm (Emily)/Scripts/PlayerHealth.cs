@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
         RhythmEvents.OnNoteMiss += TakeDamage;
         RhythmEvents.OnBadInput += TakeDamage;
         MusicManager.OnMusicFinished += Die;
-
+        RhythmEvents.OnHealthNoteHit += AddHeart;
         RhythmEvents.OnReady += ResetHearts;
     }
 
@@ -51,5 +51,12 @@ public class PlayerHealth : MonoBehaviour
         {
             heart.SetActive(true);
         }
+    }
+
+    void AddHeart()
+    {
+        if (hearts >= 3) return;
+        heartsObjects[hearts].SetActive(true);
+        hearts++;
     }
 }

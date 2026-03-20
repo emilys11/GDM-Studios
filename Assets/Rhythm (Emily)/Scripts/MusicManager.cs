@@ -4,6 +4,7 @@ using System;
 public class MusicManager : MonoBehaviour
 {
     public static float bpm = 120f;
+    public float bpmGame = 120f;
 
     public static event Action<double> OnBeat;
     public static event Action OnMusicFinished;
@@ -22,6 +23,7 @@ public class MusicManager : MonoBehaviour
 
     void OnEnable()
     {
+        bpm = bpmGame;
         RhythmEvents.OnReady += StartBeat;
         RhythmEvents.OnDeath += MusicDeath;
         RhythmEvents.OnWin += MusicDeath;
@@ -70,6 +72,26 @@ public class MusicManager : MonoBehaviour
     public static void IncreaseBPM(float amount)
     {
         bpm += amount;
+
+      
+        SecondsPerBeat = 60.0 / bpm;
+
+
+        if (audiosource != null && audiosource.isPlaying)
+        {
+            double dspTime = AudioSettings.dspTime;
+
+            double beatsSinceStart = Math.Floor(dspTime / SecondsPerBeat);
+            double nextBeat = (beatsSinceStart + 1) * SecondsPerBeat;
+
+
+            nextBeatDspTime = nextBeat;
+        }
+    }
+
+    public static void ResetBPM(float amount)
+    {
+        bpm = amount;
 
       
         SecondsPerBeat = 60.0 / bpm;

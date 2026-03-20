@@ -7,6 +7,8 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] private GameObject evilNotePrefab;
     [SerializeField] private GameObject holdNotePrefab;
 
+    [SerializeField] private GameObject healthNotePrefab;
+
     [SerializeField] private RectTransform[] laneParents;
     [SerializeField] private NoteLane[] lanes;
 
@@ -21,15 +23,17 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] private int speedIncreaseAfter = 20;
     [SerializeField] private float speedIncreaseAmount = 50f;
     [SerializeField] private float bpmIncrease = 0;
+    [SerializeField] private float bpmOriginal = 0;
 
     private int notesSpawned = 0;
 
     [Range(0f, 1f)] [SerializeField] private float evilChance = 0.15f;
     [Range(0f, 1f)] [SerializeField] private float holdChance = 0.20f;
-
+    [Range(0f, 1f)] [SerializeField] private float healthChance = 0.01f;
     void OnEnable()
     {
         originalSpeed = noteSpeed;
+        bpmOriginal = MusicManager.bpm;
         MusicManager.OnBeat += HandleBeat;
         RhythmEvents.OnReady += ResetSpeed;
     }
@@ -44,6 +48,7 @@ public class NoteSpawner : MonoBehaviour
     {
         noteSpeed = originalSpeed;
         notesSpawned = 0;
+        MusicManager.ResetBPM(bpmOriginal);
     }
 
     void HandleBeat(double beatDspTime)
@@ -129,6 +134,9 @@ public class NoteSpawner : MonoBehaviour
 
         if (holdNotePrefab != null && r < evilChance + holdChance)
             return holdNotePrefab;
+
+        if (healthNotePrefab != null && r < evilChance + holdChance + healthChance)
+            return healthNotePrefab;
 
         return notePrefab;
     }
