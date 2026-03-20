@@ -5304,7 +5304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 0.5
-  emissionIntensity: 2
+  emissionIntensity: 8
   danceColors:
   - {r: 1, g: 0.3, b: 0, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
@@ -10134,7 +10134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 0.5
-  emissionIntensity: 2
+  emissionIntensity: 8
   danceColors:
   - {r: 1, g: 0.3, b: 0, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
@@ -11186,7 +11186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 0.5
-  emissionIntensity: 2
+  emissionIntensity: 8
   danceColors:
   - {r: 1, g: 0.3, b: 0, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
@@ -35268,7 +35268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 0.5
-  emissionIntensity: 2
+  emissionIntensity: 8
   danceColors:
   - {r: 1, g: 0.3, b: 0, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
@@ -53629,7 +53629,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3386874042111909913, guid: eed19facfe625b44ca6f0febc8585331, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 166.33
+      value: 165
       objectReference: {fileID: 0}
     - target: {fileID: 3386874042111909913, guid: eed19facfe625b44ca6f0febc8585331, type: 3}
       propertyPath: m_LocalPosition.y
@@ -53637,7 +53637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3386874042111909913, guid: eed19facfe625b44ca6f0febc8585331, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.31
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 3386874042111909913, guid: eed19facfe625b44ca6f0febc8585331, type: 3}
       propertyPath: m_LocalRotation.w
