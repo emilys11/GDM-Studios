@@ -22,8 +22,10 @@ public class PlayerAnimationController : MonoBehaviour
 
     void Hurt()
     {
-        if (isPlaying) return;
-        animator.SetTrigger("Hurt");
+        StopAllCoroutines();
+
+        animator.Play("fighters_hurt", 0, 0f);
+
         StartCoroutine(WaitForAnimation());
     }
 

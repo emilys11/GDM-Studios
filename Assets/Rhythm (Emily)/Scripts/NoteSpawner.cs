@@ -7,6 +7,8 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] private GameObject evilNotePrefab;
     [SerializeField] private GameObject holdNotePrefab;
 
+    [SerializeField] private GameObject healthNotePrefab;
+
     [SerializeField] private RectTransform[] laneParents;
     [SerializeField] private NoteLane[] lanes;
 
@@ -27,7 +29,7 @@ public class NoteSpawner : MonoBehaviour
 
     [Range(0f, 1f)] [SerializeField] private float evilChance = 0.15f;
     [Range(0f, 1f)] [SerializeField] private float holdChance = 0.20f;
-
+    [Range(0f, 1f)] [SerializeField] private float healthChance = 0.01f;
     void OnEnable()
     {
         originalSpeed = noteSpeed;
@@ -132,6 +134,9 @@ public class NoteSpawner : MonoBehaviour
 
         if (holdNotePrefab != null && r < evilChance + holdChance)
             return holdNotePrefab;
+
+        if (healthNotePrefab != null && r < evilChance + holdChance + healthChance)
+            return healthNotePrefab;
 
         return notePrefab;
     }

@@ -40,29 +40,45 @@ public class NoteLane : MonoBehaviour
 
     public void Unregister(INote note)
     {
-        if (notes.Count > 0 && notes.Peek() == note)
-            notes.Dequeue();
+        Queue<INote> newQueue = new Queue<INote>();
+
+        while (notes.Count > 0)
+        {
+            var n = notes.Dequeue();
+            if (n != note)
+                newQueue.Enqueue(n);
+        }
+
+        notes = newQueue;
     }
 
     public void HandleInput()
     {
-        if (notes.Count == 0)
+        while (notes.Count > 0)
         {
-            hitAnim.PlayFeedback(hitAnim.missSprite);
+            var note = notes.Peek();
+
+            if (note == null)
+            {
+                notes.Dequeue();
+                continue;
+            }
+
+            bool resolved = note.TryResolve();
+
+            if (resolved)
+            {
+                hitAnim.PlayFeedback(hitAnim.hitSprite);
+            }
+            else
+            {
+                hitAnim.PlayFeedback(hitAnim.missSprite);
+            }
+
             return;
         }
 
-        INote note = notes.Peek();
-        bool resolved = note.TryResolve();
-
-        if (resolved)
-        {
-            hitAnim.PlayFeedback(hitAnim.hitSprite);
-        }
-        else
-        {
-            hitAnim.PlayFeedback(hitAnim.missSprite);
-        }
+        hitAnim.PlayFeedback(hitAnim.emptySprite);
     }
 
     public bool IsKeyHeld()

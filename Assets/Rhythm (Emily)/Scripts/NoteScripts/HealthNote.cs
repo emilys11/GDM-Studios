@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-public class RegularNote : MonoBehaviour, INote
+public class HealthNote : MonoBehaviour, INote
 {
     [SerializeField] private float speed = 400f;
     [SerializeField] private double hitWindow = 0.3f;
@@ -39,6 +39,16 @@ public class RegularNote : MonoBehaviour, INote
         }
     }
 
+    void Miss()
+    {
+        if (isResolved) return;
+        isResolved = true;
+        UnityEngine.Debug.Log("Missed from: " + gameObject.name);
+        RhythmEvents.NoteMissed();
+        lane.PlayMiss();
+        Destroy(gameObject);
+    }
+
     public void SetSpeed(float s)
     {
         speed = s;
@@ -62,16 +72,12 @@ public class RegularNote : MonoBehaviour, INote
         double current = AudioSettings.dspTime;
         double error = current - hitDspTime;
 
-        float y = MathF.Abs(rect.anchoredPosition.y);
-
-
-        if (y <= hitLineY + hitYWindow) //not too early or late
+        if (Math.Abs(error) <= hitWindow)
         {
             Hit();
             return true;
         }
 
-        Miss();
         return false;
     }
 
@@ -79,17 +85,7 @@ public class RegularNote : MonoBehaviour, INote
     {
         isResolved = true;
         lane.PlayHit();
-        RhythmEvents.NoteHit();
-        Destroy(gameObject);
-    }
-
-    void Miss()
-    {
-        if (isResolved) return;
-        isResolved = true;
-        UnityEngine.Debug.Log("Missed from: " + gameObject.name);
-        RhythmEvents.NoteMissed();
-        lane.PlayMiss();
+        RhythmEvents.HealthNoteHit();
         Destroy(gameObject);
     }
 
