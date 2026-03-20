@@ -55,6 +55,7 @@ Thank you. I shall try my best.
 
 
 >
+SECOND KEY
 
 
 ASTRONAUT
@@ -67,6 +68,10 @@ Congratulations, I knew you could do it! Now, for the second key, you must pass 
 
 CRAB
 It can be found at the end of the road to the right. Come back to see me once you have finished it.
+
+
+>
+COMPLETION
 
 
 ASTRONAUT

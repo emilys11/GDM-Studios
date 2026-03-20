@@ -26,16 +26,9 @@ public class Dialogue : MonoBehaviour
     private int index;
 
     private bool textPlaying = false;
+    public bool dialogueFinished = false;
     void Start()
     {
-        //int i = 0;
-        //while (i < crabLines.Length && (crabLines[i].Equals("Astronaut\n") || crabLines[i].Equals("Crab\n")))
-        //{
-        //    lines[i] = crabLines[i];
-        //    lines[i+1] = crabLines[i+1];
-        //    i += 2;
-        //}
-
 
         textMesh = GetComponent<TextMeshProUGUI>();
         nameText = namePlate.GetComponent<TextMeshProUGUI>();
@@ -55,33 +48,52 @@ public class Dialogue : MonoBehaviour
     {
         interactmsg.SetActive(playerDialogue.canTalk && !textPlaying);
         dialogueBox.SetActive(textPlaying);
-        if (Input.GetKeyDown(KeyCode.E) && playerDialogue.canTalk) //&& playerDialogue.canTalk
+        if (Input.GetKeyDown(KeyCode.E) && textPlaying) //&& playerDialogue.canTalk
         {
-            if (!textPlaying)
+            //if (!textPlaying)
+            //{
+            //    playerDialogue.disableMovement(); //Prevent them from moving so they cant walk away
+            //    StartDialogue();
+            //}
+            //else
+            //{
+            //    if (textMesh.text == lines[index])
+            //    {
+            //        NextLine();
+            //    }
+            //    else
+            //    {
+            //        StopAllCoroutines();
+            //        textMesh.text = lines[index];
+            //    }
+            //}
+            if (textMesh.text == lines[index])
             {
-                playerDialogue.disableMovement(); //Prevent them from moving so they cant walk away
-                StartDialogue();
+                NextLine();
             }
             else
             {
-                if (textMesh.text == lines[index])
-                {
-                    NextLine();
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    textMesh.text = lines[index];
-                }
+                StopAllCoroutines();
+                textMesh.text = lines[index];
             }
+        }
+
+        if (nameText.text.CompareTo(">\r") == 0) //To breakdown dialogue
+        {
+            StopAllCoroutines();
+            exitDialogue();
+            index++;
         }
     }
 
     public void StartDialogue()
     {
-        readScript();
+        if(lines == null)
+        {
+            readScript();
+            index = 0;
+        }
 
-        index = 0;
         StartCoroutine(TypeLine());
         textPlaying = true;
     }
@@ -92,7 +104,7 @@ public class Dialogue : MonoBehaviour
         {
             //string name = lines[index];
 
-            nameText.text = lines[index];
+            nameText.text = lines[index]; //Get name of speaker
             if (lines[index].CompareTo("ASTRONAUT\r") == 0)
             {
                 nameText.color = Color.ghostWhite;
@@ -105,8 +117,6 @@ public class Dialogue : MonoBehaviour
             {
                 nameText.color = Color.red;
             }
-
-            //Get name of speaker
 
             index++;
 
@@ -128,9 +138,16 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            textPlaying = false;
-            textMesh.SetText(string.Empty);
-            playerDialogue.enableMovement(); //Allow movement again
+            exitDialogue();
         }
+    }
+
+    void exitDialogue()
+    {
+        textPlaying = false;
+        textMesh.SetText(string.Empty);
+        nameText.SetText(string.Empty);
+        playerDialogue.enableMovement(); //Allow movement again
+        dialogueFinished = true;
     }
 }
