@@ -8,15 +8,29 @@ public class ColorChanger : MonoBehaviour
     [Header("Glow Settings")]
     public float emissionIntensity = 3f;
 
-    [Header("Dancefloor Colors")]
+    [Header("Dancefloor Colors - used when Simon is NOT active")]
     public Color[] danceColors =
     {
-        new Color(1f, 0.3f, 0f),
-        Color.red,
-        new Color(0.7f, 0f, 1f),
-        new Color(0f, 1f, 0.2f),
-        Color.yellow,
+        new Color32(255, 77, 0, 255),    // orange
+        new Color32(255, 0, 0, 255),     // red
+        new Color32(179, 0, 255, 255),   // purple
+        new Color32(0, 255, 80, 255),    // green
+        new Color32(255, 255, 0, 255),   // yellow
         Color.white
+    };
+
+    [Header("Simon Game Idle State")]
+    public bool isCenterTile = false;
+    public Color simonIdleColor = Color.grey;
+
+    [Header("Section Color")]
+    public int sectionIndex = 0;
+    public Color[] sectionColors =
+    {
+        new Color32(250, 13, 13, 255),   // red    #FA0D0D
+        new Color32(0, 255, 255, 255),   // blue   #00FFFF
+        new Color32(0, 255, 70, 255),    // green  #00FF46
+        new Color32(223, 255, 0, 255)    // yellow #DFFF00
     };
 
     private Renderer rend;
@@ -28,6 +42,8 @@ public class ColorChanger : MonoBehaviour
 
     private float defaultEmission;
     private float currentEmission;
+
+    private bool simonGameActive = false;
     private Color currentColor = Color.white;
 
     void Start()
@@ -43,15 +59,47 @@ public class ColorChanger : MonoBehaviour
             currentColor = danceColors[Random.Range(0, danceColors.Length)];
 
         ApplyCurrentVisuals();
-        InvokeRepeating(nameof(ChangeColor), interval, interval);
+        InvokeRepeating(nameof(ChangeColor), 0f, interval);
     }
 
     void ChangeColor()
     {
         if (mat == null) return;
 
-        if (!overrideActive && danceColors.Length > 0)
-            currentColor = danceColors[Random.Range(0, danceColors.Length)];
+        if (overrideActive)
+        {
+            ApplyCurrentVisuals();
+            return;
+        }
+
+        if (simonGameActive)
+        {
+            if (isCenterTile)
+            {
+                if (sectionIndex >= 0 && sectionIndex < sectionColors.Length)
+                {
+                    currentColor = sectionColors[sectionIndex];
+                    currentEmission = defaultEmission;
+                }
+                else
+                {
+                    currentColor = simonIdleColor;
+                    currentEmission = defaultEmission * 0.4f;
+                }
+            }
+            else
+            {
+                currentColor = simonIdleColor;
+                currentEmission = defaultEmission * 0.4f;
+            }
+        }
+        else
+        {
+            if (danceColors.Length > 0)
+                currentColor = danceColors[Random.Range(0, danceColors.Length)];
+
+            currentEmission = defaultEmission;
+        }
 
         ApplyCurrentVisuals();
     }
@@ -83,7 +131,7 @@ public class ColorChanger : MonoBehaviour
     public void ClearOverride()
     {
         overrideActive = false;
-        ApplyCurrentVisuals();
+        ChangeColor();
     }
 
     public void SetEmissionMultiplier(float multiplier)
@@ -96,5 +144,11 @@ public class ColorChanger : MonoBehaviour
     {
         currentEmission = defaultEmission;
         ApplyCurrentVisuals();
+    }
+
+    public void SetSimonGameActive(bool active)
+    {
+        simonGameActive = active;
+        ChangeColor();
     }
 }
