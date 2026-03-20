@@ -50,6 +50,7 @@ public class PlayerDialogue : MonoBehaviour
     //{
     //    if (other.gameObject.CompareTag("NPC"))
     //    {
+    //        dialogue.dialogueFinished = false;
     //        canTalk = false;
     //    }
     //}
