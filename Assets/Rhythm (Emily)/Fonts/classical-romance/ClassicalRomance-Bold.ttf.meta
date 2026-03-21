@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ff077a0f17c57e488a9acdfb9db690c
+guid: 5f424ac4e48e35a4eb0a67db93e25b37
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - PixelWarden
+  - Classical Romance
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
