@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject loseScreen;
 
     [SerializeField] private string nextPlanetScene;
+    public static bool isNextPlanet = false;
     void OnEnable()
     {
         RhythmEvents.OnDeath += EnableDeathScreen;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void NextPlanet()
     {
+        isNextPlanet = true;
         SceneManager.LoadScene(nextPlanetScene);
     }
 

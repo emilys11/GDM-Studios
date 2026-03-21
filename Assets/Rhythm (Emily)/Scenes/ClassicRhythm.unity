@@ -849,7 +849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 1950214681}
   loseScreen: {fileID: 1858283919}
-  nextPlanetScene: Planet_2
+  nextPlanetScene: Planet_1_Boss
 --- !u!4 &326253604
 Transform:
   m_ObjectHideFlags: 0
@@ -1172,6 +1172,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361932455}
   m_CullTransparentMesh: 1
+--- !u!1 &367446179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367446181}
+  - component: {fileID: 367446180}
+  m_Layer: 0
+  m_Name: Transition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &367446180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367446179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9f8ece3ca024f65b7bb01458aced7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transition: {fileID: 20718713}
+  transitionTime: 1
+  sceneToLoad: ClassicRhythm
+--- !u!4 &367446181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367446179}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &425359259
 GameObject:
   m_ObjectHideFlags: 0
@@ -6769,5 +6816,4 @@ SceneRoots:
   - {fileID: 1071574615}
   - {fileID: 326253604}
   - {fileID: 1083229809}
-  - {fileID: 1130517431}
-  - {fileID: 577784114}
+  - {fileID: 367446181}
