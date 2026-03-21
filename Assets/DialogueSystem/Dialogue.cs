@@ -3,75 +3,97 @@ using TMPro;
 using System.Collections;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Data;
 
 public class Dialogue : MonoBehaviour
 {
-    //TODO: Make it so after talking once, talking to the npc again repeats their last line? (Use queues but last line doesnt exit q?), implement movement restriction while they are talking in PlayerDialogue
-    [SerializeField] TextAsset script;
+    //TODO: Make it so after talking once, talking to the npc again repeats their last line? (Use queues but last line doesnt exit q?)
+    
 
     
     [SerializeField] float textSpeed;
     [SerializeField] GameObject player;
     [SerializeField] GameObject interactmsg;
-    [SerializeField] GameObject textBox;
+    [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject namePlate;
+
+    private TextAsset script;
     private string[] lines;
 
     private PlayerDialogue playerDialogue;
     private TextMeshProUGUI textMesh;
+    private TextMeshProUGUI nameText;
     private int index;
 
     private bool textPlaying = false;
+    public bool dialogueFinished = false;
     void Start()
     {
-        readTxt();
-        //int i = 0;
-        //while (i < crabLines.Length && (crabLines[i].Equals("Astronaut\n") || crabLines[i].Equals("Crab\n")))
-        //{
-        //    lines[i] = crabLines[i];
-        //    lines[i+1] = crabLines[i+1];
-        //    i += 2;
-        //}
-
 
         textMesh = GetComponent<TextMeshProUGUI>();
+        nameText = namePlate.GetComponent<TextMeshProUGUI>();
+
         textMesh.SetText(string.Empty);
+        nameText.SetText(string.Empty);
         playerDialogue = player.GetComponent<PlayerDialogue>();
         //StartDialogue();
         
     }
-    void readTxt()
+    void readScript()
     {
+        script = playerDialogue.npcScript;
         lines = Regex.Split(Regex.Replace(script.text, @"^\s*$\n", string.Empty, RegexOptions.Multiline), "\n"); //Format input script
     }
     private void Update()
     {
         interactmsg.SetActive(playerDialogue.canTalk && !textPlaying);
-        textBox.SetActive(textPlaying);
-        if (Input.GetKeyDown(KeyCode.E) && playerDialogue.canTalk) //&& playerDialogue.canTalk
+        dialogueBox.SetActive(textPlaying);
+        if (Input.GetKeyDown(KeyCode.E) && textPlaying) //&& playerDialogue.canTalk
         {
-            if (!textPlaying)
+            //if (!textPlaying)
+            //{
+            //    playerDialogue.disableMovement(); //Prevent them from moving so they cant walk away
+            //    StartDialogue();
+            //}
+            //else
+            //{
+            //    if (textMesh.text == lines[index])
+            //    {
+            //        NextLine();
+            //    }
+            //    else
+            //    {
+            //        StopAllCoroutines();
+            //        textMesh.text = lines[index];
+            //    }
+            //}
+            if (textMesh.text == lines[index])
             {
-                playerDialogue.disableMovement(); //Prevent them from moving so they cant walk away
-                StartDialogue();
+                NextLine();
             }
             else
             {
-                if (textMesh.text == lines[index - 1] + "\n\n" + lines[index])
-                {
-                    NextLine();
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    textMesh.text = lines[index-1] + "\n\n" + lines[index];
-                }
+                StopAllCoroutines();
+                textMesh.text = lines[index];
             }
+        }
+
+        if (nameText.text.CompareTo(">\r") == 0) //To breakdown dialogue
+        {
+            StopAllCoroutines();
+            exitDialogue();
+            index++;
         }
     }
 
     public void StartDialogue()
     {
-        index = 0;
+        if(lines == null)
+        {
+            readScript();
+            index = 0;
+        }
+
         StartCoroutine(TypeLine());
         textPlaying = true;
     }
@@ -80,7 +102,22 @@ public class Dialogue : MonoBehaviour
     {
         if(index % 2 == 0)
         {
-            textMesh.text = lines[index] + "\n\n"; //Get name of speaker
+            //string name = lines[index];
+
+            nameText.text = lines[index]; //Get name of speaker
+            if (lines[index].CompareTo("ASTRONAUT\r") == 0)
+            {
+                nameText.color = Color.ghostWhite;
+            }
+            else if(lines[index].CompareTo("CRAB\r") == 0)
+            {
+                nameText.color = Color.green;
+            }
+            else //Bosses
+            {
+                nameText.color = Color.red;
+            }
+
             index++;
 
         }
@@ -101,9 +138,16 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            textPlaying = false;
-            textMesh.SetText(string.Empty);
-            playerDialogue.enableMovement(); //Allow movement again
+            exitDialogue();
         }
+    }
+
+    void exitDialogue()
+    {
+        textPlaying = false;
+        textMesh.SetText(string.Empty);
+        nameText.SetText(string.Empty);
+        playerDialogue.enableMovement(); //Allow movement again
+        dialogueFinished = true;
     }
 }
