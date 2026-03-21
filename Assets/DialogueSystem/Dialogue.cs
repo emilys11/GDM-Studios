@@ -17,10 +17,6 @@ public class Dialogue : MonoBehaviour
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject namePlate;
 
-    [SerializeField] private Animator animator;
-
-    [SerializeField] private LevelLoader levelLoader;
-
     private TextAsset script;
     private string[] lines;
 
@@ -85,7 +81,7 @@ public class Dialogue : MonoBehaviour
         if (nameText.text.CompareTo(">\r") == 0) //To breakdown dialogue
         {
             StopAllCoroutines();
-            StartCoroutine(exitDialogue());
+            exitDialogue();
             index++;
         }
     }
@@ -142,20 +138,16 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            StartCoroutine(exitDialogue());
+            exitDialogue();
         }
     }
 
-    IEnumerator exitDialogue()
+    void exitDialogue()
     {
-        Debug.Log("exitdialogue");
         textPlaying = false;
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
         playerDialogue.enableMovement(); //Allow movement again
         dialogueFinished = true;
-        animator.SetBool("Dialogue Finished", true);
-        yield return StartCoroutine(levelLoader.LoadLevel(levelLoader.sceneToLoad));
-        Debug.Log("exitdialogue after");
     }
 }
