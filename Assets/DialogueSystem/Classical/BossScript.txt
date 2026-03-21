@@ -1,0 +1,26 @@
+﻿BACHOVENPINANOFF
+Who dares enter my castle without my permission?
+
+
+ASTRONAUT
+Greetings, Bachovenpinanoff. I am an ambassador from —
+
+
+>
+BATTLE START
+
+
+BACHOVENPINANOFF
+Nooooo! You can’t have beaten me! That’s not possible! Who are you?!
+
+
+ASTRONAUT
+I am an ambassador representing GDM, from outside of your star system. We are willing to open up trade negotiations that will benefit both parties. 
+
+
+ASTRONAUT
+But first, you must stop harming this planet and go back to being its just ruler.
+
+
+BACHOVENPINANOFF
+Trade negotiations, eh? Fine, I will do as you say. But you will never overturn my master, they are too powerful, even for you…
