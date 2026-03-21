@@ -3,47 +3,129 @@ using System.Collections.Generic;
 
 public class SFXManager : MonoBehaviour
 {
-    public static SFXManager Instance;
 
     [System.Serializable]
     public class Sound
     {
         public string id;
         public AudioClip clip;
+        [Range(0f, 1f)] public float volume = 1f;
     }
 
     public List<Sound> sounds = new List<Sound>();
 
-    private Dictionary<string, AudioClip> soundDict;
-    private AudioSource audioSource;
+    private Dictionary<string, Sound> soundDict;
+
+    [Header("Audio Settings")]
+    [Range(0f, 1f)] public float masterVolume = 1f;
+    public int poolSize = 5;
+
+    private List<AudioSource> sources = new List<AudioSource>();
+
+    [Header("Spam Protection")]
+    public float minInterval = 0.05f; 
+    private Dictionary<string, float> lastPlayTime = new Dictionary<string, float>();
+
+    void Awake()
+    {
+
+        for (int i = 0; i < poolSize; i++)
+        {
+            AudioSource src = gameObject.AddComponent<AudioSource>();
+            src.volume = 2f;
+            src.playOnAwake = false;
+            sources.Add(src);
+        }
+
+        soundDict = new Dictionary<string, Sound>();
+
+        foreach (var s in sounds)
+        {
+            if (string.IsNullOrEmpty(s.id))
+            {
+                Debug.LogWarning("Sound with empty ID detected.");
+                continue;
+            }
+
+            if (soundDict.ContainsKey(s.id))
+            {
+                Debug.LogWarning($"Duplicate sound ID: {s.id}");
+                continue;
+            }
+
+            soundDict.Add(s.id, s);
+        }
+
+    }
 
     void OnEnable()
     {
         RhythmEvents.OnNoteHit += PlayNoteHit;
+        RhythmEvents.OnHealthNoteHit += PlayNoteHit;
+        RhythmEvents.OnNoteMiss += PlayNoteMiss;
+        RhythmEvents.OnCombo += PlayCombo;
+        RhythmEvents.OnWin += PlayWin;
+        RhythmEvents.OnDeath += PlayDeath;
     }
 
-    void Awake()
+    void OnDisable()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        RhythmEvents.OnNoteHit -= PlayNoteHit;
+        RhythmEvents.OnHealthNoteHit -= PlayNoteHit;
+        RhythmEvents.OnNoteMiss -= PlayNoteMiss;
+        RhythmEvents.OnCombo -= PlayCombo;
+        RhythmEvents.OnWin -= PlayWin;
+        RhythmEvents.OnDeath -= PlayDeath;
+    }
 
-        audioSource = gameObject.AddComponent<AudioSource>();
-
-        soundDict = new Dictionary<string, AudioClip>();
-
-        foreach (var s in sounds) soundDict[s.id] = s.clip;
+    AudioSource GetAvailableSource()
+    {
+        foreach (var src in sources)
+        {
+            if (!src.isPlaying) return src;
+        }
+        return sources[0];
     }
 
     public void Play(string id)
     {
-        if (soundDict.ContainsKey(id))
+        if (!soundDict.TryGetValue(id, out Sound s) || s.clip == null)
         {
-            audioSource.PlayOneShot(soundDict[id]);
+            return;
         }
+
+        if (!lastPlayTime.ContainsKey(id)) lastPlayTime[id] = -999f;
+
+        if (Time.time - lastPlayTime[id] < minInterval) return;
+
+        lastPlayTime[id] = Time.time;
+
+        AudioSource src = GetAvailableSource();
+        src.PlayOneShot(s.clip, s.volume);
     }
 
     void PlayNoteHit()
     {
-        Play("noteHit");
+        Play("hit");
+    }
+
+    void PlayNoteMiss()
+    {
+        Play("miss");
+    }
+
+    void PlayCombo()
+    {
+        Play("combo");
+    }
+
+    void PlayWin()
+    {
+        Play("win");
+    }
+
+    void PlayDeath()
+    {
+        Play("death");
     }
 }

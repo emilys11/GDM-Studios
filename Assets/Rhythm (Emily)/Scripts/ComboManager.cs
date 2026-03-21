@@ -41,6 +41,7 @@ public class ComboManager : MonoBehaviour
 
     void AddCombo()
     {
+        
         consecutiveHits++;
         int oldMultiplier = multiplier;
         multiplier = 1 + (consecutiveHits / hitsPerMultiplier);
@@ -49,6 +50,7 @@ public class ComboManager : MonoBehaviour
 
         if (multiplier > oldMultiplier)
         {
+            RhythmEvents.ComboIncrease();
             if (scaleCoroutine != null) StopCoroutine(scaleCoroutine);
             scaleCoroutine = StartCoroutine(AnimateScaleAndColor());
         }
