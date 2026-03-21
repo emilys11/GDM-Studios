@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ff077a0f17c57e488a9acdfb9db690c
+guid: 9d32896353b88c44fbde1344f6de226a
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - PixelWarden
+  - Classical Garments Demo
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ff077a0f17c57e488a9acdfb9db690c
+guid: 75a3eb7a8778400489269639c8ed7495
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - PixelWarden
+  - Qokipops
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
