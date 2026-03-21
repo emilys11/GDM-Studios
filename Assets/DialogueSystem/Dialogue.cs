@@ -19,7 +19,8 @@ public class Dialogue : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
-    [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private LevelLoader firstLevelLoader;
+    [SerializeField] private LevelLoader secondLevelLoader;
 
     private TextAsset script;
     private string[] lines;
@@ -31,6 +32,7 @@ public class Dialogue : MonoBehaviour
 
     private bool textPlaying = false;
     public bool dialogueFinished = false;
+    private bool resumedDialogue = false;
     void Start()
     {
 
@@ -85,19 +87,31 @@ public class Dialogue : MonoBehaviour
         if (nameText.text.CompareTo(">\r") == 0) //To breakdown dialogue
         {
             StopAllCoroutines();
-            StartCoroutine(exitDialogue());
             index++;
+            StartCoroutine(exitDialogue());
         }
     }
 
     public void StartDialogue()
     {
-        if(lines == null)
+        readScript();
+
+        if (GameManager.isNextPlanet)
         {
-            readScript();
+            index = DialogueState.savedIndex;
+            GameManager.isNextPlanet = false;
+            resumedDialogue = true;
+            Debug.Log("StartDialogue: resuming at index " + index);
+        }
+        else
+        {
             index = 0;
+            resumedDialogue = false;
+            Debug.Log("StartDialogue: starting fresh");
         }
 
+        textMesh.SetText(string.Empty);
+        nameText.SetText(string.Empty);
         StartCoroutine(TypeLine());
         textPlaying = true;
     }
@@ -131,31 +145,53 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void NextLine()
-    {
-
-        if (index < lines.Length - 1)
+        public void NextLine()
         {
-            index++;
-            textMesh.SetText(string.Empty);
-            StartCoroutine(TypeLine());
-        }
-        else
-        {
-            StartCoroutine(exitDialogue());
-        }
-    }
 
-    IEnumerator exitDialogue()
+            if (index < lines.Length - 1)
+            {
+                index++;
+                textMesh.SetText(string.Empty);
+                StartCoroutine(TypeLine());
+            }
+            else
+            {
+                StartCoroutine(exitDialogue());
+            }
+        }
+
+        IEnumerator exitDialogue()
     {
-        Debug.Log("exitdialogue");
+        Debug.Log("exitDialogue called. resumedDialogue = " + resumedDialogue + ", index = " + index);
+
+        DialogueState.savedIndex = index;
+
         textPlaying = false;
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
-        playerDialogue.enableMovement(); //Allow movement again
+        playerDialogue.enableMovement();
         dialogueFinished = true;
-        animator.SetBool("Dialogue Finished", true);
-        yield return StartCoroutine(levelLoader.LoadLevel(levelLoader.sceneToLoad));
-        Debug.Log("exitdialogue after");
+
+        if (resumedDialogue)
+        {
+            Debug.Log("Using secondLevelLoader");
+
+            if (secondLevelLoader == null)
+            {
+                yield break;
+            }
+
+            yield return StartCoroutine(secondLevelLoader.LoadLevel(secondLevelLoader.sceneToLoad));
+            yield break;
+        }
+
+        Debug.Log("Using firstLevelLoader");
+
+        if (firstLevelLoader == null)
+        {
+            yield break;
+        }
+
+        yield return StartCoroutine(firstLevelLoader.LoadLevel(firstLevelLoader.sceneToLoad));
     }
 }
