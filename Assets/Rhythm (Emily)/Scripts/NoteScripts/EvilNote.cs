@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+
 public class EvilNote : MonoBehaviour, INote
 {
     [SerializeField] private float speed = 400f;
@@ -9,17 +10,14 @@ public class EvilNote : MonoBehaviour, INote
     private RectTransform rect;
     private NoteLane lane;
     private double hitDspTime;
-
     private bool isResolved;
 
     [SerializeField] private Image image;
-
     [SerializeField] private float missLineY = -400f;
 
     void Awake()
     {
         rect = GetComponent<RectTransform>();
-
         image = GetComponent<Image>();
         image.sprite = NoteSkinManager.CurrentSkin.evilNote;
     }
@@ -30,22 +28,14 @@ public class EvilNote : MonoBehaviour, INote
 
         rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
 
-        double current = AudioSettings.dspTime;
-
-       if (!isResolved && rect.anchoredPosition.y < missLineY)
+        if (lane != null && lane.IsFirstNote(this) && rect.anchoredPosition.y < missLineY)
         {
             isResolved = true;
-
-            RhythmEvents.NoteHit();
-
             Destroy(gameObject);
         }
     }
 
-    public void SetSpeed(float s)
-    {
-        speed = s;
-    }
+    public void SetSpeed(float s) => speed = s;
 
     public void SetLane(NoteLane l)
     {
@@ -53,17 +43,14 @@ public class EvilNote : MonoBehaviour, INote
         lane.Register(this);
     }
 
-    public void SetHitTime(double dspTime)
-    {
-        hitDspTime = dspTime;
-    }
+    public void SetHitTime(double dspTime) => hitDspTime = dspTime;
 
     public bool TryResolve()
     {
         if (isResolved) return false;
+        if (lane != null && !lane.IsFirstNote(this)) return false;
 
-        double current = AudioSettings.dspTime;
-        double error = Math.Abs(current - hitDspTime);
+        double error = Math.Abs(AudioSettings.dspTime - hitDspTime);
 
         if (error <= hitWindow)
         {
@@ -79,7 +66,6 @@ public class EvilNote : MonoBehaviour, INote
 
     void OnDestroy()
     {
-        if (lane != null)
-            lane.Unregister(this);
+        lane?.Unregister(this);
     }
 }

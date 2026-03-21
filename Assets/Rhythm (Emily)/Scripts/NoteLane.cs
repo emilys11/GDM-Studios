@@ -13,6 +13,7 @@ public class NoteLane : MonoBehaviour
         RhythmEvents.OnWin += ResetLane;
         RhythmEvents.OnWin += ResetLane;
         //rhythm events onr eady
+        RhythmEvents.OnReady += ResetLane;
     }
 
     void OnDisable()
@@ -54,31 +55,40 @@ public class NoteLane : MonoBehaviour
 
     public void HandleInput()
     {
-        while (notes.Count > 0)
+        if (notes.Count == 0)
         {
-            var note = notes.Peek();
-
-            if (note == null)
-            {
-                notes.Dequeue();
-                continue;
-            }
-
-            bool resolved = note.TryResolve();
-
-            if (resolved)
-            {
-                hitAnim.PlayFeedback(hitAnim.hitSprite);
-            }
-            else
-            {
-                hitAnim.PlayFeedback(hitAnim.missSprite);
-            }
-
+            hitAnim.PlayFeedback(hitAnim.emptySprite);
             return;
         }
 
-        hitAnim.PlayFeedback(hitAnim.emptySprite);
+        var note = notes.Peek();
+
+        if (note == null)
+        {
+            notes.Dequeue();
+            return;
+        }
+
+        if (!IsFirstNote(note))
+            return;
+
+        bool resolved = note.TryResolve(); 
+
+        if (resolved)
+        {
+            notes.Dequeue(); 
+            hitAnim.PlayFeedback(hitAnim.hitSprite);
+        }
+        else
+        {
+            notes.Dequeue(); 
+            hitAnim.PlayFeedback(hitAnim.missSprite);
+        }
+    }
+
+    public bool IsFirstNote(INote note)
+    {
+        return notes.Count > 0 && notes.Peek() == note;
     }
 
     public bool IsKeyHeld()

@@ -33,9 +33,13 @@ public class RegularNote : MonoBehaviour, INote
 
         rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
 
-        if (rect.anchoredPosition.y < missLineY)
+        
+        if (lane != null && lane.IsFirstNote(this) && rect.anchoredPosition.y < missLineY)
         {
-            Miss();
+            isResolved = true;
+            RhythmEvents.NoteMissed(); 
+            lane.PlayMiss();
+            Destroy(gameObject);
         }
     }
 

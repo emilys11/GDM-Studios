@@ -10,7 +10,6 @@ public class HoldNote : MonoBehaviour, INote
 
     private RectTransform rect;
     private NoteLane lane;
-
     private double hitDspTime;
     private double holdDuration;
     private double holdStartTime;
@@ -39,8 +38,10 @@ public class HoldNote : MonoBehaviour, INote
         rect.anchoredPosition += Vector2.down * speed * Time.deltaTime;
         double current = AudioSettings.dspTime;
 
-        if (!holding && rect.anchoredPosition.y < missLineY)
+        if (!holding && lane != null && lane.IsFirstNote(this) && rect.anchoredPosition.y < missLineY)
+        {
             Miss();
+        }
 
         if (holding)
         {
@@ -63,7 +64,7 @@ public class HoldNote : MonoBehaviour, INote
         }
         else
         {
-            lane.EndHold(); 
+            lane.EndHold();
         }
     }
 
@@ -84,9 +85,9 @@ public class HoldNote : MonoBehaviour, INote
     public bool TryResolve()
     {
         if (isResolved || holding) return false;
+        if (lane != null && !lane.IsFirstNote(this)) return false;
 
         double error = Math.Abs(AudioSettings.dspTime - hitDspTime);
-
         if (error <= hitWindow)
         {
             holding = true;
@@ -100,8 +101,9 @@ public class HoldNote : MonoBehaviour, INote
 
     void Complete()
     {
+        if (isResolved) return;
         isResolved = true;
-        lane.EndHold(); 
+        lane.EndHold();
         RhythmEvents.NoteHit();
         Destroy(gameObject);
     }
@@ -110,14 +112,13 @@ public class HoldNote : MonoBehaviour, INote
     {
         if (isResolved) return;
         isResolved = true;
-        lane.EndHold(); 
+        lane.EndHold();
         RhythmEvents.NoteMissed();
         Destroy(gameObject);
     }
 
     void OnDestroy()
     {
-        if (lane != null)
-            lane.Unregister(this);
+        lane?.Unregister(this);
     }
 }
