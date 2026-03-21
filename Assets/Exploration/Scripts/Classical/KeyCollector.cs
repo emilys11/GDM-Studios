@@ -3,7 +3,7 @@ using UnityEngine;
 public class KeyCollector : MonoBehaviour
 {
     private PlayerDialogue  playerDialogue;
-    public int keysCollected = 0;
+    public static int keysCollected = 0;
 
     private void Start()
     {

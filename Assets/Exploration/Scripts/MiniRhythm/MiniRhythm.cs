@@ -4,6 +4,7 @@ public class MiniRhythm : MonoBehaviour
 {
     [SerializeField] private GameObject miniRhythm;
     [SerializeField] private string playerTag = "Player";
+    [SerializeField] private PlayerDialogue playerDialogue;
 
     private bool gameTriggered = false;
 
@@ -27,6 +28,9 @@ public class MiniRhythm : MonoBehaviour
     public void WinMinigame()
     {
         //insert winning logic here
+        KeyCollector.keysCollected++;
+        playerDialogue.resetDialogue();
+        Debug.Log("KEY HOE");
 
         //KEEP THIS
         miniRhythm.SetActive(false);

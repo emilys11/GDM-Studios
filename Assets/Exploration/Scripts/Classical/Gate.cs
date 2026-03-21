@@ -29,7 +29,7 @@ public class Gate : MonoBehaviour
     {
         if (playerInRange && !opened && Input.GetKeyDown(KeyCode.E))
         {
-            if (currentPlayer.keysCollected >= amountRequired)
+            if (KeyCollector.keysCollected >= amountRequired)
             {
                 OpenGate();
             }
