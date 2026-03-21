@@ -32,6 +32,8 @@ public class SimonDanceManager : MonoBehaviour
     private bool gameCompleted = false;
     private int currentRound = 0;
 
+    public GameObject gate;
+
     private void Start()
     {
         for (int i = 0; i < sections.Length; i++)
@@ -180,6 +182,9 @@ public class SimonDanceManager : MonoBehaviour
         {
             tile.SetSimonGameActive(false);
         }
+
+        //Gate logic
+        gate.SetActive(false);
 
     }
 
