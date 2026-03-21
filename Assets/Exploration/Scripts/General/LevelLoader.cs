@@ -7,14 +7,14 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
 
-    public string sceneToLoad; // 👈 add this
+    public string sceneToLoad;
 
     private bool isLoading = false;
 
 
     void Start()
     {
-        Debug.Log("Scene started, Animator enabled: " + GetComponent<Animator>().enabled);
+        //Debug.Log("Scene started, Animator enabled: " + GetComponent<Animator>().enabled);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -28,10 +28,11 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    IEnumerator LoadLevel(string sceneName)
+    public IEnumerator LoadLevel(string sceneName)
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneName);
+        Debug.Log("entering the scene");
     }
 }
