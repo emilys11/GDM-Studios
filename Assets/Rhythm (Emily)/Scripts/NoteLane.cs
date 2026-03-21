@@ -11,7 +11,6 @@ public class NoteLane : MonoBehaviour
     {
         RhythmEvents.OnDeath += ResetLane;
         RhythmEvents.OnWin += ResetLane;
-        RhythmEvents.OnWin += ResetLane;
         //rhythm events onr eady
         RhythmEvents.OnReady += ResetLane;
     }
@@ -81,7 +80,6 @@ public class NoteLane : MonoBehaviour
         }
         else
         {
-            notes.Dequeue(); 
             hitAnim.PlayFeedback(hitAnim.missSprite);
         }
     }

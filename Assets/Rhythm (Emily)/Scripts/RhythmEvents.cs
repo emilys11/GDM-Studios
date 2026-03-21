@@ -8,6 +8,8 @@ public class RhythmEvents : MonoBehaviour
     public static Action OnNoteMiss;
     public static Action OnBadInput;
 
+    public static Action OnCombo;
+
     [Header("Game Loop related")]
     public static Action OnReady;
     public static Action OnDeath;
@@ -17,6 +19,8 @@ public class RhythmEvents : MonoBehaviour
 
     public static void HealthNoteHit() => OnHealthNoteHit?.Invoke();
     public static void NoteMissed() => OnNoteMiss?.Invoke();
+
+    public static void ComboIncrease() => OnCombo?.Invoke();
     public static void BadInput() => OnBadInput?.Invoke();
     public static void Ready() => OnReady?.Invoke();
     public static void Death() => OnDeath?.Invoke();

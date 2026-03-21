@@ -57,6 +57,7 @@ public class HealthNote : MonoBehaviour, INote
 
     public bool TryResolve()
     {
+        RhythmEvents.HealthNoteHit();
         if (isResolved) return false;
         if (lane != null && !lane.IsFirstNote(this)) return false;
 

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 
 public class HitBar : MonoBehaviour
@@ -6,6 +7,8 @@ public class HitBar : MonoBehaviour
     private bool isReady = false;
 
     private NoteLane lane;
+    private float inputBufferTime = 0.1f;
+    private float lastInputTime;
 
     void Awake()
     {
@@ -36,11 +39,20 @@ public class HitBar : MonoBehaviour
         isReady = false;
     }
 
+
+
     void Update()
     {
-        if (Input.GetKeyDown(key) && isReady)
+        if (Input.GetKeyDown(key))
+        {
+            lastInputTime = Time.time;
+            UnityEngine.Debug.Log("key pressed: "+key);
+        }
+
+        if (isReady && Time.time - lastInputTime <= inputBufferTime)
         {
             lane.HandleInput();
+            lastInputTime = -999f;
         }
     }
 
