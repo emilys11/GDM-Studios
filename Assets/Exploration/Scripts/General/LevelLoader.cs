@@ -10,6 +10,22 @@ public class LevelLoader : MonoBehaviour
 
     [SerializeField] private string triggerName = "Start";
 
+    private bool isLoading = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Something entered trigger: " + other.name);
+
+        if (isLoading) return;
+
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player entered level loader trigger");
+            isLoading = true;
+            StartCoroutine(LoadLevel(sceneToLoad));
+        }
+    }
+
     public IEnumerator LoadLevel(string sceneName)
     {
         Debug.Log("LevelLoader on " + gameObject.name + " loading scene: " + sceneName);
