@@ -1,0 +1,106 @@
+ASTRONAUT
+Greetings! I have come to your planet from far away as an ambassador representing the planet GDM.
+
+
+SIR CRABIUS THE III
+Hello and welcome to Classico, Ambassador! Or as we say on this planet, <font="TheCalling SDF">Hello and welcome to Classico, Ambassador</font>
+
+
+ASTRONAUT
+Thank you! It seems a little… deserted and sad. No offence.
+
+
+SIR CRABIUS THE III
+You’re right. The soil is unfertile and a high number of trees have been chopped down. A lot of inhabitants have left in search of a better star system, and those that have stayed don’t go out much. 
+
+
+SIR CRABIUS THE III
+It’s dangerous these days…
+
+
+ASTRONAUT
+Oh no! What happened?
+
+
+SIR CRABIUS THE III
+A terrible evil has taken over this starsystem. The ruler of this planet, Bachovenpinanoff, who was once kind and just, has brought our world to the brink of death. They live in the castle behind me.
+
+
+ASTRONAUT
+Why not rebel against them?
+
+
+SIR CRABIUS THE III
+There are not many of us left, and I am but a puny servant. There is nothing I could do, except hope for better days. 
+
+
+ASTRONAUT
+Maybe I could help, then?
+
+
+SIR CRABIUS THE III
+That would be too much to ask. Seeing the resoluteness on your face. Oh, but if you insist. To get to the castle, you must obtain two keys. 
+
+
+SIR CRABIUS THE III
+The first one is on the road to the left and is guarded by a super vigilant android. They have but one weakness: they close their eyes to rest, but in an unpredictable pattern. 
+
+
+SIR CRABIUS THE III
+Get past them, and you will obtain the first key.  Come see me once you have done so. Good luck.
+
+
+ASTRONAUT
+Thank you. I shall try my best.
+
+
+>
+FIRST KEY OBTAINED
+
+
+ASTRONAUT
+I have succeeded! Here is the first key.
+
+
+SIR CRABIUS THE III
+Congratulations, I knew you could do it! Now, for the second key, you must pass the training I have created for you. This will give you the necessary preparation to beat Classico’s ruler. 
+
+
+SIR CRABIUS THE III
+It can be found at the end of the road to the right, inside the cottage. Come back to see me once you have finished it.
+
+
+>
+SECOND KEY OBTAINED
+
+
+ASTRONAUT
+I have completed your training. I feel ready to face Classico’s ruler.
+
+
+SIR CRABIUS THE III
+Perfect. Before you depart, do you have any questions for me?
+
+
+ASTRONAUT
+I was wondering, what happened to the ruler of Classico?
+
+
+SIR CRABIUS THE III
+You see, life in our star system rests on music. Once, this was a prosperous land, filled with its delicate sound. But one day, our ruler got corrupted by the Great Evil. 
+
+
+SIR CRABIUS THE III
+This evil has taken our music away causing us to lose our ways. The same happened to our neighbours, on Popula’. Our whole star system is dying.
+
+
+ASTRONAUT
+What is this Great Evil?
+
+
+SIR CRABIUS THE III
+Shivers I cannot say…
+
+
+SIR CRABIUS THE III
+If you are ready, you may enter the castle. I wish you luck, for all of our sakes.

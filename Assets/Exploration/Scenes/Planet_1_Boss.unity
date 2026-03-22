@@ -152114,7 +152114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f858e409bd4884d8d996e4211480db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcScript: {fileID: 4900000, guid: 64e45113b63583042a2b47273ec47b02, type: 3}
+  npcScript: {fileID: 4900000, guid: bac55da963e57ab4f962bf8b0f20d539, type: 3}
 --- !u!135 &1436791928
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -4,13 +4,14 @@ TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
   fontSize: 16
-  forceTextureCase: -2
+  forceTextureCase: 2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
   - Classical Garments Demo
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7e103cc3127ee774e9a7bf50fc1bb99d, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

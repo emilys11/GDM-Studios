@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 880a3cef942173d4e8d649cc7b3b15e7
+guid: 601bac964e2621e4e987e4699cf674f6
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,9 +9,8 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - New Glitch Demo
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: 4661d50e836eb3f488884252b8f35ac4, type: 3}
+  - Computer Pixel-7
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
