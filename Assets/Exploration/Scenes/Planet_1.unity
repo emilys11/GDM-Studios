@@ -20157,15 +20157,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2537879098188191312, guid: fe1915864d17c5346af8b80e16b3ce3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.3
+      value: -82
       objectReference: {fileID: 0}
     - target: {fileID: 2537879098188191312, guid: fe1915864d17c5346af8b80e16b3ce3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 49.498
+      value: 49.018
       objectReference: {fileID: 0}
     - target: {fileID: 2537879098188191312, guid: fe1915864d17c5346af8b80e16b3ce3c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -476.8
+      value: -478.9
       objectReference: {fileID: 0}
     - target: {fileID: 2537879098188191312, guid: fe1915864d17c5346af8b80e16b3ce3c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39067,6 +39067,8 @@ Transform:
   - {fileID: 161545822}
   - {fileID: 1947708124}
   - {fileID: 596606549}
+  - {fileID: 108690511}
+  - {fileID: 525550653}
   m_Father: {fileID: 1163190051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &882149807
@@ -88983,7 +88985,6 @@ Transform:
   - {fileID: 392543610}
   - {fileID: 175170464}
   - {fileID: 283133721}
-  - {fileID: 1857943973}
   - {fileID: 7585648}
   - {fileID: 1655637160}
   - {fileID: 1491392748}
@@ -88994,7 +88995,6 @@ Transform:
   - {fileID: 1026684054}
   - {fileID: 1697849166}
   - {fileID: 1344792128}
-  - {fileID: 820840293}
   - {fileID: 2104796612}
   - {fileID: 850453045}
   - {fileID: 1954710812}
@@ -117242,7 +117242,6 @@ MonoBehaviour:
   eyesClosedVisual: {fileID: 353276744}
   eyesOpenVisual: {fileID: 1260731260}
   vision: {fileID: 2046689836}
-  visionConeMesh: {fileID: 0}
 --- !u!120 &2046689835
 LineRenderer:
   serializedVersion: 2
@@ -117363,16 +117362,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2017368609}
-  visionDistance: 31.7
-  visionAngle: 41.6
   visionMask:
     serializedVersion: 2
     m_Bits: 513
-  coneDirectionOffset: 180
   eyeHeightOffset: 1.5
   playerTargetHeightOffset: 0.3
-  coneSegments: 30
-  coneHeightOffset: 0.2
+  visionWidth: 20
+  visionLength: 32
+  forwardOffset: 16
+  directionOffset: 180
+  visionRectangleVisual: {fileID: 0}
 --- !u!114 &2046689837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119397,7 +119396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 24971784}
   loseScreen: {fileID: 564522193}
-  nextPlanetScene: Planet_2
+  nextPlanetScene: Planet_1
 --- !u!1001 &2091085679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121786,3 +121785,4 @@ SceneRoots:
   - {fileID: 1468939848}
   - {fileID: 811923185}
   - {fileID: 279155891}
+  - {fileID: 999412090}
