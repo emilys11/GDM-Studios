@@ -4,34 +4,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public Animator transition;
-    public float transitionTime = 1f;
+    [SerializeField] private Animator transition;
+    [SerializeField] private float transitionTime = 1f;
+    public string sceneToLoad;
 
-    public string sceneToLoad; // 👈 add this
+    [SerializeField] private string triggerName = "Start";
 
-    private bool isLoading = false;
-
-
-    void Start()
+    public IEnumerator LoadLevel(string sceneName)
     {
-        Debug.Log("Scene started, Animator enabled: " + GetComponent<Animator>().enabled);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (isLoading) return;
+        Debug.Log("LevelLoader on " + gameObject.name + " loading scene: " + sceneName);
+        Debug.Log("Triggering animator trigger: " + triggerName);
 
-        if (other.CompareTag("Player"))
+        if (transition != null)
         {
-            isLoading = true;
-            GetComponent<Collider>().enabled = false;
-            StartCoroutine(LoadLevel(sceneToLoad));
+            transition.ResetTrigger(triggerName);
+            transition.SetTrigger(triggerName);
         }
-    }
 
-    IEnumerator LoadLevel(string sceneName)
-    {
-        transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
+
         SceneManager.LoadScene(sceneName);
     }
 }
