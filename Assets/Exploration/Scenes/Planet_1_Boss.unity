@@ -148640,6 +148640,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 162803464}
   canTalk: 0
   npcScript: {fileID: 0}
+  speakerSprite: {fileID: 0}
 --- !u!1 &1286338041
 GameObject:
   m_ObjectHideFlags: 0
@@ -152387,7 +152388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f858e409bd4884d8d996e4211480db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcScript: {fileID: 4900000, guid: 64e45113b63583042a2b47273ec47b02, type: 3}
+  npcScript: {fileID: 4900000, guid: bac55da963e57ab4f962bf8b0f20d539, type: 3}
+  speakerImage: {fileID: 2143770630, guid: 4fab6484ae522324cb4bdb5d0f9643da, type: 3}
 --- !u!135 &1436791928
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -213297,9 +213299,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1438787285}
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: testScript
+      value: 
+      objectReference: {fileID: 4900000, guid: bac55da963e57ab4f962bf8b0f20d539, type: 3}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: levelLoader
       value: 
       objectReference: {fileID: 1289584795}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: startingNPC
+      value: 
+      objectReference: {fileID: 1436791927}
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: firstLevelLoader
       value: 

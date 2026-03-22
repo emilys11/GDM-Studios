@@ -4,6 +4,7 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Data;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
@@ -16,11 +17,16 @@ public class Dialogue : MonoBehaviour
     [SerializeField] GameObject interactmsg;
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject namePlate;
+    [SerializeField] GameObject speakerPanel;
+
+    [SerializeField] Sprite playerImage;
 
     [SerializeField] private Animator animator;
 
     [SerializeField] private LevelLoader firstLevelLoader;
     [SerializeField] private LevelLoader secondLevelLoader;
+
+    [SerializeField] private TextAsset testScript;
 
     private TextAsset script;
     private string[] lines;
@@ -30,20 +36,30 @@ public class Dialogue : MonoBehaviour
     private TextMeshProUGUI nameText;
     private int index;
 
+    public bool displaySpeaker = true;
+
     private bool textPlaying = false;
     public bool dialogueFinished = false;
     private bool resumedDialogue = false;
-    void Start()
+        void Start()
     {
-
         textMesh = GetComponent<TextMeshProUGUI>();
         nameText = namePlate.GetComponent<TextMeshProUGUI>();
+
+        speakerPanel.SetActive(false);
 
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
         playerDialogue = player.GetComponent<PlayerDialogue>();
-        //StartDialogue();
-        
+
+        Debug.Log("textMesh = " + textMesh);
+        Debug.Log("nameText = " + nameText);
+        Debug.Log("playerDialogue = " + playerDialogue);
+        Debug.Log("interactmsg = " + interactmsg);
+        Debug.Log("dialogueBox = " + dialogueBox);
+
+        if (textMesh != null) textMesh.SetText(string.Empty);
+        if (nameText != null) nameText.SetText(string.Empty);
     }
     void readScript()
     {
@@ -84,8 +100,10 @@ public class Dialogue : MonoBehaviour
             }
         }
 
-        if (nameText.text.CompareTo(">\r") == 0) //To breakdown dialogue
+        Debug.Log("lines is null? " + (lines == null));
+        if (lines != null && index < lines.Length && lines[index] != null && lines[index].Trim() == ">")
         {
+            Debug.Log("Scene change marker detected!");
             StopAllCoroutines();
             index++;
             StartCoroutine(exitDialogue());
@@ -110,36 +128,82 @@ public class Dialogue : MonoBehaviour
             Debug.Log("StartDialogue: starting fresh");
         }
 
-        textMesh.SetText(string.Empty);
-        nameText.SetText(string.Empty);
+        if (displaySpeaker)
+        {
+            speakerPanel.SetActive(true);
+        }
+
         StartCoroutine(TypeLine());
         textPlaying = true;
     }
 
     IEnumerator TypeLine()
     {
-        if(index % 2 == 0)
-        {
-            //string name = lines[index];
+        if (index >= lines.Length)
+            yield break;
 
-            nameText.text = lines[index]; //Get name of speaker
-            if (lines[index].CompareTo("ASTRONAUT\r") == 0)
+        string currentLine = lines[index].Trim();
+
+        // Transition marker
+        if (currentLine == ">")
+        {
+            Debug.Log("Scene change marker detected in TypeLine at index " + index);
+            StopAllCoroutines();
+            index++;
+            StartCoroutine(exitDialogue());
+            yield break;
+        }
+
+        // Speaker name line
+        if (index % 2 == 0)
+        {
+            nameText.text = currentLine;
+
+            if (currentLine == "ASTRONAUT")
             {
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerImage;
+                }
                 nameText.color = Color.ghostWhite;
             }
-            else if(lines[index].CompareTo("CRAB\r") == 0)
+            else if (currentLine == "SIR CRABIUS THE III")
             {
-                nameText.color = Color.green;
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
+                }
+                nameText.color = Color.forestGreen;
             }
-            else //Bosses
+            else
             {
-                nameText.color = Color.red;
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
+                }
+                nameText.color = Color.softRed;
             }
 
             index++;
-
         }
-        foreach(char c in lines[index].ToCharArray()){ //Type the text by char
+
+        if (index >= lines.Length)
+            yield break;
+
+        // If next line is somehow the transition marker, catch it too
+        if (lines[index].Trim() == ">")
+        {
+            Debug.Log("Scene change marker detected after name at index " + index);
+            StopAllCoroutines();
+            index++;
+            StartCoroutine(exitDialogue());
+            yield break;
+        }
+
+        textMesh.SetText(string.Empty);
+
+        foreach (char c in lines[index])
+        {
             textMesh.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
@@ -169,7 +233,11 @@ public class Dialogue : MonoBehaviour
         textPlaying = false;
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
-        playerDialogue.enableMovement();
+        playerDialogue.enableMovement(); //Allow movement again
+        if (displaySpeaker)
+        {
+            speakerPanel.SetActive(false);
+        }
         dialogueFinished = true;
 
         if (resumedDialogue)

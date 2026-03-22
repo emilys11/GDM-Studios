@@ -1,29 +1,22 @@
 using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
 public class NPCVision : MonoBehaviour
 {
     [Header("Detection")]
     [SerializeField] private Transform player;
-    [SerializeField] private float visionDistance = 10f;
-    [SerializeField] private float visionAngle = 45f;
     [SerializeField] private LayerMask visionMask;
-    [SerializeField] private float coneDirectionOffset = 45f;
     [SerializeField] private float eyeHeightOffset = 1.5f;
     [SerializeField] private float playerTargetHeightOffset = 1.0f;
 
-    [Header("Cone Visual")]
-    [SerializeField] private int coneSegments = 20;
-    [SerializeField] private float coneHeightOffset = 1.0f;
-    private LineRenderer lineRenderer;
+    [Header("Rectangle Vision")]
+    [SerializeField] private float visionWidth = 4f;
+    [SerializeField] private float visionLength = 8f;
+    [SerializeField] private float forwardOffset = 4f;
 
-    private void Awake()
-    {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.useWorldSpace = true;
-        lineRenderer.loop = false;
-        lineRenderer.enabled = false;
-    }
+    [SerializeField] private float directionOffset = 45f;
+
+    [Header("Visual")]
+    [SerializeField] private GameObject visionRectangleVisual;
 
     public bool CanSeePlayer()
     {
@@ -32,31 +25,30 @@ public class NPCVision : MonoBehaviour
         Vector3 origin = transform.position + Vector3.up * eyeHeightOffset;
         Vector3 target = player.position + Vector3.up * playerTargetHeightOffset;
 
-        Vector3 baseDirection = Quaternion.Euler(0f, coneDirectionOffset, 0f) * transform.forward;
-        Vector3 toPlayer = target - origin;
-        float distanceToPlayer = toPlayer.magnitude;
+        Vector3 worldToTarget = target - transform.position;
+        Vector3 localTarget = Quaternion.Inverse(transform.rotation * Quaternion.Euler(0f, directionOffset, 0f)) * worldToTarget;
+        
+        float halfWidth = visionWidth * 0.5f;
+        float minZ = forwardOffset - (visionLength * 0.5f);
+        float maxZ = forwardOffset + (visionLength * 0.5f);
 
-        if (distanceToPlayer > visionDistance)
-            return false;
+        bool insideRectangle =
+            localTarget.x >= -halfWidth &&
+            localTarget.x <= halfWidth &&
+            localTarget.z >= minZ &&
+            localTarget.z <= maxZ;
 
-        Vector3 dirToPlayer = toPlayer.normalized;
-
-        float angleToPlayer = Vector3.Angle(baseDirection, dirToPlayer);
-        if (angleToPlayer > visionAngle * 0.5f)
+        if (!insideRectangle)
             return false;
 
 #if UNITY_EDITOR
-        Debug.DrawRay(origin, dirToPlayer * distanceToPlayer, Color.red);
-
-        Vector3 leftEdge = Quaternion.Euler(0f, -visionAngle * 0.5f, 0f) * baseDirection;
-        Vector3 rightEdge = Quaternion.Euler(0f, visionAngle * 0.5f, 0f) * baseDirection;
-
-        Debug.DrawRay(origin, leftEdge * visionDistance, Color.yellow);
-        Debug.DrawRay(origin, baseDirection * visionDistance, Color.green);
-        Debug.DrawRay(origin, rightEdge * visionDistance, Color.yellow);
+        Debug.DrawLine(origin, target, Color.red);
 #endif
 
-        if (Physics.Raycast(origin, dirToPlayer, out RaycastHit hit, distanceToPlayer, visionMask))
+        Vector3 directionToPlayer = (target - origin).normalized;
+        float distanceToPlayer = Vector3.Distance(origin, target);
+
+        if (Physics.Raycast(origin, directionToPlayer, out RaycastHit hit, distanceToPlayer, visionMask))
         {
             return hit.collider.CompareTag("Player");
         }
@@ -64,65 +56,26 @@ public class NPCVision : MonoBehaviour
         return false;
     }
 
-    public void ShowCone(bool show)
+    public void SetVisionActive(bool active)
     {
-        if (lineRenderer == null) return;
-
-        lineRenderer.enabled = show;
-
-        if (show)
+        if (visionRectangleVisual != null)
         {
-            DrawVisionCone();
+            visionRectangleVisual.SetActive(active);
         }
-    }
-
-    private void LateUpdate()
-    {
-        if (lineRenderer != null && lineRenderer.enabled)
-        {
-            DrawVisionCone();
-        }
-    }
-
-    private void DrawVisionCone()
-    {
-        if (lineRenderer == null) return;
-
-        Vector3 origin = transform.position + Vector3.up * coneHeightOffset;
-        Vector3 baseDirection = Quaternion.Euler(0f, coneDirectionOffset, 0f) * transform.forward;
-
-        int pointCount = coneSegments + 3;
-        lineRenderer.positionCount = pointCount;
-
-        float startAngle = -visionAngle * 0.5f;
-        float angleStep = visionAngle / coneSegments;
-
-        lineRenderer.SetPosition(0, origin);
-
-        for (int i = 0; i <= coneSegments; i++)
-        {
-            float currentAngle = startAngle + i * angleStep;
-            Vector3 direction = Quaternion.Euler(0f, currentAngle, 0f) * baseDirection;
-            Vector3 endPoint = origin + direction.normalized * visionDistance;
-            lineRenderer.SetPosition(i + 1, endPoint);
-        }
-
-        lineRenderer.SetPosition(pointCount - 1, origin);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Vector3 origin = transform.position + Vector3.up * coneHeightOffset;
-        Vector3 baseDirection = Quaternion.Euler(0f, coneDirectionOffset, 0f) * transform.forward;
-
-        Vector3 leftEdge = Quaternion.Euler(0f, -visionAngle * 0.5f, 0f) * baseDirection;
-        Vector3 rightEdge = Quaternion.Euler(0f, visionAngle * 0.5f, 0f) * baseDirection;
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(origin, leftEdge * visionDistance);
-        Gizmos.DrawRay(origin, rightEdge * visionDistance);
-
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(origin, baseDirection * visionDistance);
+
+        Vector3 centerLocal = new Vector3(0f, 0f, forwardOffset);
+        Vector3 centerWorld = transform.TransformPoint(centerLocal);
+
+        Vector3 size = new Vector3(visionWidth, 0.1f, visionLength);
+
+        Matrix4x4 oldMatrix = Gizmos.matrix;
+        Gizmos.matrix = Matrix4x4.TRS(centerWorld, transform.rotation, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, size);
+        Gizmos.matrix = oldMatrix;
     }
 }
