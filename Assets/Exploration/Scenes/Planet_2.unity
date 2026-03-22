@@ -4489,7 +4489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0de526089657d49bcc3db28769424b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 1083289405}
+  dialogueManager: {fileID: 1172482913}
   canTalk: 0
   npcScript: {fileID: 0}
   speakerSprite: {fileID: 0}
@@ -12037,6 +12037,7 @@ MonoBehaviour:
   transition: {fileID: 0}
   transitionTime: 1
   sceneToLoad: Planet_2_Boss
+  triggerName: Start
 --- !u!1 &518259860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6733177361254619370, guid: ea4c79888256f9347a2ee6ebfa4338fe, type: 3}
@@ -12058,7 +12059,6 @@ MonoBehaviour:
   emissionIntensity: 3
   colorA: {r: 0.44591188, g: 0, b: 1, a: 1}
   colorB: {r: 1, g: 0.3820755, b: 0.97616285, a: 1}
-  triggerName: Start
 --- !u!1001 &520221477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32062,6 +32062,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8afd722bba1d7f45934ff33c1f2a793, type: 3}
+--- !u!1 &1172482913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5550222811243180480, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+  m_PrefabInstance: {fileID: 1893880828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1175852657
 GameObject:
   m_ObjectHideFlags: 0
