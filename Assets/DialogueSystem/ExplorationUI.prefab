@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -211, y: 182}
+  m_AnchoredPosition: {x: -196, y: 175}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6058069973220380488
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -25.27298, w: 22.510117}
+  m_margin: {x: -2.4879153, y: 0, z: -25.27298, w: 22.510117}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -299,7 +299,7 @@ RectTransform:
   m_GameObject: {fileID: 3248556903868590876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.15, y: 1.25, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6809653756281465182}
@@ -364,7 +364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7300867508917901151
 RectTransform:
   m_ObjectHideFlags: 0
@@ -379,9 +379,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6809653756281465182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 290, y: -80}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 211.7, y: 215}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6314069616918045465
@@ -455,9 +455,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4396120670387927177}
+  - {fileID: 7300867508917901151}
   - {fileID: 8049761171300154848}
   - {fileID: 619292368979477126}
-  - {fileID: 7300867508917901151}
   - {fileID: 687604608693257594}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -580,7 +580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 185.7, y: 178}
+  m_AnchoredPosition: {x: 188, y: 169}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2164466901452270685
@@ -638,8 +638,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -372.72787, y: 40.96053, z: -1.1862564, w: -104.94189}
+  m_margin: {x: -372.72787, y: 40.96053, z: 7.942238, w: -97.55975}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -694,9 +694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca53fcd196ebfe489a2c22c8376d5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textSpeed: 0.1
+  textSpeed: 0.05
   player: {fileID: 0}
   interactmsg: {fileID: 2110580322627289850}
   dialogueBox: {fileID: 3248556903868590876}
   namePlate: {fileID: 3201201850255121724}
+  speakerPanel: {fileID: 3383783532929957228}
+  playerImage: {fileID: -1714818092, guid: dee22b18e78008f4097ed67237e27280, type: 3}
+  displaySpeaker: 1
   dialogueFinished: 0

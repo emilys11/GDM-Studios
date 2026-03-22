@@ -1776,13 +1776,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 619292368979477126, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 171
+      objectReference: {fileID: 0}
+    - target: {fileID: 687604608693257594, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 185
+      objectReference: {fileID: 0}
     - target: {fileID: 1617306076650455197, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 34c6eacc6c5d5d74fa03daeb1995a775, type: 3}
     - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_fontSize
-      value: 19
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_fontAsset
@@ -1802,7 +1810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_fontSizeBase
-      value: 19
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_sharedMaterial
@@ -39444,6 +39452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcScript: {fileID: 4900000, guid: 2f6f13df9aa1852458989fca6d810e4e, type: 3}
+  speakerImage: {fileID: 1184078799, guid: 89dbdb1a684a31d4ca5e82f28f2284db, type: 3}
 --- !u!135 &1448050171
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -43137,6 +43146,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 694959464}
   canTalk: 0
   npcScript: {fileID: 0}
+  speakerSprite: {fileID: 0}
 --- !u!1 &1603078757
 GameObject:
   m_ObjectHideFlags: 0

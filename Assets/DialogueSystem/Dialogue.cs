@@ -4,6 +4,7 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Data;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Dialogue : MonoBehaviour
     [SerializeField] GameObject interactmsg;
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject namePlate;
+    [SerializeField] GameObject speakerPanel;
+
+    [SerializeField] Sprite playerImage;
 
     private TextAsset script;
     private string[] lines;
@@ -25,6 +29,8 @@ public class Dialogue : MonoBehaviour
     private TextMeshProUGUI nameText;
     private int index;
 
+    public bool displaySpeaker = true;
+
     private bool textPlaying = false;
     public bool dialogueFinished = false;
     void Start()
@@ -32,6 +38,8 @@ public class Dialogue : MonoBehaviour
 
         textMesh = GetComponent<TextMeshProUGUI>();
         nameText = namePlate.GetComponent<TextMeshProUGUI>();
+
+        speakerPanel.SetActive(false);
 
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
@@ -94,6 +102,11 @@ public class Dialogue : MonoBehaviour
             index = 0;
         }
 
+        if (displaySpeaker)
+        {
+            speakerPanel.SetActive(true);
+        }
+
         StartCoroutine(TypeLine());
         textPlaying = true;
     }
@@ -107,15 +120,27 @@ public class Dialogue : MonoBehaviour
             nameText.text = lines[index]; //Get name of speaker
             if (lines[index].CompareTo("ASTRONAUT\r") == 0)
             {
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerImage;
+                }
                 nameText.color = Color.ghostWhite;
             }
             else if(lines[index].CompareTo("SIR CRABIUS THE III\r") == 0)
             {
-                nameText.color = Color.green;
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
+                }
+                nameText.color = Color.forestGreen;
             }
             else //Bosses
             {
-                nameText.color = Color.red;
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
+                }
+                nameText.color = Color.softRed;
             }
 
             index++;
@@ -148,6 +173,10 @@ public class Dialogue : MonoBehaviour
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
         playerDialogue.enableMovement(); //Allow movement again
+        if (displaySpeaker)
+        {
+            speakerPanel.SetActive(false);
+        }
         dialogueFinished = true;
     }
 }
