@@ -6,8 +6,9 @@ ASTRONAUT
 Greetings, Bachovenpinanoff. I am an ambassador from —
 
 
+
 >
-BATTLE COMPLETE
+BATTLE_COMPLETE
 
 
 BACHOVENPINANOFF
@@ -24,3 +25,5 @@ But first, you must stop harming this planet and go back to being its just ruler
 
 BACHOVENPINANOFF
 Trade negotiations, eh? Fine, I will do as you say. But you will never overturn my master, they are too powerful, even for you…
+
+>

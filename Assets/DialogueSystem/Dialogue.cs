@@ -22,6 +22,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private LevelLoader firstLevelLoader;
     [SerializeField] private LevelLoader secondLevelLoader;
 
+    [SerializeField] private TextAsset testScript;
+
     private TextAsset script;
     private string[] lines;
 
@@ -33,17 +35,20 @@ public class Dialogue : MonoBehaviour
     private bool textPlaying = false;
     public bool dialogueFinished = false;
     private bool resumedDialogue = false;
-    void Start()
+        void Start()
     {
-
         textMesh = GetComponent<TextMeshProUGUI>();
         nameText = namePlate.GetComponent<TextMeshProUGUI>();
-
-        textMesh.SetText(string.Empty);
-        nameText.SetText(string.Empty);
         playerDialogue = player.GetComponent<PlayerDialogue>();
-        //StartDialogue();
-        
+
+        Debug.Log("textMesh = " + textMesh);
+        Debug.Log("nameText = " + nameText);
+        Debug.Log("playerDialogue = " + playerDialogue);
+        Debug.Log("interactmsg = " + interactmsg);
+        Debug.Log("dialogueBox = " + dialogueBox);
+
+        if (textMesh != null) textMesh.SetText(string.Empty);
+        if (nameText != null) nameText.SetText(string.Empty);
     }
     void readScript()
     {
@@ -84,8 +89,10 @@ public class Dialogue : MonoBehaviour
             }
         }
 
-        if (nameText.text.CompareTo(">\r") == 0) //To breakdown dialogue
+        Debug.Log("lines is null? " + (lines == null));
+        if (lines != null && index < lines.Length && lines[index] != null && lines[index].Trim() == ">")
         {
+            Debug.Log("Scene change marker detected!");
             StopAllCoroutines();
             index++;
             StartCoroutine(exitDialogue());
@@ -118,28 +125,59 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        if(index % 2 == 0)
-        {
-            //string name = lines[index];
+        if (index >= lines.Length)
+            yield break;
 
-            nameText.text = lines[index]; //Get name of speaker
-            if (lines[index].CompareTo("ASTRONAUT\r") == 0)
+        string currentLine = lines[index].Trim();
+
+        // Transition marker
+        if (currentLine == ">")
+        {
+            Debug.Log("Scene change marker detected in TypeLine at index " + index);
+            StopAllCoroutines();
+            index++;
+            StartCoroutine(exitDialogue());
+            yield break;
+        }
+
+        // Speaker name line
+        if (index % 2 == 0)
+        {
+            nameText.text = currentLine;
+
+            if (currentLine == "ASTRONAUT")
             {
-                nameText.color = Color.ghostWhite;
+                nameText.color = Color.white;
             }
-            else if(lines[index].CompareTo("SIR CRABIUS THE III\r") == 0)
+            else if (currentLine == "SIR CRABIUS THE III")
             {
                 nameText.color = Color.green;
             }
-            else //Bosses
+            else
             {
                 nameText.color = Color.red;
             }
 
             index++;
-
         }
-        foreach(char c in lines[index].ToCharArray()){ //Type the text by char
+
+        if (index >= lines.Length)
+            yield break;
+
+        // If next line is somehow the transition marker, catch it too
+        if (lines[index].Trim() == ">")
+        {
+            Debug.Log("Scene change marker detected after name at index " + index);
+            StopAllCoroutines();
+            index++;
+            StartCoroutine(exitDialogue());
+            yield break;
+        }
+
+        textMesh.SetText(string.Empty);
+
+        foreach (char c in lines[index])
+        {
             textMesh.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
