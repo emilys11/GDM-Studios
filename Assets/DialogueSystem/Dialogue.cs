@@ -127,7 +127,7 @@ public class Dialogue : MonoBehaviour
             {
                 nameText.color = Color.ghostWhite;
             }
-            else if(lines[index].CompareTo("CRAB\r") == 0)
+            else if(lines[index].CompareTo("SIR CRABIUS THE III\r") == 0)
             {
                 nameText.color = Color.green;
             }
