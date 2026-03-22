@@ -4489,9 +4489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0de526089657d49bcc3db28769424b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 0}
+  dialogueManager: {fileID: 1172482913}
   canTalk: 0
   npcScript: {fileID: 0}
+  speakerSprite: {fileID: 0}
 --- !u!1001 &210299694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25074,6 +25075,10 @@ PrefabInstance:
       propertyPath: npcScript
       value: 
       objectReference: {fileID: 4900000, guid: c0f3bb806cf1d4b4c871ee47d82838de, type: 3}
+    - target: {fileID: 6746372691030659578, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
+      propertyPath: speakerImage
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: b468c1caf24f2eb4281b206238324edc, type: 3}
     - target: {fileID: 6912963885232906701, guid: c12b0d2ed24c1f441a4a0d6f6e943c88, type: 3}
       propertyPath: m_Name
       value: NPCTemp
@@ -32667,6 +32672,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8afd722bba1d7f45934ff33c1f2a793, type: 3}
+--- !u!1 &1172482913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5550222811243180480, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+  m_PrefabInstance: {fileID: 1893880828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1175852657
 GameObject:
   m_ObjectHideFlags: 0
@@ -49149,7 +49159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_fontSize
-      value: 20
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: m_margin.y
+      value: 40.13588
       objectReference: {fileID: 0}
     - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_fontAsset
@@ -49169,7 +49183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_fontSizeBase
-      value: 20
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_sharedMaterial

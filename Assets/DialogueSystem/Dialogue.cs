@@ -4,6 +4,7 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using System.Linq;
 using System.Data;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Dialogue : MonoBehaviour
     [SerializeField] GameObject interactmsg;
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject namePlate;
+    [SerializeField] GameObject speakerPanel;
+
+    [SerializeField] Sprite playerImage;
 
     [SerializeField] private Animator animator;
 
@@ -32,6 +36,8 @@ public class Dialogue : MonoBehaviour
     private TextMeshProUGUI nameText;
     private int index;
 
+    public bool displaySpeaker = true;
+
     private bool textPlaying = false;
     public bool dialogueFinished = false;
     private bool resumedDialogue = false;
@@ -39,6 +45,11 @@ public class Dialogue : MonoBehaviour
     {
         textMesh = GetComponent<TextMeshProUGUI>();
         nameText = namePlate.GetComponent<TextMeshProUGUI>();
+
+        speakerPanel.SetActive(false);
+
+        textMesh.SetText(string.Empty);
+        nameText.SetText(string.Empty);
         playerDialogue = player.GetComponent<PlayerDialogue>();
 
         Debug.Log("textMesh = " + textMesh);
@@ -117,8 +128,11 @@ public class Dialogue : MonoBehaviour
             Debug.Log("StartDialogue: starting fresh");
         }
 
-        textMesh.SetText(string.Empty);
-        nameText.SetText(string.Empty);
+        if (displaySpeaker)
+        {
+            speakerPanel.SetActive(true);
+        }
+
         StartCoroutine(TypeLine());
         textPlaying = true;
     }
@@ -147,15 +161,27 @@ public class Dialogue : MonoBehaviour
 
             if (currentLine == "ASTRONAUT")
             {
-                nameText.color = Color.white;
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerImage;
+                }
+                nameText.color = Color.ghostWhite;
             }
             else if (currentLine == "SIR CRABIUS THE III")
             {
-                nameText.color = Color.green;
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
+                }
+                nameText.color = Color.forestGreen;
             }
             else
             {
-                nameText.color = Color.red;
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
+                }
+                nameText.color = Color.softRed;
             }
 
             index++;
@@ -207,7 +233,11 @@ public class Dialogue : MonoBehaviour
         textPlaying = false;
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
-        playerDialogue.enableMovement();
+        playerDialogue.enableMovement(); //Allow movement again
+        if (displaySpeaker)
+        {
+            speakerPanel.SetActive(false);
+        }
         dialogueFinished = true;
 
         if (resumedDialogue)

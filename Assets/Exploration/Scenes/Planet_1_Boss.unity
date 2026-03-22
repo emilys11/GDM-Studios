@@ -148639,7 +148639,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 162803464}
   canTalk: 0
-  npcScript: {fileID: 4900000, guid: bac55da963e57ab4f962bf8b0f20d539, type: 3}
+  npcScript: {fileID: 0}
+  speakerSprite: {fileID: 0}
 --- !u!1 &1286338041
 GameObject:
   m_ObjectHideFlags: 0
@@ -152388,6 +152389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcScript: {fileID: 4900000, guid: bac55da963e57ab4f962bf8b0f20d539, type: 3}
+  speakerImage: {fileID: 2143770630, guid: 4fab6484ae522324cb4bdb5d0f9643da, type: 3}
 --- !u!135 &1436791928
 SphereCollider:
   m_ObjectHideFlags: 0
