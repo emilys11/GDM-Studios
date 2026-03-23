@@ -13,8 +13,6 @@ public class NPCWatcher : MonoBehaviour
 
     [SerializeField] private NPCVision vision;
 
-    [SerializeField] private NPCVisionConeMesh visionConeMesh;
-
     private bool isWatching = false;
     private Coroutine watchRoutine;
     private StealthMiniGameManager miniGameManager;
@@ -43,12 +41,7 @@ public class NPCWatcher : MonoBehaviour
 
         if (vision != null)
         {
-            vision.ShowCone(false);
-        }
-
-        if (visionConeMesh != null)
-        {
-            visionConeMesh.SetVisible(false);
+            vision.SetVisionActive(false);
         }
     }
 
@@ -76,13 +69,9 @@ public class NPCWatcher : MonoBehaviour
 
             if (vision != null)
             {
-                vision.ShowCone(false);
+                vision.SetVisionActive(false);
             }
 
-            if (visionConeMesh != null)
-            {
-                visionConeMesh.SetVisible(false);
-            }
 
             yield return new WaitForSeconds(closedEyesDuration);
 
@@ -91,13 +80,9 @@ public class NPCWatcher : MonoBehaviour
 
             if (vision != null)
             {
-                vision.ShowCone(true);
+                vision.SetVisionActive(true);
             }
 
-            if (visionConeMesh != null)
-            {
-                visionConeMesh.SetVisible(true);
-            }
 
             yield return new WaitForSeconds(openEyesDuration);
         }

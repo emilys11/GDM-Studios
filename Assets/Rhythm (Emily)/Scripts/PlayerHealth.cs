@@ -14,8 +14,8 @@ public class PlayerHealth : MonoBehaviour
 
         hearts = 3;
 
-        //RhythmEvents.OnNoteMiss += TakeDamage;
-        //RhythmEvents.OnBadInput += TakeDamage;
+        RhythmEvents.OnNoteMiss += TakeDamage;
+        RhythmEvents.OnBadInput += TakeDamage;
         MusicManager.OnMusicFinished += Die;
         RhythmEvents.OnHealthNoteHit += AddHeart;
         RhythmEvents.OnReady += ResetHearts;
