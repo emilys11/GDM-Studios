@@ -41,7 +41,9 @@ public class Dialogue : MonoBehaviour
     private bool textPlaying = false;
     public bool dialogueFinished = false;
     private bool resumedDialogue = false;
-        void Start()
+
+    public bool continueDialogue = false;//for crab
+    void Start()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
         nameText = namePlate.GetComponent<TextMeshProUGUI>();
@@ -123,9 +125,17 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            index = 0;
-            resumedDialogue = false;
-            Debug.Log("StartDialogue: starting fresh");
+            if (continueDialogue)
+            {
+                index++;
+            }
+            else
+            {
+                index = 0;
+                resumedDialogue = false;
+                Debug.Log("StartDialogue: starting fresh");
+            }
+            
         }
 
         if (displaySpeaker)
@@ -136,6 +146,7 @@ public class Dialogue : MonoBehaviour
         StartCoroutine(TypeLine());
         textPlaying = true;
     }
+
 
     IEnumerator TypeLine()
     {
