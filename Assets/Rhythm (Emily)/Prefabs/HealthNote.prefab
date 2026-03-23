@@ -93,7 +93,7 @@ MonoBehaviour:
   hitWindow: 10
   missLineY: -450
   hitLineY: 0
-  hitYWindow: 60
+  hitYWindow: 145
   image: {fileID: 0}
 --- !u!1 &4403788749761961805
 GameObject:
