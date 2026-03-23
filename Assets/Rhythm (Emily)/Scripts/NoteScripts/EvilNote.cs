@@ -14,6 +14,8 @@ public class EvilNote : MonoBehaviour, INote
 
     [SerializeField] private Image image;
     [SerializeField] private float missLineY = -400f;
+    [SerializeField] private float hitLineY = 0f;
+    [SerializeField] private float hitYWindow = 145f;
 
     void Awake()
     {
@@ -31,7 +33,7 @@ public class EvilNote : MonoBehaviour, INote
         if (lane != null && lane.IsFirstNote(this) && rect.anchoredPosition.y < missLineY)
         {
             isResolved = true;
-            Destroy(gameObject);
+            OnDestroy();
         }
     }
 
@@ -45,27 +47,48 @@ public class EvilNote : MonoBehaviour, INote
 
     public void SetHitTime(double dspTime) => hitDspTime = dspTime;
 
+
     public bool TryResolve()
     {
         if (isResolved) return false;
-        if (lane != null && !lane.IsFirstNote(this)) return false;
 
-        double error = Math.Abs(AudioSettings.dspTime - hitDspTime);
+        double current = AudioSettings.dspTime;
+        double error = current - hitDspTime;
 
-        if (error <= hitWindow)
+        float y = MathF.Abs(rect.anchoredPosition.y);
+
+
+        if (y <= hitLineY + hitYWindow) //not too early or late
         {
-            isResolved = true;
-            RhythmEvents.BadInput();
-            lane.PlayMiss();
-            Destroy(gameObject);
-            return true;
+            Miss();
+            return false;
         }
 
-        return false;
+        Hit();
+        return true;
+    }
+
+    void Hit()
+    {
+        isResolved = true;
+        lane.PlayHit();
+        RhythmEvents.NoteHit();
+        Destroy(gameObject);
+    }
+
+    void Miss()
+    {
+        if (isResolved) return;
+        isResolved = true;
+        UnityEngine.Debug.Log("Missed from: " + gameObject.name);
+        RhythmEvents.NoteMissed();
+        lane.PlayMiss();
+        Destroy(gameObject);
     }
 
     void OnDestroy()
     {
         lane?.Unregister(this);
+        Destroy(gameObject);
     }
 }
