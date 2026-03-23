@@ -13,6 +13,13 @@ public class PlayerAnimationController : MonoBehaviour
         RhythmEvents.OnBadInput += Hurt;
     }
 
+    void OnDisable()
+    {
+        RhythmEvents.OnNoteHit -= Attack;
+        RhythmEvents.OnNoteMiss -= Hurt;
+        RhythmEvents.OnBadInput -= Hurt;
+    }
+
     void Attack()
     {
         if (isPlaying) return;

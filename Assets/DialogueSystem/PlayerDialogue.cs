@@ -9,6 +9,7 @@ public class PlayerDialogue : MonoBehaviour
     private SphereCollider sphereCollider;
     public bool canTalk = false;
     public TextAsset npcScript;
+    private NPCDialogue npcDialogue;
     public Sprite speakerSprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,6 +40,7 @@ public class PlayerDialogue : MonoBehaviour
             //canTalk = true;
             if (!dialogue.dialogueFinished)
             {
+                npcDialogue = other.gameObject.GetComponent<NPCDialogue>();
                 npcScript = other.gameObject.GetComponent<NPCDialogue>().npcScript; //get specific script for npc
                 speakerSprite = other.gameObject.GetComponent<NPCDialogue>().speakerImage;
                 disableMovement();
@@ -60,5 +62,7 @@ public class PlayerDialogue : MonoBehaviour
     public void resetDialogue()
     {
         dialogue.dialogueFinished = false;
+        dialogue.continueDialogue = true;
+        npcDialogue.reposition();
     }
 }

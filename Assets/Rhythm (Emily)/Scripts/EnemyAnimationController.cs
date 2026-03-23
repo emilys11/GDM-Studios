@@ -11,6 +11,13 @@ public class EnemyAnimationController : MonoBehaviour
         RhythmEvents.OnBadInput += Attack;
     }
 
+    void OnDisable()
+    {
+        RhythmEvents.OnNoteHit -= Hurt;
+        RhythmEvents.OnNoteMiss -= Attack;
+        RhythmEvents.OnBadInput -= Attack;
+    }
+
     void Attack() => animator.SetTrigger("Attack");
     void Hurt() => animator.SetTrigger("Hurt");
 }
