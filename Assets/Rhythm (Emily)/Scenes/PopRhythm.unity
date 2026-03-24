@@ -1010,6 +1010,7 @@ MonoBehaviour:
   winScreen: {fileID: 1950214681}
   loseScreen: {fileID: 1594248499}
   nextPlanetScene: Planet_3
+  nextPlanetSpawnID: Boss
 --- !u!4 &326253604
 Transform:
   m_ObjectHideFlags: 0
@@ -1060,7 +1061,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 125.5, y: -317.35004}
-  m_SizeDelta: {x: 241.18, y: 6.41}
+  m_SizeDelta: {x: 234.4, y: 6.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338257347
 MonoBehaviour:
@@ -1075,7 +1076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.75256026, b: 0, a: 0.11764706}
+  m_Color: {r: 1, g: 0.75256026, b: 0, a: 0.34117648}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2228,7 +2229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -212.6, y: -317.35004}
+  m_AnchoredPosition: {x: -208.3, y: -317.35004}
   m_SizeDelta: {x: 241.18, y: 6.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726788888
@@ -2244,7 +2245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.75256026, b: 0, a: 0.11764706}
+  m_Color: {r: 1, g: 0.75256026, b: 0, a: 0.34117648}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2617,8 +2618,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -556.1, y: -317.35004}
-  m_SizeDelta: {x: 241.18, y: 6.41}
+  m_AnchoredPosition: {x: -555, y: -317.35004}
+  m_SizeDelta: {x: 233.95, y: 6.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &867003526
 MonoBehaviour:
@@ -2633,7 +2634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.75256026, b: 0, a: 0.11764706}
+  m_Color: {r: 1, g: 0.75256026, b: 0, a: 0.34117648}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2826,7 +2827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &929484257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4583,8 +4584,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 445.3, y: -317.35004}
-  m_SizeDelta: {x: 241.18, y: 6.41}
+  m_AnchoredPosition: {x: 448.6, y: -317.35004}
+  m_SizeDelta: {x: 233.6, y: 6.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1583708279
 MonoBehaviour:
@@ -4599,7 +4600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.75256026, b: 0, a: 0.11764706}
+  m_Color: {r: 1, g: 0.75256026, b: 0, a: 0.34117648}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
