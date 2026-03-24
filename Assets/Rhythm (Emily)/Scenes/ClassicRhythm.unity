@@ -1205,6 +1205,7 @@ MonoBehaviour:
   transitionTime: 1
   sceneToLoad: ClassicRhythm
   triggerName: Start
+  targetSpawnID: Boss
 --- !u!4 &367446181
 Transform:
   m_ObjectHideFlags: 0
