@@ -8,9 +8,16 @@ public class PlayerAnimationController : MonoBehaviour
 
     void OnEnable()
     {
-        RhythmEvents.OnNoteHit += Attack;
+        RhythmEvents.OnCombo += Attack;
         RhythmEvents.OnNoteMiss += Hurt;
         RhythmEvents.OnBadInput += Hurt;
+    }
+
+    void OnDisable()
+    {
+        RhythmEvents.OnCombo -= Attack;
+        RhythmEvents.OnNoteMiss -= Hurt;
+        RhythmEvents.OnBadInput -= Hurt;
     }
 
     void Attack()

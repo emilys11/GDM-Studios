@@ -26,6 +26,7 @@ public class SFXManager : MonoBehaviour
     public float minInterval = 0.05f; 
     private Dictionary<string, float> lastPlayTime = new Dictionary<string, float>();
 
+
     void Awake()
     {
 
@@ -66,6 +67,7 @@ public class SFXManager : MonoBehaviour
         RhythmEvents.OnCombo += PlayCombo;
         RhythmEvents.OnWin += PlayWin;
         RhythmEvents.OnDeath += PlayDeath;
+        RhythmEvents.OnReady += StopAll;
     }
 
     void OnDisable()
@@ -76,6 +78,7 @@ public class SFXManager : MonoBehaviour
         RhythmEvents.OnCombo -= PlayCombo;
         RhythmEvents.OnWin -= PlayWin;
         RhythmEvents.OnDeath -= PlayDeath;
+        RhythmEvents.OnReady -= StopAll;
     }
 
     AudioSource GetAvailableSource()
@@ -128,4 +131,13 @@ public class SFXManager : MonoBehaviour
     {
         Play("death");
     }
+
+    public void StopAll()
+    {
+        foreach (var src in sources)
+        {
+            src.Stop();
+        }
+    }
+
 }

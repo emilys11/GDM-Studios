@@ -14,11 +14,20 @@ public class PlayerHealth : MonoBehaviour
 
         hearts = 3;
 
-        //RhythmEvents.OnNoteMiss += TakeDamage;
-        //RhythmEvents.OnBadInput += TakeDamage;
+        RhythmEvents.OnNoteMiss += TakeDamage;
+        RhythmEvents.OnBadInput += TakeDamage;
         MusicManager.OnMusicFinished += Die;
         RhythmEvents.OnHealthNoteHit += AddHeart;
         RhythmEvents.OnReady += ResetHearts;
+    }
+
+    void OnDisable()
+    {
+        RhythmEvents.OnNoteMiss -= TakeDamage;
+        RhythmEvents.OnBadInput -= TakeDamage;
+        MusicManager.OnMusicFinished -= Die;
+        RhythmEvents.OnHealthNoteHit -= AddHeart;
+        RhythmEvents.OnReady -= ResetHearts;
     }
 
     void TakeDamage()

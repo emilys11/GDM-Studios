@@ -17,7 +17,7 @@ public class MusicManager : MonoBehaviour
     public static double SecondsPerBeat { get; private set; }
     public static double nextBeatDspTime;
 
-    public static double songStartDspTime; // 🔥 useful for countdowns/UI
+    public static double songStartDspTime;
 
     void Awake()
     {

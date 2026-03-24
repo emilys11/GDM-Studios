@@ -19,6 +19,7 @@ public class NoteLane : MonoBehaviour
     {
         RhythmEvents.OnDeath -= ResetLane;
         RhythmEvents.OnWin -= ResetLane;
+        RhythmEvents.OnReady -= ResetLane;
     }
 
     void Awake()

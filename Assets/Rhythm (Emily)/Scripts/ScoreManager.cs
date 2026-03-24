@@ -13,6 +13,12 @@ public class ScoreManager : MonoBehaviour
         RhythmEvents.OnBadInput += SubtractScore;
     }
 
+    void OnDisable()
+    {
+        RhythmEvents.OnNoteHit -= AddScore;
+        RhythmEvents.OnBadInput -= SubtractScore;
+    }
+
     void AddScore()
     {
         score += Mathf.RoundToInt(100 * combo.multiplier);

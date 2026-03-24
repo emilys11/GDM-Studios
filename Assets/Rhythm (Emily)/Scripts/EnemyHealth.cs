@@ -21,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
         currentHP = maxHP;
         hpBar.value = 1f;
         RhythmEvents.OnReady -= ResetHealth;
+        RhythmEvents.OnNoteHit -= TakeDamage;
     }
 
     void ResetHealth()
