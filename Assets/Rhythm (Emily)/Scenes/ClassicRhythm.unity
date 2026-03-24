@@ -3208,7 +3208,7 @@ MonoBehaviour:
   bpmOriginal: 0
   evilChance: 0.036
   holdChance: 0
-  healthChance: 0.31
+  healthChance: 0.126
 --- !u!4 &825716904
 Transform:
   m_ObjectHideFlags: 0
