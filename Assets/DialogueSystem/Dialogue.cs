@@ -34,6 +34,9 @@ public class Dialogue : MonoBehaviour
     private PlayerDialogue playerDialogue;
     private TextMeshProUGUI textMesh;
     private TextMeshProUGUI nameText;
+    [SerializeField] TMP_FontAsset astronautFont;
+    [SerializeField] TMP_FontAsset defFont;
+    [SerializeField] TMP_FontAsset specialFont;
     private int index;
 
     public bool displaySpeaker = true;
@@ -72,7 +75,7 @@ public class Dialogue : MonoBehaviour
     {
         interactmsg.SetActive(playerDialogue.canTalk && !textPlaying);
         dialogueBox.SetActive(textPlaying);
-        if (Input.GetKeyDown(KeyCode.E) && textPlaying) //&& playerDialogue.canTalk
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && textPlaying) //&& playerDialogue.canTalk
         {
             //if (!textPlaying)
             //{
@@ -177,23 +180,39 @@ public class Dialogue : MonoBehaviour
                     speakerPanel.GetComponent<Image>().sprite = playerImage;
                 }
                 nameText.color = Color.ghostWhite;
-            }
-            else if (currentLine == "SIR CRABIUS THE III")
-            {
-                if (displaySpeaker)
-                {
-                    speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
-                }
-                nameText.color = Color.forestGreen;
+                nameText.font = astronautFont;
+                textMesh.font = astronautFont;
+                
             }
             else
             {
+
+                nameText.font = defFont;
+                if (lines[index + 1].StartsWith(">"))
+                {
+                    textMesh.font = specialFont;
+                    lines[index+1] = lines[index + 1].Remove(0, 1);
+                }
+                else
+                {
+                    textMesh.font = defFont;
+                }
+
                 if (displaySpeaker)
                 {
                     speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
                 }
-                nameText.color = Color.softRed;
-            }
+
+                if (currentLine == "SIR CRABIUS THE III")
+                {
+                    nameText.color = Color.forestGreen;
+                }
+                else
+                {
+                    nameText.color = Color.softRed;
+                }
+            } 
+
 
             index++;
         }

@@ -47543,42 +47543,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 619292368979477126, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 188
-      objectReference: {fileID: 0}
-    - target: {fileID: 687604608693257594, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -196
-      objectReference: {fileID: 0}
-    - target: {fileID: 687604608693257594, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 1289616413862185671, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617306076650455197, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_margin.z
-      value: 7.942238
-      objectReference: {fileID: 0}
-    - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2017368595}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: defFont
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ed38843ebeb97d4a8a596aa5dc8fdbd, type: 2}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: specialFont
+      value: 
+      objectReference: {fileID: 11400000, guid: ef45e81fdbde6864b906d417e0b107a6, type: 2}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: astronautFont
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d0a27de228530642a9cc047e360f6f1, type: 2}
     - target: {fileID: 3427009476049085607, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_Name
       value: ExplorationUI
@@ -47667,14 +47647,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2017368595}
-    - target: {fileID: 8049761171300154848, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8462969153584178394, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_margin.x
-      value: -2.4879153
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

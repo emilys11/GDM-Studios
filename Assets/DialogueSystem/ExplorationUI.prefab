@@ -701,5 +701,12 @@ MonoBehaviour:
   namePlate: {fileID: 3201201850255121724}
   speakerPanel: {fileID: 3383783532929957228}
   playerImage: {fileID: -1714818092, guid: dee22b18e78008f4097ed67237e27280, type: 3}
+  animator: {fileID: 0}
+  firstLevelLoader: {fileID: 0}
+  secondLevelLoader: {fileID: 0}
+  testScript: {fileID: 0}
+  astronautFont: {fileID: 11400000, guid: 8d0a27de228530642a9cc047e360f6f1, type: 2}
+  defFont: {fileID: 11400000, guid: 2ed38843ebeb97d4a8a596aa5dc8fdbd, type: 2}
   displaySpeaker: 1
   dialogueFinished: 0
+  continueDialogue: 0
