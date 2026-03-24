@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
-
+    
     [SerializeField] private string nextPlanetScene;
     public static bool isNextPlanet = false;
     void OnEnable()
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public static void EnableScreen(GameObject obj)
     {
         obj.SetActive(true);
+       
     }
 
     public void ResetGame()
