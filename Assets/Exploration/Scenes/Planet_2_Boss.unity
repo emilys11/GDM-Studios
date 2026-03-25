@@ -17102,6 +17102,7 @@ MonoBehaviour:
   transitionTime: 1
   sceneToLoad: PopRhythm
   triggerName: Start
+  targetSpawnID: DefaultSpawn
 --- !u!4 &584250172
 Transform:
   m_ObjectHideFlags: 0
@@ -24000,6 +24001,7 @@ MonoBehaviour:
   transitionTime: 1
   sceneToLoad: Planet_3
   triggerName: PopulaTime
+  targetSpawnID: DefaultSpawn
 --- !u!4 &835449716
 Transform:
   m_ObjectHideFlags: 0
