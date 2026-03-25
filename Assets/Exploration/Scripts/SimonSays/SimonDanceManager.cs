@@ -24,16 +24,15 @@ public class SimonDanceManager : MonoBehaviour
 
     [Header("UI")]
     public TextMeshProUGUI statusText;
-    
-    [Header("Audio")]
-    [SerializeField] private AudioClip failSound;
-    [SerializeField] private float failVolume = 10000f;
 
-    [SerializeField] private AudioSource audioSource;
+    [Header("Audio")]
+    [SerializeField] private AudioSource failAudioSource;
+    [SerializeField] private AudioClip failSound;
+    [SerializeField] private float failVolume = 1f;
 
     [SerializeField] private AudioSource winAudioSource;
     [SerializeField] private AudioClip winSound;
-    [SerializeField] private float winVolume = 10000f;
+    [SerializeField] private float winVolume = 1f;
 
     private List<int> sequence = new List<int>();
     private int playerInputIndex = 0;
@@ -43,6 +42,21 @@ public class SimonDanceManager : MonoBehaviour
     private int currentRound = 0;
 
     public GameObject gate;
+
+    private void Awake()
+    {
+        if (failAudioSource != null)
+        {
+            failAudioSource.playOnAwake = false;
+            failAudioSource.spatialBlend = 0f;
+        }
+
+        if (winAudioSource != null)
+        {
+            winAudioSource.playOnAwake = false;
+            winAudioSource.spatialBlend = 0f;
+        }
+    }
 
     private void Start()
     {
@@ -71,7 +85,6 @@ public class SimonDanceManager : MonoBehaviour
         {
             tile.SetSimonGameActive(true);
         }
-
     }
 
     private void AddStep()
@@ -158,9 +171,9 @@ public class SimonDanceManager : MonoBehaviour
         acceptingInput = false;
         SetSectionsInteractable(false);
 
-        if (failSound != null && audioSource != null)
+        if (failSound != null && failAudioSource != null)
         {
-            audioSource.PlayOneShot(failSound, failVolume);
+            failAudioSource.PlayOneShot(failSound, failVolume);
         }
 
         yield return new WaitForSeconds(1.5f);
@@ -188,17 +201,17 @@ public class SimonDanceManager : MonoBehaviour
         {
             winAudioSource.PlayOneShot(winSound, winVolume);
         }
+
         Debug.Log("Dance floor Simon Says completed.");
-        yield return null;
 
         foreach (ColorChanger tile in allTiles)
         {
             tile.SetSimonGameActive(false);
         }
 
-        //Gate logic
         gate.SetActive(false);
 
+        yield return null;
     }
 
     private void SetSectionsInteractable(bool value)
@@ -214,7 +227,6 @@ public class SimonDanceManager : MonoBehaviour
         if (statusText != null)
             statusText.text = message;
     }
-
 
     private void StartPlayerTimeout()
     {
@@ -247,9 +259,9 @@ public class SimonDanceManager : MonoBehaviour
         acceptingInput = false;
         SetSectionsInteractable(false);
 
-        if (failSound != null && audioSource != null)
+        if (failSound != null && failAudioSource != null)
         {
-            audioSource.PlayOneShot(failSound, failVolume);
+            failAudioSource.PlayOneShot(failSound, failVolume);
         }
 
         yield return new WaitForSeconds(1f);

@@ -20,7 +20,6 @@ public class SimonFloorSection : MonoBehaviour
     [SerializeField] private float soundVolume = 1f;
 
     private AudioSource audioSource;
-
     private bool interactable = false;
     private bool isPressed = false;
 
@@ -28,7 +27,7 @@ public class SimonFloorSection : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
-        audioSource.spatialBlend = 0f; // 2D sound
+        audioSource.spatialBlend = 0f;
     }
 
     private void Reset()
