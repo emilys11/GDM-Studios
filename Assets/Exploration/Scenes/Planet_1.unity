@@ -47910,6 +47910,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: defFont
+      value: 
+      objectReference: {fileID: 11400000, guid: cf647f62e9a7c894a957a577b665cdda, type: 2}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: playerDialogue
       value: 
       objectReference: {fileID: 2017368610}

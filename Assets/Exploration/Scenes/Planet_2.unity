@@ -12748,6 +12748,7 @@ MonoBehaviour:
   transitionTime: 1
   sceneToLoad: Planet_2_Boss
   triggerName: Start
+  targetSpawnID: DefaultSpawn
 --- !u!1 &518259860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6733177361254619370, guid: ea4c79888256f9347a2ee6ebfa4338fe, type: 3}
@@ -49246,9 +49247,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 135490818241127910, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: m_text
+      value: '[Space] to continue'
+      objectReference: {fileID: 0}
+    - target: {fileID: 135490818241127910, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: d7948626c9d97cc4483f01af4c149ad9, type: 2}
+      objectReference: {fileID: 11400000, guid: 0be099359c49faf4c8f468f0cf4a8fb3, type: 2}
     - target: {fileID: 135490818241127910, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_fontColor.b
       value: 0
@@ -49264,7 +49269,7 @@ PrefabInstance:
     - target: {fileID: 135490818241127910, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 7292561194469862930, guid: d7948626c9d97cc4483f01af4c149ad9, type: 2}
+      objectReference: {fileID: 7292561194469862930, guid: 0be099359c49faf4c8f468f0cf4a8fb3, type: 2}
     - target: {fileID: 135490818241127910, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
@@ -49275,7 +49280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 687604608693257594, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 189
+      value: 187
       objectReference: {fileID: 0}
     - target: {fileID: 1617306076650455197, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_Sprite

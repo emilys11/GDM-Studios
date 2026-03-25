@@ -214,6 +214,10 @@ public class Dialogue : MonoBehaviour
                 {
                     nameText.color = Color.orange;
                 }
+                else if(currentLine == "ELSALA MIKSON" || currentLine == "JELLY BELLY")
+                {
+                    nameText.color = Color.aquamarine;
+                }
                 else
                 {
                     nameText.color = Color.softRed;
@@ -274,11 +278,16 @@ public class Dialogue : MonoBehaviour
         nameText.SetText(string.Empty);
         keyPrompt.enabled = false;
         playerDialogue.enableMovement(); //Allow movement again
+
         if (displaySpeaker)
         {
             speakerPanel.SetActive(false);
         }
         dialogueFinished = true;
+        if (playerDialogue.npcDialogue.gameObject.GetComponent<BoxCollider>() != null && !playerDialogue.npcDialogue.repositionComplete) //For AI //TODO The reposition complete prevents from calling this when not needed
+        {
+            playerDialogue.resetDialogue();
+        }
 
         if (resumedDialogue)
         {
