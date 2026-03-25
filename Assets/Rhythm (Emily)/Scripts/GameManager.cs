@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
 
     [SerializeField] private string nextPlanetScene;
+    [SerializeField] private string nextPlanetSpawnID = "Boss";
+
     public static bool isNextPlanet = false;
+
     void OnEnable()
     {
         RhythmEvents.OnDeath += EnableDeathScreen;
@@ -27,6 +31,8 @@ public class GameManager : MonoBehaviour
     public void NextPlanet()
     {
         isNextPlanet = true;
+        SpawnData.nextSpawnID = nextPlanetSpawnID;
+        Debug.Log("GameManager saving next spawn ID: " + nextPlanetSpawnID);
         SceneManager.LoadScene(nextPlanetScene);
     }
 
