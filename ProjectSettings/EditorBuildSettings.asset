@@ -24,11 +24,17 @@ EditorBuildSettings:
     path: Assets/Exploration/Scenes/Planet_3.unity
     guid: 4584287f15b812045878b1e2445982bf
   - enabled: 1
+    path: Assets/Exploration/Scenes/Ending.unity
+    guid: a8f7f92978c077749ba6b6d32b1eb225
+  - enabled: 1
     path: Assets/Rhythm (Emily)/Scenes/ClassicRhythm.unity
     guid: 57fe10b1cf5400744bbc09efd2337c8d
   - enabled: 1
     path: Assets/Rhythm (Emily)/Scenes/PopRhythm.unity
     guid: ea959cbe1c5ef644b8d4606415e25e9d
+  - enabled: 1
+    path: Assets/Rhythm (Emily)/Scenes/AiRhythm.unity
+    guid: 351915127a344114081b784d15538217
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
