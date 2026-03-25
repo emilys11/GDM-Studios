@@ -12,6 +12,9 @@ public class Gate : MonoBehaviour
     public GameObject closedDoorMesh;  // Closed door mesh
     public GameObject openDoorMesh;    // Open door mesh
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip gateOpenSound;
+
     private bool playerInRange = false;
     private KeyCollector currentPlayer;
 
@@ -74,6 +77,12 @@ public class Gate : MonoBehaviour
     private void OpenGate()
     {
         opened = true;
+
+
+        if (gateOpenSound != null)
+        {
+            AudioSource.PlayClipAtPoint(gateOpenSound, transform.position, 1f);
+        }
 
         // Disable the closed door mesh and enable the open door mesh
         if (closedDoorMesh != null) closedDoorMesh.SetActive(false);
