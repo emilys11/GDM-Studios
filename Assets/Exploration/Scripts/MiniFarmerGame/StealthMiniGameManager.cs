@@ -13,6 +13,11 @@ public class StealthMiniGameManager : MonoBehaviour
     [SerializeField] private NPCWatcher npcWatcher;
     [SerializeField] private MiniGameUI miniGameUI;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip failSound;
+
+    [SerializeField] private AudioClip keyPickupSound;
+
     [SerializeField] private MiniGameCameraController cameraController;
 
     [Header("Game State")]
@@ -73,6 +78,12 @@ public class StealthMiniGameManager : MonoBehaviour
 
         gameActive = false;
         Debug.Log("Player failed mini-game.");
+        
+        if (failSound != null)
+        {
+            AudioSource.PlayClipAtPoint(failSound, player.position);
+        }
+
 
         if (npcWatcher != null)
         {
@@ -123,6 +134,11 @@ public class StealthMiniGameManager : MonoBehaviour
         gameCompleted = true;
         gameActive = false;
 
+        if (keyPickupSound != null && player != null)
+        {
+            AudioSource.PlayClipAtPoint(keyPickupSound, player.position, 1f);
+        }
+
         if (npcWatcher != null)
         {
             npcWatcher.StopWatchingCycle();
@@ -143,6 +159,8 @@ public class StealthMiniGameManager : MonoBehaviour
         {
             miniGameUI.ShowMessage("You got the key!", 2f);
         }
+
+
 
         Debug.Log("Mini-game completed.");
     }
