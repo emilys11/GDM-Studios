@@ -6,6 +6,8 @@ public class MiniRhythm : MonoBehaviour
     [SerializeField] private string playerTag = "Player";
     [SerializeField] private PlayerDialogue playerDialogue;
 
+    [SerializeField] private AudioSource asrc;
+
     private bool gameTriggered = false;
 
     private void OnTriggerEnter(Collider other)
@@ -23,6 +25,7 @@ public class MiniRhythm : MonoBehaviour
     public void TriggerGame()
     {
         miniRhythm.SetActive(true);
+        asrc.Stop();
     }
 
     public void WinMinigame()
@@ -34,5 +37,7 @@ public class MiniRhythm : MonoBehaviour
 
         //KEEP THIS
         miniRhythm.SetActive(false);
+        asrc.loop = true;
+        asrc.Play();
     }
 }

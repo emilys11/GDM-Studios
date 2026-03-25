@@ -3918,7 +3918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58ddfcf60a0d354daf46887d4f50f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3700
+  maxHP: 4000
   currentHP: 0
   hpBar: {fileID: 80320091}
 --- !u!114 &80320091
@@ -103564,6 +103564,7 @@ MonoBehaviour:
   miniRhythm: {fileID: 1304571238}
   playerTag: Player
   playerDialogue: {fileID: 2017368610}
+  asrc: {fileID: 1334044213}
 --- !u!1001 &1626905065
 PrefabInstance:
   m_ObjectHideFlags: 0
