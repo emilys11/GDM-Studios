@@ -250,6 +250,11 @@ public class Dialogue : MonoBehaviour
         }
         dialogueFinished = true;
 
+        if(playerDialogue.npcDialogue.gameObject.GetComponent<BoxCollider>() != null && !playerDialogue.npcDialogue.repositionComplete) //For AI Planet interaction, if repositionComplete then battle should start
+        {
+            playerDialogue.resetDialogue();
+        }
+
         if (resumedDialogue)
         {
             Debug.Log("Using secondLevelLoader");

@@ -14,6 +14,10 @@ public class SimonFloorSection : MonoBehaviour
     public float flashDuration = 0.5f;
     public float flashEmission = 8f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip pressSound;
+    [SerializeField] private float soundVolume = 1f;
+
     private bool interactable = false;
     private bool isPressed = false;
 
@@ -29,6 +33,7 @@ public class SimonFloorSection : MonoBehaviour
 
     public IEnumerator Flash()
     {
+        PlayPressSound();
         SetSectionOverride(true);
         yield return new WaitForSeconds(flashDuration);
         SetSectionOverride(false);
@@ -60,5 +65,13 @@ public class SimonFloorSection : MonoBehaviour
         manager.PlayerPressed(sectionIndex);
         yield return new WaitForSeconds(0.15f);
         isPressed = false;
+    }
+
+    private void PlayPressSound()
+    {
+        if (pressSound != null)
+        {
+            AudioSource.PlayClipAtPoint(pressSound, transform.position, soundVolume);
+        }
     }
 }
