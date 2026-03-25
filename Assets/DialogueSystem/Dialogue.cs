@@ -72,7 +72,7 @@ public class Dialogue : MonoBehaviour
     {
         interactmsg.SetActive(playerDialogue.canTalk && !textPlaying);
         dialogueBox.SetActive(textPlaying);
-        if (Input.GetKeyDown(KeyCode.E) && textPlaying) //&& playerDialogue.canTalk
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) )&& textPlaying) //&& playerDialogue.canTalk
         {
             //if (!textPlaying)
             //{
@@ -184,6 +184,14 @@ public class Dialogue : MonoBehaviour
                     speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
                 }
                 nameText.color = Color.forestGreen;
+            }
+            else if(currentLine == "ELSALA MIKSON" || currentLine == "JELLY BELLY")
+            {
+                if (displaySpeaker)
+                {
+                    speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
+                }
+                nameText.color = Color.aquamarine;
             }
             else
             {

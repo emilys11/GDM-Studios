@@ -11,6 +11,8 @@ public class PlayerDialogue : MonoBehaviour
     public TextAsset npcScript;
     public NPCDialogue npcDialogue;
     public Sprite speakerSprite;
+
+    private bool talkedToJelly = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +40,12 @@ public class PlayerDialogue : MonoBehaviour
         if (other.gameObject.CompareTag("NPC"))
         {
             //canTalk = true;
+            if (other.gameObject.GetComponent<CapsuleCollider>() != null && !other.GetComponent<NPCDialogue>().alreadyTalked)
+            {
+                dialogue.dialogueFinished = false;
+                talkedToJelly = true;
+            }
+
             if (!dialogue.dialogueFinished)
             {
                 npcDialogue = other.gameObject.GetComponent<NPCDialogue>();
@@ -45,7 +53,14 @@ public class PlayerDialogue : MonoBehaviour
                 speakerSprite = other.gameObject.GetComponent<NPCDialogue>().speakerImage;
                 disableMovement();
                 dialogue.StartDialogue();
+                npcDialogue.alreadyTalked = true;
             }
+
+            //if (other.gameObject.GetComponent<CapsuleCollider>() != null)
+            //{
+            //    dialogue.dialogueFinished = false;
+            //    talkedToJelly = true;
+            //}
 
         }
     }
