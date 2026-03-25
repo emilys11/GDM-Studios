@@ -3587,7 +3587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 426890712}
   loseScreen: {fileID: 649935392}
-  nextPlanetScene: Ending
+  nextPlanetScene: Planet_3
   nextPlanetSpawnID: Boss
 --- !u!4 &1089119301
 Transform:
