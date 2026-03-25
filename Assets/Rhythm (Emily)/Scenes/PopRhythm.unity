@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 1950214681}
   loseScreen: {fileID: 1594248499}
-  nextPlanetScene: Planet_3
+  nextPlanetScene: Planet_2_Boss
   nextPlanetSpawnID: Boss
 --- !u!4 &326253604
 Transform:
@@ -4456,8 +4456,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1x
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45d0b3fdf8c6baa4fbcc2f66da0d1cd7, type: 2}
-  m_sharedMaterial: {fileID: 6178163257724610905, guid: 45d0b3fdf8c6baa4fbcc2f66da0d1cd7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
