@@ -131349,6 +131349,7 @@ MonoBehaviour:
   transitionTime: 1
   sceneToLoad: Planet_1_Boss
   triggerName: Start
+  targetSpawnID: DefaultSpawn
 --- !u!1 &1974765670
 GameObject:
   m_ObjectHideFlags: 0
@@ -137220,6 +137221,7 @@ MonoBehaviour:
   winScreen: {fileID: 24971784}
   loseScreen: {fileID: 564522193}
   nextPlanetScene: Planet_1
+  nextPlanetSpawnID: Boss
 --- !u!1001 &2091085679
 PrefabInstance:
   m_ObjectHideFlags: 0

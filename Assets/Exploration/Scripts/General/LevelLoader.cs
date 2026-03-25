@@ -9,6 +9,7 @@ public class LevelLoader : MonoBehaviour
     public string sceneToLoad;
 
     [SerializeField] private string triggerName = "Start";
+    [SerializeField] private string targetSpawnID = "DefaultSpawn";
 
     private bool isLoading = false;
 
@@ -21,7 +22,11 @@ public class LevelLoader : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player entered level loader trigger");
+            Debug.Log("Saving next spawn ID: " + targetSpawnID);
+
             isLoading = true;
+            SpawnData.nextSpawnID = targetSpawnID;
+
             StartCoroutine(LoadLevel(sceneToLoad));
         }
     }

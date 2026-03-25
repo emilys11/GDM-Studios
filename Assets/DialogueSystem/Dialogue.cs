@@ -101,8 +101,7 @@ public class Dialogue : MonoBehaviour
                 textMesh.text = lines[index];
             }
         }
-
-        Debug.Log("lines is null? " + (lines == null));
+        
         if (lines != null && index < lines.Length && lines[index] != null && lines[index].Trim() == ">")
         {
             Debug.Log("Scene change marker detected!");
