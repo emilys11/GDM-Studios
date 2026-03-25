@@ -30147,6 +30147,7 @@ MonoBehaviour:
   noKeysText: {fileID: 501800030}
   closedDoorMesh: {fileID: 657499832}
   openDoorMesh: {fileID: 724937458}
+  gateOpenSound: {fileID: 8300000, guid: 7d82c99d28fda4095bd4a2c2aa54a2bf, type: 3}
 --- !u!4 &657499838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 781e39e499538784d8745782cacda05a, type: 3}
@@ -37550,6 +37551,8 @@ MonoBehaviour:
   respawnPoint: {fileID: 1480292550}
   npcWatcher: {fileID: 2046689834}
   miniGameUI: {fileID: 1054534663}
+  failSound: {fileID: 8300000, guid: 78ce878c5c86e4dcebfb971aa6bfd270, type: 3}
+  keyPickupSound: {fileID: 8300000, guid: 3f57a3509b88243ae8d856809b00a97e, type: 3}
   cameraController: {fileID: 0}
   gameActive: 0
   gameCompleted: 0
@@ -120411,6 +120414,7 @@ MonoBehaviour:
   rightGate: {fileID: 1693461106}
   openAngle: 90
   openSpeed: 0.5
+  gateOpenSound: {fileID: 0}
 --- !u!1001 &1764413519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131693,6 +131697,7 @@ MonoBehaviour:
   noKeysText: {fileID: 501800030}
   closedDoorMesh: {fileID: 1969515889}
   openDoorMesh: {fileID: 1331867560}
+  gateOpenSound: {fileID: 8300000, guid: 7d82c99d28fda4095bd4a2c2aa54a2bf, type: 3}
 --- !u!4 &1969515895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 781e39e499538784d8745782cacda05a, type: 3}
