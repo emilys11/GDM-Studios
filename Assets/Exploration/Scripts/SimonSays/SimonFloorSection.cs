@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SimonFloorSection : MonoBehaviour
 {
     public int sectionIndex;
@@ -18,8 +19,17 @@ public class SimonFloorSection : MonoBehaviour
     [SerializeField] private AudioClip pressSound;
     [SerializeField] private float soundVolume = 1f;
 
+    private AudioSource audioSource;
+
     private bool interactable = false;
     private bool isPressed = false;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D sound
+    }
 
     private void Reset()
     {
@@ -69,9 +79,9 @@ public class SimonFloorSection : MonoBehaviour
 
     private void PlayPressSound()
     {
-        if (pressSound != null)
+        if (pressSound != null && audioSource != null)
         {
-            AudioSource.PlayClipAtPoint(pressSound, transform.position, soundVolume);
+            audioSource.PlayOneShot(pressSound, soundVolume);
         }
     }
 }
