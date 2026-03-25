@@ -9,7 +9,7 @@ public class PlayerDialogue : MonoBehaviour
     private SphereCollider sphereCollider;
     public bool canTalk = false;
     public TextAsset npcScript;
-    private NPCDialogue npcDialogue;
+    public NPCDialogue npcDialogue;
     public Sprite speakerSprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
