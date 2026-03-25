@@ -10,6 +10,9 @@ public class GateController : MonoBehaviour
     [SerializeField] private float openAngle = 90f;
     [SerializeField] private float openSpeed = 2f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip gateOpenSound;
+
     private Quaternion leftClosed;
     private Quaternion rightClosed;
     private Quaternion leftOpen;
@@ -82,6 +85,11 @@ public class GateController : MonoBehaviour
     {
         opening = true;
         closing = false;
+
+        if (gateOpenSound != null)
+        {
+            AudioSource.PlayClipAtPoint(gateOpenSound, transform.position, 1f);
+        }
     }
 
     public void CloseGate()
