@@ -61,7 +61,7 @@ public class StealthMiniGameManager : MonoBehaviour
 
         if (miniGameUI != null)
         {
-            miniGameUI.ShowMessage("Sneak past the NPC and find the key!", 2f);
+            miniGameUI.ShowMessage("Sneak past the Machine and find the key!", 2f);
         }
 
         Debug.Log("Mini-game started.");
@@ -82,7 +82,7 @@ public class StealthMiniGameManager : MonoBehaviour
 
         if (miniGameUI != null)
         {
-            miniGameUI.ShowMessage("The NPC saw you!", 2f);
+            miniGameUI.ShowMessage("", 2f);
         }
 
         StartCoroutine(FailSequence());

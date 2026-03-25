@@ -13,9 +13,20 @@ public class NPCWatcher : MonoBehaviour
 
     [SerializeField] private NPCVision vision;
 
+    [Header("Light Colors")]
+    [SerializeField] private Color closedEyesLightColor = Color.yellow;
+    [SerializeField] private Color openEyesLightColor = Color.red;
+
+    private Light[] childLights;
+
     private bool isWatching = false;
     private Coroutine watchRoutine;
     private StealthMiniGameManager miniGameManager;
+
+    private void Awake()
+    {
+        childLights = GetComponentsInChildren<Light>(true);
+    }
 
     public void SetMiniGameManager(StealthMiniGameManager manager)
     {
@@ -72,7 +83,6 @@ public class NPCWatcher : MonoBehaviour
                 vision.SetVisionActive(false);
             }
 
-
             yield return new WaitForSeconds(closedEyesDuration);
 
             isWatching = true;
@@ -83,7 +93,6 @@ public class NPCWatcher : MonoBehaviour
                 vision.SetVisionActive(true);
             }
 
-
             yield return new WaitForSeconds(openEyesDuration);
         }
     }
@@ -92,5 +101,18 @@ public class NPCWatcher : MonoBehaviour
     {
         if (eyesClosedVisual != null) eyesClosedVisual.SetActive(!isWatching);
         if (eyesOpenVisual != null) eyesOpenVisual.SetActive(isWatching);
+
+        Color targetColor = isWatching ? openEyesLightColor : closedEyesLightColor;
+
+        if (childLights != null)
+        {
+            foreach (Light lightComponent in childLights)
+            {
+                if (lightComponent != null)
+                {
+                    lightComponent.color = targetColor;
+                }
+            }
+        }
     }
 }
