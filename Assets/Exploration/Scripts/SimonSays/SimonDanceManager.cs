@@ -27,7 +27,13 @@ public class SimonDanceManager : MonoBehaviour
     
     [Header("Audio")]
     [SerializeField] private AudioClip failSound;
-    [SerializeField] private float failVolume = 1f;
+    [SerializeField] private float failVolume = 10000f;
+
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private AudioSource winAudioSource;
+    [SerializeField] private AudioClip winSound;
+    [SerializeField] private float winVolume = 10000f;
 
     private List<int> sequence = new List<int>();
     private int playerInputIndex = 0;
@@ -89,7 +95,6 @@ public class SimonDanceManager : MonoBehaviour
     {
         acceptingInput = false;
         SetSectionsInteractable(false);
-        UpdateStatus("Watch the sequence");
 
         yield return new WaitForSeconds(0.75f);
 
@@ -105,7 +110,6 @@ public class SimonDanceManager : MonoBehaviour
         playerInputIndex = 0;
         acceptingInput = true;
         SetSectionsInteractable(true);
-        UpdateStatus("Your turn");
 
         StartPlayerTimeout();
     }
@@ -141,7 +145,6 @@ public class SimonDanceManager : MonoBehaviour
         acceptingInput = false;
         SetSectionsInteractable(false);
 
-        UpdateStatus("Correct!");
         yield return new WaitForSeconds(1f);
 
         currentRound++;
@@ -155,12 +158,11 @@ public class SimonDanceManager : MonoBehaviour
         acceptingInput = false;
         SetSectionsInteractable(false);
 
-        if (failSound != null)
+        if (failSound != null && audioSource != null)
         {
-            AudioSource.PlayClipAtPoint(failSound, transform.position, failVolume);
+            audioSource.PlayOneShot(failSound, failVolume);
         }
 
-        UpdateStatus("Wrong sequence!");
         yield return new WaitForSeconds(1.5f);
 
         sequence.Clear();
@@ -169,7 +171,6 @@ public class SimonDanceManager : MonoBehaviour
 
         AddStep();
 
-        UpdateStatus("Starting over...");
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(PlaySequenceRoutine());
@@ -183,7 +184,10 @@ public class SimonDanceManager : MonoBehaviour
         gameCompleted = true;
         gameActive = false;
 
-        UpdateStatus("You win!");
+        if (winSound != null && winAudioSource != null)
+        {
+            winAudioSource.PlayOneShot(winSound, winVolume);
+        }
         Debug.Log("Dance floor Simon Says completed.");
         yield return null;
 
@@ -243,12 +247,11 @@ public class SimonDanceManager : MonoBehaviour
         acceptingInput = false;
         SetSectionsInteractable(false);
 
-        if (failSound != null)
+        if (failSound != null && audioSource != null)
         {
-            AudioSource.PlayClipAtPoint(failSound, transform.position, failVolume);
+            audioSource.PlayOneShot(failSound, failVolume);
         }
 
-        UpdateStatus("Too slow! Watch again...");
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(PlaySequenceRoutine());
