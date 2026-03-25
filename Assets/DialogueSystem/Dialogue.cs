@@ -13,10 +13,10 @@ public class Dialogue : MonoBehaviour
 
     
     [SerializeField] float textSpeed;
-    [SerializeField] GameObject player;
+    //[SerializeField] GameObject player;
     [SerializeField] GameObject interactmsg;
     [SerializeField] GameObject dialogueBox;
-    [SerializeField] GameObject namePlate;
+    //[SerializeField] GameObject namePlate;
     [SerializeField] GameObject speakerPanel;
 
     [SerializeField] Sprite playerImage;
@@ -31,9 +31,11 @@ public class Dialogue : MonoBehaviour
     private TextAsset script;
     private string[] lines;
 
-    private PlayerDialogue playerDialogue;
+    [SerializeField] PlayerDialogue playerDialogue;
     private TextMeshProUGUI textMesh;
-    private TextMeshProUGUI nameText;
+    [SerializeField] TextMeshProUGUI nameText;
+    [SerializeField] TextMeshProUGUI keyPrompt;
+
     [SerializeField] TMP_FontAsset astronautFont;
     [SerializeField] TMP_FontAsset defFont;
     [SerializeField] TMP_FontAsset specialFont;
@@ -49,13 +51,14 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
-        nameText = namePlate.GetComponent<TextMeshProUGUI>();
+        //nameText = namePlate.GetComponent<TextMeshProUGUI>();
 
         speakerPanel.SetActive(false);
 
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
-        playerDialogue = player.GetComponent<PlayerDialogue>();
+        keyPrompt.enabled = false;
+        //playerDialogue = player.GetComponent<PlayerDialogue>();
 
         Debug.Log("textMesh = " + textMesh);
         Debug.Log("nameText = " + nameText);
@@ -145,7 +148,7 @@ public class Dialogue : MonoBehaviour
         {
             speakerPanel.SetActive(true);
         }
-
+        keyPrompt.enabled = true;
         StartCoroutine(TypeLine());
         textPlaying = true;
     }
@@ -157,6 +160,7 @@ public class Dialogue : MonoBehaviour
             yield break;
 
         string currentLine = lines[index].Trim();
+        keyPrompt.enabled = true;
 
         // Transition marker
         if (currentLine == ">")
@@ -207,11 +211,16 @@ public class Dialogue : MonoBehaviour
                 {
                     nameText.color = Color.forestGreen;
                 }
+                else if (currentLine == "YASSTOPUS")
+                {
+                    nameText.color = Color.orange;
+                }
                 else
                 {
                     nameText.color = Color.softRed;
                 }
-            } 
+            }
+            //keyPrompt.font = textMesh.font;
 
 
             index++;
@@ -246,6 +255,7 @@ public class Dialogue : MonoBehaviour
             {
                 index++;
                 textMesh.SetText(string.Empty);
+                keyPrompt.enabled = false;
                 StartCoroutine(TypeLine());
             }
             else
@@ -263,6 +273,7 @@ public class Dialogue : MonoBehaviour
         textPlaying = false;
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
+        keyPrompt.enabled = false;
         playerDialogue.enableMovement(); //Allow movement again
         if (displaySpeaker)
         {
