@@ -24,6 +24,10 @@ public class SimonDanceManager : MonoBehaviour
 
     [Header("UI")]
     public TextMeshProUGUI statusText;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioClip failSound;
+    [SerializeField] private float failVolume = 1f;
 
     private List<int> sequence = new List<int>();
     private int playerInputIndex = 0;
@@ -151,6 +155,11 @@ public class SimonDanceManager : MonoBehaviour
         acceptingInput = false;
         SetSectionsInteractable(false);
 
+        if (failSound != null)
+        {
+            AudioSource.PlayClipAtPoint(failSound, transform.position, failVolume);
+        }
+
         UpdateStatus("Wrong sequence!");
         yield return new WaitForSeconds(1.5f);
 
@@ -233,6 +242,11 @@ public class SimonDanceManager : MonoBehaviour
 
         acceptingInput = false;
         SetSectionsInteractable(false);
+
+        if (failSound != null)
+        {
+            AudioSource.PlayClipAtPoint(failSound, transform.position, failVolume);
+        }
 
         UpdateStatus("Too slow! Watch again...");
         yield return new WaitForSeconds(1f);
