@@ -8541,6 +8541,8 @@ MonoBehaviour:
   flashColor: {r: 0.87545574, g: 1, b: 0, a: 1}
   flashDuration: 0.5
   flashEmission: 8
+  pressSound: {fileID: 8300000, guid: f395b47f771ad4eec9be26fc2c8c25c5, type: 3}
+  soundVolume: 8000
 --- !u!65 &363546988
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10007,6 +10009,8 @@ MonoBehaviour:
   flashColor: {r: 0, g: 1, b: 1, a: 1}
   flashDuration: 0.5
   flashEmission: 8
+  pressSound: {fileID: 8300000, guid: 1df676bcaf452445c8d3f38e8b1d7d10, type: 3}
+  soundVolume: 8000
 --- !u!65 &422518607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10593,6 +10597,8 @@ MonoBehaviour:
   dimMultiplier: 0.4
   playerResponseTime: 5
   statusText: {fileID: 1287102360}
+  failSound: {fileID: 8300000, guid: 78ce878c5c86e4dcebfb971aa6bfd270, type: 3}
+  failVolume: 8000
   gate: {fileID: 322278132}
 --- !u!1 &454189993
 GameObject:
@@ -26659,6 +26665,8 @@ MonoBehaviour:
   flashColor: {r: 0.9811321, g: 0.0509078, b: 0.0509078, a: 1}
   flashDuration: 0.5
   flashEmission: 8
+  pressSound: {fileID: 8300000, guid: ff0b03b96296f4fe488b4348c545c45f, type: 3}
+  soundVolume: 8000
 --- !u!65 &1090878862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33598,7 +33606,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4170384b1489f4f078ed2b8e58b61799, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_Volume: 0.015
   m_Pitch: 2.04
   Loop: 1
   Mute: 0
@@ -38899,6 +38907,8 @@ MonoBehaviour:
   flashColor: {r: 0, g: 1, b: 0.27328634, a: 1}
   flashDuration: 0.5
   flashEmission: 8
+  pressSound: {fileID: 8300000, guid: 3a92a039cfee141c6ba50eb76aa8a6f9, type: 3}
+  soundVolume: 8000
 --- !u!65 &1403582122
 BoxCollider:
   m_ObjectHideFlags: 0
