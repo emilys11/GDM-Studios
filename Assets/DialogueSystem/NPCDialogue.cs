@@ -8,6 +8,7 @@ public class NPCDialogue : MonoBehaviour
     public Sprite speakerImage;
 
     public bool repositionComplete = false;
+    public bool alreadyTalked = false;
 
     public void reposition() //For the crab
     {
