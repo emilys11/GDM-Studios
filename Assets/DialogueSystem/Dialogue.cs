@@ -161,6 +161,7 @@ public class Dialogue : MonoBehaviour
             Debug.Log("Scene change marker detected in TypeLine at index " + index);
             StopAllCoroutines();
             index++;
+            index++;
             StartCoroutine(exitDialogue());
             yield break;
         }
