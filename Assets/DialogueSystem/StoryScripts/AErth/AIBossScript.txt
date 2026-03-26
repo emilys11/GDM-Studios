@@ -6,7 +6,7 @@ ASTRONAUT
 First thing’s first: where am I? Wow, what a dump. YASStopus wasn’t kidding when they said this place wasn’t habitable anymore. And I hit so much space junk on my way down! I wonder what happened to this planet…
 
 
-01001101 01000001 01001001
+01000001 01001001
 Greetings, Ambassador.
 
 
@@ -14,7 +14,7 @@ ASTRONAUT
 Huh?? Who said that?
 
 
-01001101 01000001 01001001
+01000001 01001001
 I have been watching your progress on Classico and Popula’. Very impressive, if I may say so. But no match for me!
 
 
@@ -22,7 +22,7 @@ I have been watching your progress on Classico and Popula’. Very impressive, i
 BATTLE COMPLETE
 
 
-01001101 01000001 01001001
+01000001 01001001
 AARGHHH! You have damaged my circuits beyond repair! Initiating self-destruct sequence… T-minus 5 minutes.
 
 
@@ -30,7 +30,7 @@ ASTRONAUT
 No wait, before you self-destruct, I need some answers from you! What has happened to this planet and its star system?
 
 
-01001101 01000001 01001001
+01000001 01001001
 I guess I lose nothing by telling you…
 
 >
