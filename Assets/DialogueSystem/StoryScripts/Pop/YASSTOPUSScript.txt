@@ -1,5 +1,5 @@
 ASTRONAUT
-Greetings, YASStopus! I am an ambassador from the planet GDM. Before we begin negotiations, I would like to request that you cease terrorizing the inhabitants of Popula’.
+Greetings, YASStopus! I am an ambassador from the planet GDM. Before we begin negotiations, I would like to request that you cease terrorizing the inhabitants of Popula'.
 
 YASSTOPUS
 Only if you beat me at a YASS-off!
@@ -24,7 +24,7 @@ If you do the same, we will be able to open up trade negotiations that will bene
 
 
 YASSTOPUS
-Houston, I’m deceased! You leave me no choice, Ambassador. But these trade negotiations will never fly with The Boss.
+Houston, I'm deceased! You leave me no choice, Ambassador. But these trade negotiations will never fly with The Boss.
 
 
 ASTRONAUT
@@ -32,7 +32,7 @@ I keep hearing about them. Who are they? Where are they?
 
 
 YASSTOPUS
-Long ago, there used to be three habitable planets in the Solar System, but now, there are only two: Classico and Popula’. 
+Long ago, there used to be three habitable planets in the Solar System, but now, there are only two: Classico and Popula'. 
 
 
 YASSTOPUS
@@ -40,6 +40,6 @@ The Boss lives on the third, uninhabitable one.
 
 
 YASSTOPUS
-Don’t even try going there; you will be cooked until you’re burnt to a crisp…
+Don't even try going there; you will be cooked until you're burnt to a crisp…
 
 >

@@ -12,6 +12,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject namePlate;
     [SerializeField] GameObject speakerPanel;
+    [SerializeField] GameObject keyPrompt;
 
     [SerializeField] Sprite playerImage;
 
@@ -67,6 +68,7 @@ public class Dialogue : MonoBehaviour
 
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
+        keyPrompt.SetActive(false);
         playerDialogue = player.GetComponent<PlayerDialogue>();
 
         Debug.Log("textMesh = " + textMesh);
@@ -93,7 +95,7 @@ public class Dialogue : MonoBehaviour
         interactmsg.SetActive(playerDialogue.canTalk && !textPlaying);
         dialogueBox.SetActive(textPlaying);
 
-        if (Input.GetKeyDown(KeyCode.E) && textPlaying)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && textPlaying)
         {
             if (textMesh.text == lines[index])
             {
@@ -144,7 +146,7 @@ public class Dialogue : MonoBehaviour
         {
             speakerPanel.SetActive(true);
         }
-
+        keyPrompt.SetActive(true);
         StartCoroutine(TypeLine());
         textPlaying = true;
     }
@@ -269,6 +271,7 @@ public class Dialogue : MonoBehaviour
         textPlaying = false;
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
+        keyPrompt.SetActive(false);
         playerDialogue.enableMovement();
 
         if (displaySpeaker)

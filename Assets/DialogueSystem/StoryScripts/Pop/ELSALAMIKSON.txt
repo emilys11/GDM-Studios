@@ -1,5 +1,5 @@
 ASTRONAUT
-Hello, I’m the ambassador from the planet GDM, from a star system far away.
+Hello, I'm the ambassador from the planet GDM, from a star system far away.
 
 
 ELSALA MIKSON
@@ -15,7 +15,7 @@ Oh this? This is nothing compared to what it used to be. You used to be able to 
 
 
 ASTRONAUT
-Oh, I’m sorry. Can I do anything to help? I have already convinced Classico’s ruler to turn back into a just leader. Maybe I could help your planet in a similar manner?
+Oh, I'm sorry. Can I do anything to help? I have already convinced Classico's ruler to turn back into a just leader. Maybe I could help your planet in a similar manner?
 
 
 ELSALA MIKSON

@@ -55864,42 +55864,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 619292368979477126, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 188
-      objectReference: {fileID: 0}
-    - target: {fileID: 687604608693257594, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -196
-      objectReference: {fileID: 0}
-    - target: {fileID: 687604608693257594, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 1289616413862185671, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617306076650455197, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_margin.z
-      value: 7.942238
-      objectReference: {fileID: 0}
-    - target: {fileID: 2067113687863592979, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2017368595}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: keyPrompt
+      value: 
+      objectReference: {fileID: 1788415010}
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: speakerSourceA
       value: 
@@ -55940,10 +55912,6 @@ PrefabInstance:
       propertyPath: 'speakerBNames.Array.data[0]'
       value: SIR CRABIUS THE III
       objectReference: {fileID: 0}
-    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: 'speakerBNames.Array.data[1]'
-      value: BACHOVENPINANOFF
-      objectReference: {fileID: 0}
     - target: {fileID: 3427009476049085607, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_Name
       value: ExplorationUI
@@ -55964,21 +55932,9 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
-    - target: {fileID: 3432838004418362295, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396120670387927177, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4396120670387927177, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.20011115
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396120670387927177, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4396120670387927177, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_AnchorMin.y
@@ -56084,14 +56040,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2017368595}
-    - target: {fileID: 8049761171300154848, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8462969153584178394, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
-      propertyPath: m_margin.x
-      value: -2.4879153
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -122560,6 +122508,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae358aa425fe140409d8a560f4492730, type: 3}
+--- !u!1 &1788415010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8202291504781549604, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+  m_PrefabInstance: {fileID: 999412090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1792293648
 GameObject:
   m_ObjectHideFlags: 0
