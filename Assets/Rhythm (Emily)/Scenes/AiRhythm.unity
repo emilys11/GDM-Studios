@@ -5806,9 +5806,9 @@ MonoBehaviour:
   hitY: -350
   noteSpeed: 1000
   holdNoteCompressor: 5.59
-  speedIncreaseAfter: 55
+  speedIncreaseAfter: 39
   speedIncreaseAmount: 500
-  bpmIncrease: 30
+  bpmIncrease: 40
   bpmOriginal: 0
   evilChance: 0.054
   holdChance: 0.01
@@ -6176,7 +6176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58ddfcf60a0d354daf46887d4f50f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 9000
+  maxHP: 11000
   currentHP: 0
   hpBar: {fileID: 1787332472}
 --- !u!114 &1787332472
