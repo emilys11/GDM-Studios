@@ -5,34 +5,34 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Exploration/Scenes/Menu.unity
     guid: 318ce5eb661c98b4ba435a2c54945f20
-  - enabled: 1
+  - enabled: 0
     path: Assets/Exploration/Scenes/Planet_1.unity
     guid: 6cc7de6ef277ef34cb88cf4947d538d0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Exploration/Scenes/Planet_1_Boss.unity
     guid: 2b1810cd70220df4cbedb62770084b27
   - enabled: 1
     path: Assets/Exploration/Scenes/Planet_2.unity
     guid: 5e2418890edc69749a41ce1406c1cd2e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Exploration/Scenes/Planet_2_Boss.unity
     guid: f07d15d80f919bb4cb304d0c1ad0c668
-  - enabled: 1
+  - enabled: 0
     path: Assets/Exploration/Scenes/Planet_3.unity
     guid: 4584287f15b812045878b1e2445982bf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Exploration/Scenes/Ending.unity
     guid: a8f7f92978c077749ba6b6d32b1eb225
-  - enabled: 1
+  - enabled: 0
     path: Assets/Rhythm (Emily)/Scenes/ClassicRhythm.unity
     guid: 57fe10b1cf5400744bbc09efd2337c8d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Rhythm (Emily)/Scenes/PopRhythm.unity
     guid: ea959cbe1c5ef644b8d4606415e25e9d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Rhythm (Emily)/Scenes/AiRhythm.unity
     guid: 351915127a344114081b784d15538217
   m_configObjects:
