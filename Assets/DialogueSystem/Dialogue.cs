@@ -2,16 +2,10 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Text.RegularExpressions;
-using System.Linq;
-using System.Data;
 using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
-    //TODO: Make it so after talking once, talking to the npc again repeats their last line? (Use queues but last line doesnt exit q?)
-    
-
-    
     [SerializeField] float textSpeed;
     [SerializeField] GameObject player;
     [SerializeField] GameObject interactmsg;
@@ -28,6 +22,26 @@ public class Dialogue : MonoBehaviour
 
     [SerializeField] private TextAsset testScript;
 
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource speakerSourceA;
+    [SerializeField] private AudioSource speakerSourceB;
+    [SerializeField] private AudioSource sfxSource;
+
+    [Header("Speaker A Settings")]
+    [SerializeField] private string[] speakerANames;
+    [SerializeField] private AudioClip[] speakerAClips;
+
+    [Header("Speaker B Settings")]
+    [SerializeField] private string[] speakerBNames;
+    [SerializeField] private AudioClip[] speakerBClips;
+
+    [Header("Special One-Off SFX")]
+    [SerializeField] private AudioClip specialLineClip;
+    [SerializeField] private string specialLineTrigger = "Mouth pops (recording of Taym mouth popping)";
+
+    [Header("Blip Settings")]
+    [SerializeField] private int blipFrequency = 2;
+
     private TextAsset script;
     private string[] lines;
 
@@ -42,7 +56,8 @@ public class Dialogue : MonoBehaviour
     public bool dialogueFinished = false;
     private bool resumedDialogue = false;
 
-    public bool continueDialogue = false;//for crab
+    public bool continueDialogue = false;
+
     void Start()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
@@ -63,34 +78,23 @@ public class Dialogue : MonoBehaviour
         if (textMesh != null) textMesh.SetText(string.Empty);
         if (nameText != null) nameText.SetText(string.Empty);
     }
+
     void readScript()
     {
         script = playerDialogue.npcScript;
-        lines = Regex.Split(Regex.Replace(script.text, @"^\s*$\n", string.Empty, RegexOptions.Multiline), "\n"); //Format input script
+        lines = Regex.Split(
+            Regex.Replace(script.text, @"^\s*$\n", string.Empty, RegexOptions.Multiline),
+            "\n"
+        );
     }
+
     private void Update()
     {
         interactmsg.SetActive(playerDialogue.canTalk && !textPlaying);
         dialogueBox.SetActive(textPlaying);
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0) )&& textPlaying) //&& playerDialogue.canTalk
+
+        if (Input.GetKeyDown(KeyCode.E) && textPlaying)
         {
-            //if (!textPlaying)
-            //{
-            //    playerDialogue.disableMovement(); //Prevent them from moving so they cant walk away
-            //    StartDialogue();
-            //}
-            //else
-            //{
-            //    if (textMesh.text == lines[index])
-            //    {
-            //        NextLine();
-            //    }
-            //    else
-            //    {
-            //        StopAllCoroutines();
-            //        textMesh.text = lines[index];
-            //    }
-            //}
             if (textMesh.text == lines[index])
             {
                 NextLine();
@@ -101,7 +105,7 @@ public class Dialogue : MonoBehaviour
                 textMesh.text = lines[index];
             }
         }
-        
+
         if (lines != null && index < lines.Length && lines[index] != null && lines[index].Trim() == ">")
         {
             Debug.Log("Scene change marker detected!");
@@ -134,7 +138,6 @@ public class Dialogue : MonoBehaviour
                 resumedDialogue = false;
                 Debug.Log("StartDialogue: starting fresh");
             }
-            
         }
 
         if (displaySpeaker)
@@ -146,7 +149,6 @@ public class Dialogue : MonoBehaviour
         textPlaying = true;
     }
 
-
     IEnumerator TypeLine()
     {
         if (index >= lines.Length)
@@ -154,7 +156,6 @@ public class Dialogue : MonoBehaviour
 
         string currentLine = lines[index].Trim();
 
-        // Transition marker
         if (currentLine == ">")
         {
             Debug.Log("Scene change marker detected in TypeLine at index " + index);
@@ -208,7 +209,6 @@ public class Dialogue : MonoBehaviour
         if (index >= lines.Length)
             yield break;
 
-        // If next line is somehow the transition marker, catch it too
         if (lines[index].Trim() == ">")
         {
             Debug.Log("Scene change marker detected after name at index " + index);
@@ -220,29 +220,46 @@ public class Dialogue : MonoBehaviour
 
         textMesh.SetText(string.Empty);
 
-        foreach (char c in lines[index])
+        string speakerName = nameText.text;
+        string dialogueLine = lines[index];
+        bool isSpecialLine = dialogueLine.Contains(specialLineTrigger);
+
+        if (isSpecialLine && sfxSource != null && specialLineClip != null)
+        {
+            sfxSource.PlayOneShot(specialLineClip);
+        }
+
+        int visibleCharIndex = 0;
+
+        foreach (char c in dialogueLine)
         {
             textMesh.text += c;
+
+            if (!isSpecialLine)
+            {
+                PlaySpeakerBlip(speakerName, c, visibleCharIndex);
+            }
+
+            visibleCharIndex++;
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
-        public void NextLine()
+    public void NextLine()
+    {
+        if (index < lines.Length - 1)
         {
-
-            if (index < lines.Length - 1)
-            {
-                index++;
-                textMesh.SetText(string.Empty);
-                StartCoroutine(TypeLine());
-            }
-            else
-            {
-                StartCoroutine(exitDialogue());
-            }
+            index++;
+            textMesh.SetText(string.Empty);
+            StartCoroutine(TypeLine());
         }
+        else
+        {
+            StartCoroutine(exitDialogue());
+        }
+    }
 
-        IEnumerator exitDialogue()
+    IEnumerator exitDialogue()
     {
         Debug.Log("exitDialogue called. resumedDialogue = " + resumedDialogue + ", index = " + index);
 
@@ -251,14 +268,17 @@ public class Dialogue : MonoBehaviour
         textPlaying = false;
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
-        playerDialogue.enableMovement(); //Allow movement again
+        playerDialogue.enableMovement();
+
         if (displaySpeaker)
         {
             speakerPanel.SetActive(false);
         }
+
         dialogueFinished = true;
 
-        if(playerDialogue.npcDialogue.gameObject.GetComponent<BoxCollider>() != null && !playerDialogue.npcDialogue.repositionComplete) //For AI Planet interaction, if repositionComplete then battle should start
+        if (playerDialogue.npcDialogue.gameObject.GetComponent<BoxCollider>() != null &&
+            !playerDialogue.npcDialogue.repositionComplete)
         {
             playerDialogue.resetDialogue();
         }
@@ -284,5 +304,59 @@ public class Dialogue : MonoBehaviour
         }
 
         yield return StartCoroutine(firstLevelLoader.LoadLevel(firstLevelLoader.sceneToLoad));
+    }
+
+    private AudioSource GetSpeakerSource(string speaker)
+    {
+        if (IsSpeakerInList(speaker, speakerBNames))
+            return speakerSourceB;
+
+        return speakerSourceA;
+    }
+
+    private AudioClip[] GetSpeakerClips(string speaker)
+    {
+        if (IsSpeakerInList(speaker, speakerBNames))
+            return speakerBClips;
+
+        return speakerAClips;
+    }
+
+    private bool IsSpeakerInList(string speaker, string[] speakerList)
+    {
+        if (speakerList == null)
+            return false;
+
+        string trimmedSpeaker = speaker.Trim().ToLower();
+
+        for (int i = 0; i < speakerList.Length; i++)
+        {
+            if (speakerList[i] != null && trimmedSpeaker == speakerList[i].Trim().ToLower())
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void PlaySpeakerBlip(string speaker, char letter, int visibleCharIndex)
+    {
+        if (char.IsWhiteSpace(letter))
+            return;
+
+        if (visibleCharIndex % blipFrequency != 0)
+            return;
+
+        AudioSource source = GetSpeakerSource(speaker);
+        AudioClip[] clips = GetSpeakerClips(speaker);
+
+        if (source == null || clips == null || clips.Length == 0)
+            return;
+
+        source.pitch = 1f;
+
+        AudioClip clip = clips[Random.Range(0, clips.Length)];
+        source.PlayOneShot(clip);
     }
 }
