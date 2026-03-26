@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
 
     private PlayerAnimator playerAnim;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource movementSource;
+    [SerializeField] private AudioClip movementClip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
         
 
-}
+        }
 
     void FixedUpdate()
     {
@@ -60,9 +64,34 @@ public class PlayerController : MonoBehaviour
         // Apply the movement to the Rigidbody
         rb.linearVelocity = new Vector3(moveDir.x * speed, rb.linearVelocity.y, moveDir.z * speed);
 
+        HandleMovementAudio(moveDir);
+
         //animator
         playerAnim.UpdateAnimation(moveDir);
+
     }
+
+        private void HandleMovementAudio(Vector3 moveDir)
+        {
+            if (movementSource == null) return;
+
+            bool isMoving = moveDir.magnitude > 0.1f;
+
+            if (isMoving)
+            {
+                if (!movementSource.isPlaying)
+                {
+                    movementSource.Play();
+                }
+            }
+            else
+            {
+                if (movementSource.isPlaying)
+                {
+                    movementSource.Stop();
+                }
+            }
+        }
 
 
 
