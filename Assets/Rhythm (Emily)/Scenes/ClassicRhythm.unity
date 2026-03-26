@@ -850,6 +850,7 @@ MonoBehaviour:
   winScreen: {fileID: 1950214681}
   loseScreen: {fileID: 1858283919}
   nextPlanetScene: Planet_1_Boss
+  nextPlanetSpawnID: Boss
 --- !u!4 &326253604
 Transform:
   m_ObjectHideFlags: 0
@@ -3872,7 +3873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58ddfcf60a0d354daf46887d4f50f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 6504
+  maxHP: 7500
   currentHP: 0
   hpBar: {fileID: 1054307115}
 --- !u!1 &1071574613
