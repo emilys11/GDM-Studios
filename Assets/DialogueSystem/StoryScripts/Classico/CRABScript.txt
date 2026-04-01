@@ -58,7 +58,7 @@ ASTRONAUT
 Thank you. I shall try my best.
 
 
->
+>>
 FIRST KEY OBTAINED
 
 
@@ -74,7 +74,7 @@ SIR CRABIUS THE III
 It can be found at the end of the road to the right, inside the cottage. Come back to see me once you have finished it.
 
 
->
+>>
 SECOND KEY OBTAINED
 
 

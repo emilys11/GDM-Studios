@@ -157,6 +157,13 @@ public class Dialogue : MonoBehaviour
             yield break;
 
         string currentLine = lines[index].Trim();
+        if(currentLine == ">>")
+        {
+            StopAllCoroutines();
+            index++;
+            StartCoroutine(exitDialogue());
+            yield break;
+        }
 
         if (currentLine == ">")
         {
