@@ -3025,13 +3025,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: eeaf9b02e6113714fab16e4ede2778d6, type: 3}
     volume: 1
   - id: win
-    clip: {fileID: 8300000, guid: d01a5372b03eab745ae0084d92d0d3e6, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 08aa24568877ec741958e1d9676894e9, type: 3}
+    volume: 0.5
   - id: combo
     clip: {fileID: 8300000, guid: b79571cae978bbd419f53a28f7bc02cd, type: 3}
     volume: 0.446
   - id: death
-    clip: {fileID: 8300000, guid: d1ddf9b45e3d46d43bce7697db3280bf, type: 3}
+    clip: {fileID: 8300000, guid: d4ee297803ca08945b927437f34f2059, type: 3}
     volume: 1
   masterVolume: 1
   poolSize: 5

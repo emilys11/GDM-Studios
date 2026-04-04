@@ -297,9 +297,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>ASTRONAUT</b></i>\r\nIt is unfortunate that \xC6rth couldn\u2019t
-    be saved, in the end. Let this be a cautionary tale to all who meddle with <color=orange>The
-    Great Unknown\u2026</color>\r\n\r\n\r\n"
+  m_text: "<b><i><color=\"yellow\"><size=\"120\">ASTRONAUT</b></i></color></size>\r\nIt
+    is unfortunate that \xC6rth couldn\u2019t be saved, in the end. Let this be a
+    cautionary tale to all who meddle with <i>The Great Unknown\u2026</i>\r\n\r\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -863,9 +863,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>ASTRONAUT</b></i>
+  m_text: '<b><i><color="yellow"><size="120">ASTRONAUT</b></i></size></color>
 
-    Hello, GDM? Do you read me? Over.
+    Hello,
+    GDM? Do you read me? Over.
 
 
 
@@ -1145,10 +1146,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>GDM</b></i>
+  m_text: '<b><i><color="lightblue"><size="120">GDM</b></i></color></size>
 
-    Understood. Aid will be sent as soon as you return
-    to GDM with your full report. Fly safely, Astronaut. Over and out.
+    Understood.
+    Aid will be sent as soon as you return to GDM with your full report. Fly safely,
+    Astronaut. Over and out.
 
 
 
@@ -1426,10 +1428,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>GDM</b></i>
+  m_text: '<b><i><color="lightblue"><size="120">GDM</b></i></color></size>
 
-    Yes, we read you. What happened? We lost contact
-    and we started to think of the worst! Over.
+    Yes,
+    we read you. What happened? We lost contact and we started to think of the worst!
+    Over.
 
 
 
@@ -1569,10 +1572,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>ASTRONAUT</b></i>\r\nI have defeated the Great Evil. It turns out,
-    they were an artificial intelligence the entire time. Once I vanquished them,
-    they went into self-destruct mode and blew up the third planet, known as \xC6rth.
-    Over.\r\n\r\n"
+  m_text: "<b><i><color=\"yellow\"><size=\"120\">ASTRONAUT</b></i></color></size>\r\nI
+    have defeated the Great Evil. It turns out, they were an artificial intelligence
+    the entire time. Once I vanquished them, they went into self-destruct mode and
+    blew up the third planet, known as \xC6rth. Over.\r\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -1708,9 +1711,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>ASTRONAUT</b></i>\r\nI recommend sending aid to Classico and Popula\u2019.
-    I foresee that they will need a lot of help to get back on their feet. But once
-    they do, I believe that they can be a great asset as allies. Over.\r\n\r\n\r\n"
+  m_text: "<b><i><color=\"yellow\"><size=\"120\">ASTRONAUT</b></i></color></size>\r\nI
+    recommend sending aid to Classico and Popula\u2019. I foresee that they will
+    need a lot of help to get back on their feet. But once they do, I believe that
+    they can be a great asset as allies. Over.\r\n\r\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -2052,10 +2056,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>GDM</b></i>
+  m_text: '<b><i><color="lightblue"><size="120">GDM</b></i></color></size>
 
-    How horrible! We are glad you survived. How do
-    you recommend we proceed? Over.
+    How
+    horrible! We are glad you survived. How do you recommend we proceed? Over.
 
 
 
@@ -2220,7 +2224,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2401,7 +2405,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
