@@ -17,6 +17,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] Sprite playerImage;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private TMP_FontAsset specialFont;
 
     [SerializeField] private LevelLoader firstLevelLoader;
     [SerializeField] private LevelLoader secondLevelLoader;
@@ -50,6 +51,8 @@ public class Dialogue : MonoBehaviour
     private TextMeshProUGUI textMesh;
     private TextMeshProUGUI nameText;
     private int index;
+    private TMP_FontAsset defFont;
+    
 
     public bool displaySpeaker = true;
 
@@ -66,6 +69,7 @@ public class Dialogue : MonoBehaviour
 
         speakerPanel.SetActive(false);
 
+        defFont = textMesh.font;
         textMesh.SetText(string.Empty);
         nameText.SetText(string.Empty);
         keyPrompt.SetActive(false);
@@ -179,6 +183,7 @@ public class Dialogue : MonoBehaviour
         if (index % 2 == 0)
         {
             nameText.text = currentLine;
+            textMesh.font = defFont;
 
             if (currentLine == "ASTRONAUT")
             {
@@ -195,6 +200,12 @@ public class Dialogue : MonoBehaviour
                     speakerPanel.GetComponent<Image>().sprite = playerDialogue.speakerSprite;
                 }
                 nameText.color = Color.forestGreen;
+
+                if (lines[index + 1].StartsWith("<"))
+                {
+                    textMesh.font = specialFont;
+                    lines[index + 1] = lines[index + 1].Remove(0, 1);
+                }
             }
             else if(currentLine == "ELSALA MIKSON" || currentLine == "JELLY BELLY")
             {
