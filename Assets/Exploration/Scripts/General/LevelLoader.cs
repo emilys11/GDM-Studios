@@ -33,6 +33,7 @@ public class LevelLoader : MonoBehaviour
 
     public IEnumerator LoadLevel(string sceneName)
     {
+        Debug.Log("Next spawn point: " + SpawnData.nextSpawnID);
         Debug.Log("LevelLoader on " + gameObject.name + " loading scene: " + sceneName);
         Debug.Log("Triggering animator trigger: " + triggerName);
 
@@ -41,6 +42,7 @@ public class LevelLoader : MonoBehaviour
             transition.ResetTrigger(triggerName);
             transition.SetTrigger(triggerName);
         }
+        SpawnData.nextSpawnID = targetSpawnID;
 
         yield return new WaitForSeconds(transitionTime);
 

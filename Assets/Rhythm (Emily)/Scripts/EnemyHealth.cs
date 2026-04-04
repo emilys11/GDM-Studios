@@ -32,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
 
     void TakeDamage()
     {
+        //currentHP -= currentHP;
         currentHP -= 50;
         hpBar.value = (float)currentHP / maxHP;
 
