@@ -277,7 +277,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>ASTRONAUT</b></i>\r\nGDM? Hello? You\u2019re cutting out. Over.\r\n\r\n\r\n"
+  m_text: "<b><i><color=\"yellow\"><size=\"120\">ASTRONAUT</color></size></b></i>\r\nGDM?
+    Hello? You\u2019re cutting out. Over.\r\n\r\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -426,8 +427,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>GDM</b></i>\r\nReading you loud and clear. Have you been to Popula\u2019?
-    Over.\r\n\r\n"
+  m_text: "<b><i><color=\"lightblue\"><size=\"120\">GDM</b></i></color></size>\r\nReading
+    you loud and clear. Have you been to Popula\u2019? Over.\r\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -3449,10 +3450,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>GDM</b></i>
+  m_text: '<b><i><color="lightblue"><size="120">GDM</b></i></color></size>
 
-    What do you see? Wtah sdeo ti skskskskkkkk like?
-    Oevr.
+    What
+    do you see? Wtah sdeo ti skskskskkkkk like? Oevr.
 
 
 
@@ -4122,12 +4123,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>ASTRONAUT</b></i>
+  m_text: '<b><i><color="yellow"><size="120">ASTRONAUT</color></size></b></i>
 
-    Yes. I have learned that the Great Evil,
-    or The Boss, lives on an uninhabitable planet of unknown name. They must be inorganic,
-    to be able to reside on such a planet. Hold on, I am beginning to see it through
-    my window. Over.
+    Yes.
+    I have learned that the Great Evil, or The Boss, lives on an uninhabitable planet
+    of unknown name. They must be inorganic, to be able to reside on such a planet.
+    Hold on, I am beginning to see it through my window. Over.
 
 
 
@@ -4140,7 +4141,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -4413,9 +4414,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>GDM</b></i>
+  m_text: '<b><i><color="lightblue"><size="120">GDM</color></size></b></i>
 
-    Fantastic. Any new information? Over.
+    Fantastic.
+    Any new information? Over.
 
 
 
@@ -5264,7 +5266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>GDM</b></i>
+  m_text: '<b><i><color="lightblue"><size="120">GDM</b></i></color></size>
 
     ...
 
@@ -5529,9 +5531,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>ASTRONAUT</b></i>
+  m_text: '<b><i><color="yellow"><size="120">ASTRONAUT</b></i></color></size>
 
-    GDM, can you hear me? Over.
+    GDM,
+    can you hear me? Over.
 
 '
   m_isRightToLeft: 0
@@ -6725,10 +6728,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>ASTRONAUT</b></i>
+  m_text: '<b><i><color="yellow"><size="120">ASTRONAUT</color></size></b></i>
 
-    Affirmative. YASStopus, their ruler, is interested
-    in trade negotiations. Over.
+    Affirmative.
+    YASStopus, their ruler, is interested in trade negotiations. Over.
 
 '
   m_isRightToLeft: 0

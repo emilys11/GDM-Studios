@@ -6360,8 +6360,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>GDM</b></i>\r\nThese life forms appear to be dependent on musical
-    energy. \n"
+  m_text: "<color=\"lightblue\"><size=\"120><b><i>GDM</b></i></color></size>\r\nThese
+    life forms appear to be dependent on musical energy. \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -17876,8 +17876,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>GDM</b></i>\r\nOn your musical journey, you will have to be brave,
-    resourceful, and above all else, kind to those you meet along your way. \n"
+  m_text: "<color=\"lightblue\"><size=\"120><b><i>GDM</b></i></color></size>\r\nOn
+    your musical journey, you will have to be brave, resourceful, and above all else,
+    kind to those you meet along your way. \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -50024,10 +50025,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>GDM</b></i>
+  m_text: '<color="lightblue"><size="120><b><i>GDM</b></i></color></size>
 
-    Good luck, Astronaut. We will be keeping in touch.
-    Over and out.
+    Good
+    luck, Astronaut. We will be keeping in touch. Over and out.
 
 
 '
@@ -71195,8 +71196,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -615.80945, y: 367.75012}
-  m_SizeDelta: {x: 585, y: 304}
+  m_AnchoredPosition: {x: -542.0395, y: 347.04272}
+  m_SizeDelta: {x: 732.5399, y: 345.4148}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208286642
 MonoBehaviour:
@@ -71218,10 +71219,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>GDM</b></i>\r\nWanting to extend the hand of friendship, we, your
-    planet\u2019s government, are sending you on a voyage of a lifetime to this star
-    system as an ambassador on behalf of our entire species. We are calling it Operation:
-    MELODICA.\r\n\r\n"
+  m_text: "<color=\"lightblue\"><size=\"120><b><i>GDM</b></i></color></size>\r\nWanting
+    to extend the hand of friendship, we, your planet\u2019s government, are sending
+    you on a voyage of a lifetime to this star system as an ambassador on behalf
+    of our entire species. We are calling it Operation: MELODICA.\r\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -71230,7 +71231,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -132052,8 +132053,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>GDM</b></i>\r\nWe have recently discovered that, in a star system
-    far from our own, exists life. \r\n"
+  m_text: "<b><i><color=\"lightblue\"><size=\"120>GDM</b></i></color></size>\r\nWe
+    have recently discovered that, in a star system far from our own, exists life.
+    \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -132062,7 +132064,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

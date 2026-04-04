@@ -18294,9 +18294,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>ASTRONAUT</i></b>
+  m_text: '<color="yellow"><size="120"><b><i>ASTRONAUT</i></b></color></size>
 
-    Hello, GDM, can you hear me? Over.
+    Hello,
+    GDM, can you hear me? Over.
 
 '
   m_isRightToLeft: 0
@@ -18307,7 +18308,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -45468,8 +45469,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>ASTRONAUT</b></i>\nI have convinced Classico\u2019s ruler, Bachovenpinanoff,
-    to go back to being a good ruler with the promise of trade negotiations. Over."
+  m_text: "<b><i><color=\"yellow\"><size=\"120\">ASTRONAUT</b></i></color></size>\nI
+    have convinced Classico\u2019s ruler, Bachovenpinanoff, to go back to being a
+    good ruler with the promise of trade negotiations. Over."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -50076,9 +50078,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>ASTRONAUT</b></i>\r\nI have just left the first planet, Classico,
-    and am heading over to the second planet, Popula\u2019. The third planet\u2019s
-    name is still unknown. Over.\r\n"
+  m_text: "<b><i><color=\"yellow\"><size=\"120\">ASTRONAUT</b></i></color></size>\r\nI
+    have just left the first planet, Classico, and am heading over to the second
+    planet, Popula\u2019. The third planet\u2019s name is still unknown. Over.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -54792,9 +54794,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\r<b><i>GDM</b></i>\r\nVery interesting, and good job. Continue your journey,
-    and contact us again when you have spoken to Popula\u2019\u2019s ruler. Over
-    and out.\r\n"
+  m_text: "\r<b><i><color=\"lightblue\"><size=\"120\">GDM</b></i></color></size>\r\nVery
+    interesting, and good job. Continue your journey, and contact us again when you
+    have spoken to Popula\u2019\u2019s ruler. Over and out.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -54803,7 +54805,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -54859,7 +54861,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -93.2265, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -65660,10 +65662,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>GDM</b></i>
+  m_text: '<b><i><color="lightblue"><size="120">GDM</b></i></color></size>
 
-    Reading you loud and clear. What has been happening?
-    Over.
+    Reading
+    you loud and clear. What has been happening? Over.
 
 '
   m_isRightToLeft: 0
@@ -65674,7 +65676,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -71175,9 +71177,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><i>ASTRONAUT</b></i>\r\nThey are, indeed, dependent on music, as you
-    have said. However, there is a Great Evil that has taken it away from them, and
-    they are suffering. \r\n"
+  m_text: "<b><i><color=\"yellow\"><size=\"120\">ASTRONAUT</b></i></color></size>\r\nThey
+    are, indeed, dependent on music, as you have said. However, there is a Great
+    Evil that has taken it away from them, and they are suffering. \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c82199238904f674997361d2c10d259f, type: 2}
   m_sharedMaterial: {fileID: 8329915948690093010, guid: c82199238904f674997361d2c10d259f, type: 2}
@@ -99285,9 +99287,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><i>GDM</b></i>
+  m_text: '<b><i><color="lightblue"><size="120">GDM</b></i></color></size>
 
-    Excellent. What have you learned on Classico? Over.
+    Excellent.
+    What have you learned on Classico? Over.
 
 '
   m_isRightToLeft: 0
