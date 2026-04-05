@@ -25,14 +25,13 @@ public class PlayerDialogue : MonoBehaviour
         
         gameObject.GetComponent<PlayerController>().rb.linearVelocity = Vector3.zero;
         gameObject.GetComponent<PlayerController>().enabled = false;
-        gameObject.GetComponent<Animator>().enabled = false;
+        gameObject.GetComponent<PlayerAnimator>().UpdateAnimation(Vector3.zero);
         //Disable movement
     }
   
     public void enableMovement()
     {
         gameObject.GetComponent<PlayerController>().enabled = true;
-        gameObject.GetComponent<Animator>().enabled = true;
         //Enable movement
     }
     private void OnTriggerEnter(Collider other)

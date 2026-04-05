@@ -128,9 +128,14 @@ public class Dialogue : MonoBehaviour
         if (GameManager.isNextPlanet)
         {
             index = DialogueState.savedIndex;
+
+            //gameObject.GetComponent<Animator>().enabled = true;
+            playerDialogue.gameObject.GetComponent<PlayerAnimator>().UpdateAnimation(playerDialogue.gameObject.transform.forward * 5);
+            playerDialogue.gameObject.GetComponent<PlayerAnimator>().UpdateAnimation(Vector3.zero);
             GameManager.isNextPlanet = false;
             resumedDialogue = true;
             Debug.Log("StartDialogue: resuming at index " + index);
+            
         }
         else
         {
