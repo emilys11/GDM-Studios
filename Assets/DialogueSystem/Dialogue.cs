@@ -262,28 +262,19 @@ public class Dialogue : MonoBehaviour
             sfxSource.PlayOneShot(specialLineClip);
         }
 
-
-        AudioSource source = GetSpeakerSource(speakerName);
-        AudioClip clip = GetSpeakerClip(speakerName);
-
-        if (source != null && clip != null)
-        {
-            source.clip = clip;
-            source.loop = true;
-            source.pitch = 1f;
-            source.Play();
-        }
+        int visibleCharIndex = 0;
 
         foreach (char c in dialogueLine)
         {
             textMesh.text += c;
-            yield return new WaitForSeconds(textSpeed);
-        }
 
-        if (source != null && source.isPlaying)
-        {
-            source.Stop();
-            source.loop = false;
+            if (!isSpecialLine)
+            {
+                PlaySpeakerBlip(speakerName, c, visibleCharIndex);
+            }
+
+            visibleCharIndex++;
+            yield return new WaitForSeconds(textSpeed);
         }
 
     }
@@ -419,7 +410,7 @@ public class Dialogue : MonoBehaviour
 
         if (source == null || clip == null)
             return;
-        
+
         source.pitch = 1f;
         source.PlayOneShot(clip);
     }
