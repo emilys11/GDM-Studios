@@ -95397,7 +95397,7 @@ PrefabInstance:
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: 'speakerBClips.Array.data[1]'
       value: 
-      objectReference: {fileID: 8300000, guid: 88adc3c833ed94bbfa6fad8f1563b688, type: 3}
+      objectReference: {fileID: 8300000, guid: b767b27a171f54382be28eb84168ba13, type: 3}
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: 'speakerBNames.Array.data[0]'
       value: JELLY BELLY
