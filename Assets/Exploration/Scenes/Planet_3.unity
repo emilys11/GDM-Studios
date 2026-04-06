@@ -904,6 +904,7 @@ MonoBehaviour:
   - {fileID: 486105052}
   npcScript: {fileID: 4900000, guid: f21120bc6ffe02444b59f318abe6aa5c, type: 3}
   speakerImage: {fileID: -1874977188, guid: e03cd4a8aae5c5d4294f60919f6b6c14, type: 3}
+  npcVoiceClip: {fileID: 0}
   repositionComplete: 0
   alreadyTalked: 0
 --- !u!1 &229161862
@@ -3221,7 +3222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: speakerBClips.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: speakerBNames.Array.size
@@ -3240,8 +3241,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 975a24cc297224eabb3164e2634468a1, type: 3}
     - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
+      propertyPath: 'speakerBClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 975a24cc297224eabb3164e2634468a1, type: 3}
+    - target: {fileID: 2375091917112180740, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: 'speakerBNames.Array.data[0]'
-      value: 01001101 01000001 01001001
+      value: 01000001 01001001
       objectReference: {fileID: 0}
     - target: {fileID: 3427009476049085607, guid: db4e0a0d24d470e41b1fd40e74a6cbd0, type: 3}
       propertyPath: m_Name
@@ -4141,7 +4146,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
