@@ -6,6 +6,7 @@ public class NPCDialogue : MonoBehaviour
     private int nextPos = 0;
     public TextAsset npcScript; //Dialogue to play for this npc
     public Sprite speakerImage;
+    public AudioClip npcVoiceClip;
 
     public bool repositionComplete = false;
     public bool alreadyTalked = false;
