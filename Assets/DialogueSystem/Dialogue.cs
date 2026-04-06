@@ -108,6 +108,13 @@ public class Dialogue : MonoBehaviour
             else
             {
                 StopAllCoroutines();
+
+                if (speakerSourceA != null)
+                    speakerSourceA.Stop();
+
+                if (speakerSourceB != null)
+                    speakerSourceB.Stop();
+
                 textMesh.text = lines[index];
             }
         }
@@ -255,20 +262,30 @@ public class Dialogue : MonoBehaviour
             sfxSource.PlayOneShot(specialLineClip);
         }
 
-        int visibleCharIndex = 0;
+
+        AudioSource source = GetSpeakerSource(speakerName);
+        AudioClip clip = GetSpeakerClip(speakerName);
+
+        if (source != null && clip != null)
+        {
+            source.clip = clip;
+            source.loop = true;
+            source.pitch = 1f;
+            source.Play();
+        }
 
         foreach (char c in dialogueLine)
         {
             textMesh.text += c;
-
-            if (!isSpecialLine)
-            {
-                PlaySpeakerBlip(speakerName, c, visibleCharIndex);
-            }
-
-            visibleCharIndex++;
             yield return new WaitForSeconds(textSpeed);
         }
+
+        if (source != null && source.isPlaying)
+        {
+            source.Stop();
+            source.loop = false;
+        }
+
     }
 
     public void NextLine()
@@ -333,6 +350,25 @@ public class Dialogue : MonoBehaviour
         yield return StartCoroutine(firstLevelLoader.LoadLevel(firstLevelLoader.sceneToLoad));
     }
 
+    private bool IsSpeakerInList(string speaker, string[] speakerList)
+    {
+        if (string.IsNullOrWhiteSpace(speaker) || speakerList == null)
+            return false;
+
+        string trimmedSpeaker = speaker.Trim().ToLower();
+
+        for (int i = 0; i < speakerList.Length; i++)
+        {
+            if (!string.IsNullOrWhiteSpace(speakerList[i]) &&
+                trimmedSpeaker == speakerList[i].Trim().ToLower())
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private AudioSource GetSpeakerSource(string speaker)
     {
         if (IsSpeakerInList(speaker, speakerBNames))
@@ -341,30 +377,33 @@ public class Dialogue : MonoBehaviour
         return speakerSourceA;
     }
 
-    private AudioClip[] GetSpeakerClips(string speaker)
+    private AudioClip GetMappedClip(string speaker, string[] speakerNames, AudioClip[] speakerClips)
     {
-        if (IsSpeakerInList(speaker, speakerBNames))
-            return speakerBClips;
-
-        return speakerAClips;
-    }
-
-    private bool IsSpeakerInList(string speaker, string[] speakerList)
-    {
-        if (speakerList == null)
-            return false;
+        if (string.IsNullOrWhiteSpace(speaker) || speakerNames == null || speakerClips == null)
+            return null;
 
         string trimmedSpeaker = speaker.Trim().ToLower();
+        int count = Mathf.Min(speakerNames.Length, speakerClips.Length);
 
-        for (int i = 0; i < speakerList.Length; i++)
+        for (int i = 0; i < count; i++)
         {
-            if (speakerList[i] != null && trimmedSpeaker == speakerList[i].Trim().ToLower())
+            if (!string.IsNullOrWhiteSpace(speakerNames[i]) &&
+                trimmedSpeaker == speakerNames[i].Trim().ToLower())
             {
-                return true;
+                return speakerClips[i];
             }
         }
 
-        return false;
+        return null;
+    }
+
+    private AudioClip GetSpeakerClip(string speaker)
+    {
+        AudioClip clip = GetMappedClip(speaker, speakerBNames, speakerBClips);
+        if (clip != null)
+            return clip;
+
+        return GetMappedClip(speaker, speakerANames, speakerAClips);
     }
 
     private void PlaySpeakerBlip(string speaker, char letter, int visibleCharIndex)
@@ -376,14 +415,12 @@ public class Dialogue : MonoBehaviour
             return;
 
         AudioSource source = GetSpeakerSource(speaker);
-        AudioClip[] clips = GetSpeakerClips(speaker);
+        AudioClip clip = GetSpeakerClip(speaker);
 
-        if (source == null || clips == null || clips.Length == 0)
+        if (source == null || clip == null)
             return;
-
+        
         source.pitch = 1f;
-
-        AudioClip clip = clips[Random.Range(0, clips.Length)];
         source.PlayOneShot(clip);
     }
 }
